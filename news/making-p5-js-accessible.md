@@ -1,5 +1,5 @@
 ---
-path: /news/making-p5-js-accessible
+path: /src/pages/news/making-p5-js-accessible
 date: '2018-04-17'
 title: Making P5.js Accessible
 ---
