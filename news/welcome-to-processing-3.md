@@ -1,5 +1,5 @@
 ---
-path: /src/pages/news/welcome-to-processing-3
+path: welcome-to-processing-3
 date: '2018-04-17'
 title: Welcome to Processing 3
 ---
