@@ -1,5 +1,5 @@
 ---
-path: /news/processing-fellows-2018-announced
+path: /src/pages/news/processing-fellows-2018-announced
 date: '2018-04-01'
 title: Introducing the 2018 Processing Foundation Fellows
 ---
