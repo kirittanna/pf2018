@@ -1,5 +1,5 @@
 ---
-path: welcome-to-processing-3
+path: /news/welcome-to-processing-3
 date: '2018-04-17'
 title: Welcome to Processing 3
 ---
