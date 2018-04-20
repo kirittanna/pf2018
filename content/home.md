@@ -1,10 +1,12 @@
 ---
 title: Welcome to Processing!
 intro: >-
-  ## Welcome to Processing 3! 
+  ## Welcome to Processing 3!
 
 
-  `vimeo: https://vimeo.com/5299404`
+  <iframe src="https://player.vimeo.com/video/140600280" width="640"
+  height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen
+  allowfullscreen></iframe>
 
 
   Dan explains the new features and changes; the links Dan mentions are on the
