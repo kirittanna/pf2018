@@ -3,6 +3,6 @@ path: /news/welcome-to-processing-3
 date: '2018-04-17'
 title: Welcome to Processing 3
 ---
-Welcome to Processing 3! Dan explains the new features and changes; the links Dan mentions are on the Vimeo page.
+Welcome to Processing 3!
 
-`vimeo: https://vimeo.com/140600280
+![Start coding!](/images/uploads/andrew-neel-609846-unsplash.jpg)
