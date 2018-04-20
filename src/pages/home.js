@@ -7,7 +7,8 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+        <Helmet title="" />
+        {Object.keys(this.props).join(', ')}
       </div>
     )
   }

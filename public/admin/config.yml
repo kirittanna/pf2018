@@ -22,12 +22,10 @@ collections:
   - name: "pages"
     label: "Pages"
     delete: false
-    editor:
-      preview: false
     files:
       - label: "Global"
         name: "global"
-        file: "site/content/global.md"
+        file: "content/global.md"
         fields:
           - { label: "Copyright", name: "copyright", widget: "markdown" }
           - { label: "Disclaimer", name: "disclaimer", widget: "markdown" }
@@ -40,8 +38,9 @@ collections:
               
       - label: "Home"
         name: "home"
-        file: "site/content/home.md"
+        file: "content/home.md"
         fields:
+          - { name: "path", label: "Path", widget: "string" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "markdown" }
           - label: "Featured"
@@ -55,16 +54,18 @@ collections:
 
       - label: "Overview"
         name: "overview"
-        file: "site/content/overview.md"
+        file: "content/overview.md"
         fields:
+          - { name: "path", label: "Path", widget: "string" }
           - { label: "Hero Image", name: "hero", widget: "image" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "markdown" }
 
       - label: "FAQs"
         name: "faqs"
-        file: "site/content/faqs.md"
+        file: "content/faqs.md"
         fields:
+          - { name: "path", label: "Path", widget: "string" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "markdown" }
           - label: "Questions"
@@ -76,8 +77,9 @@ collections:
 
       - label: "Community"
         name: "community"
-        file: "site/content/community.md"
+        file: "content/community.md"
         fields:
+          - { name: "path", label: "Path", widget: "string" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "markdown" }
           - label: "Events"
@@ -91,8 +93,9 @@ collections:
 
       - label: "People"
         name: "people"
-        file: "site/content/people.md"
+        file: "content/people.md"
         fields:
+          - { name: "path", label: "Path", widget: "string" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "markdown" }
           - label: "Team"
@@ -107,8 +110,9 @@ collections:
 
       - label: "Environment, Tools & Libraries"
         name: "environment-tools-libraries"
-        file: "site/content/environment-tools-libraries.md"
+        file: "content/environment-tools-libraries.md"
         fields:
+          - { name: "path", label: "Path", widget: "string" }
           - { label: "Environment Title", name: "cl-title", widget: "string" }
           - { label: "Environment Intro", name: "cl-intro", widget: "markdown" }
           - label: "Environment Sections"
@@ -148,8 +152,9 @@ collections:
 
       - label: "Donate"
         name: "donate"
-        file: "site/content/donate.md"
+        file: "content/donate.md"
         fields:
+          - { name: "path", label: "Path", widget: "string" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "markdown" }
           - label: "Options"
@@ -161,8 +166,9 @@ collections:
 
       - label: "Downloads"
         name: "downloads"
-        file: "site/content/downloads.md"
+        file: "content/downloads.md"
         fields:
+          - { name: "path", label: "Path", widget: "string" }
           - { label: "Latest Release Title", name: "latest-title", widget: "string" }
           - { label: "Latest Release Intro", name: "latest-intro", widget: "markdown" }
           - { label: "Latest Release Date", name: "latest-date", widget: "date" }

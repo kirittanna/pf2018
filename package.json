@@ -21,6 +21,7 @@
     "gatsby-remark-images": "^1.5.13",
     "gatsby-remark-prismjs": "^1.2.1",
     "gatsby-remark-responsive-iframe": "^1.4.18",
+    "gatsby-remark-responsive-image": "^1.0.0-alpha13-alpha.435e0178",
     "gatsby-remark-smartypants": "^1.4.3",
     "gatsby-source-filesystem": "^1.5.1",
     "gatsby-source-rss": "^1.0.0",

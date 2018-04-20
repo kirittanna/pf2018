@@ -9,7 +9,8 @@ class Home extends React.Component {
     const posts = get(this, 'props.data.allMarkdownRemark.edges')
     return (
       <div>
-        <Helmet title={get(this, 'props.data.site.siteMetadata.title')} />
+        <Helmet title="" />
+        {Object.keys(this.props).join(', ')}
       </div>
     )
   }
