@@ -10,7 +10,7 @@ collections:
   - name: "news"
     label: "News"
     label_singular: "Article"
-    folder: "src/pages/news"
+    folder: "content/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
     fields:
@@ -25,7 +25,7 @@ collections:
     files:
       - label: "Global"
         name: "global"
-        file: "src/pages/global.md"
+        file: "content/global.md"
         fields:
           - { label: "Copyright", name: "copyright", widget: "markdown" }
           - { label: "Disclaimer", name: "disclaimer", widget: "markdown" }
@@ -38,7 +38,7 @@ collections:
               
       - label: "Home"
         name: "home"
-        file: "src/pages/home.md"
+        file: "content/home.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "markdown" }
@@ -53,7 +53,7 @@ collections:
 
       - label: "Overview"
         name: "overview"
-        file: "src/pages/overview.md"
+        file: "content/overview.md"
         fields:
           - { label: "Hero Image", name: "hero", widget: "image" }
           - { label: "Title", name: "title", widget: "string" }
@@ -61,7 +61,7 @@ collections:
 
       - label: "FAQs"
         name: "faqs"
-        file: "src/pages/faqs.md"
+        file: "content/faqs.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "markdown" }
@@ -74,7 +74,7 @@ collections:
 
       - label: "Community"
         name: "community"
-        file: "src/pages/community.md"
+        file: "content/community.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "markdown" }
@@ -89,7 +89,7 @@ collections:
 
       - label: "People"
         name: "people"
-        file: "src/pages/people.md"
+        file: "content/people.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "markdown" }
@@ -105,7 +105,7 @@ collections:
 
       - label: "Environment, Tools & Libraries"
         name: "environment-tools-libraries"
-        file: "src/pages/environment-tools-libraries.md"
+        file: "content/environment-tools-libraries.md"
         fields:
           - { label: "Environment Title", name: "cl-title", widget: "string" }
           - { label: "Environment Intro", name: "cl-intro", widget: "markdown" }
@@ -146,7 +146,7 @@ collections:
 
       - label: "Donate"
         name: "donate"
-        file: "src/pages/donate.md"
+        file: "content/donate.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "markdown" }
@@ -159,7 +159,7 @@ collections:
 
       - label: "Downloads"
         name: "downloads"
-        file: "src/pages/downloads.md"
+        file: "content/downloads.md"
         fields:
           - { label: "Latest Release Title", name: "latest-title", widget: "string" }
           - { label: "Latest Release Intro", name: "latest-intro", widget: "markdown" }
@@ -195,7 +195,7 @@ collections:
   - name: "books"
     label: "Books"
     label_singular: "Book"
-    folder: "src/pages/books"
+    folder: "content/books"
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
@@ -209,7 +209,7 @@ collections:
   - name: "library"
     label: "Libraries"
     label_singular: "Library"
-    folder: "src/pages/library"
+    folder: "content/library"
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
@@ -222,7 +222,7 @@ collections:
   - name: "tutorials"
     label: "Tutorials"
     label_singular: "Tutorial"
-    folder: "src/pages/tutorials"
+    folder: "content/tutorials"
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
@@ -235,7 +235,7 @@ collections:
   - name: "exhibition"
     label: "Exhibition"
     label_singular: "Entry"
-    folder: "src/pages/exhibition"
+    folder: "content/exhibition"
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }

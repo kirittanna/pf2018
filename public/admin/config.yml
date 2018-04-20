@@ -10,7 +10,7 @@ collections:
   - name: "news"
     label: "News"
     label_singular: "Article"
-    folder: "content/news"
+    folder: "src/pages/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
     fields:
@@ -25,7 +25,7 @@ collections:
     files:
       - label: "Global"
         name: "global"
-        file: "content/global.md"
+        file: "src/pages/global.md"
         fields:
           - { label: "Copyright", name: "copyright", widget: "markdown" }
           - { label: "Disclaimer", name: "disclaimer", widget: "markdown" }
@@ -38,9 +38,8 @@ collections:
               
       - label: "Home"
         name: "home"
-        file: "content/home.md"
+        file: "src/pages/home.md"
         fields:
-          - { name: "path", label: "Path", widget: "string" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "markdown" }
           - label: "Featured"
@@ -54,18 +53,16 @@ collections:
 
       - label: "Overview"
         name: "overview"
-        file: "content/overview.md"
+        file: "src/pages/overview.md"
         fields:
-          - { name: "path", label: "Path", widget: "string" }
           - { label: "Hero Image", name: "hero", widget: "image" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "markdown" }
 
       - label: "FAQs"
         name: "faqs"
-        file: "content/faqs.md"
+        file: "src/pages/faqs.md"
         fields:
-          - { name: "path", label: "Path", widget: "string" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "markdown" }
           - label: "Questions"
@@ -77,9 +74,8 @@ collections:
 
       - label: "Community"
         name: "community"
-        file: "content/community.md"
+        file: "src/pages/community.md"
         fields:
-          - { name: "path", label: "Path", widget: "string" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "markdown" }
           - label: "Events"
@@ -93,9 +89,8 @@ collections:
 
       - label: "People"
         name: "people"
-        file: "content/people.md"
+        file: "src/pages/people.md"
         fields:
-          - { name: "path", label: "Path", widget: "string" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "markdown" }
           - label: "Team"
@@ -110,9 +105,8 @@ collections:
 
       - label: "Environment, Tools & Libraries"
         name: "environment-tools-libraries"
-        file: "content/environment-tools-libraries.md"
+        file: "src/pages/environment-tools-libraries.md"
         fields:
-          - { name: "path", label: "Path", widget: "string" }
           - { label: "Environment Title", name: "cl-title", widget: "string" }
           - { label: "Environment Intro", name: "cl-intro", widget: "markdown" }
           - label: "Environment Sections"
@@ -152,9 +146,8 @@ collections:
 
       - label: "Donate"
         name: "donate"
-        file: "content/donate.md"
+        file: "src/pages/donate.md"
         fields:
-          - { name: "path", label: "Path", widget: "string" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Intro", name: "intro", widget: "markdown" }
           - label: "Options"
@@ -166,9 +159,8 @@ collections:
 
       - label: "Downloads"
         name: "downloads"
-        file: "content/downloads.md"
+        file: "src/pages/downloads.md"
         fields:
-          - { name: "path", label: "Path", widget: "string" }
           - { label: "Latest Release Title", name: "latest-title", widget: "string" }
           - { label: "Latest Release Intro", name: "latest-intro", widget: "markdown" }
           - { label: "Latest Release Date", name: "latest-date", widget: "date" }
@@ -203,7 +195,7 @@ collections:
   - name: "books"
     label: "Books"
     label_singular: "Book"
-    folder: "content/books"
+    folder: "src/pages/books"
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
@@ -217,7 +209,7 @@ collections:
   - name: "library"
     label: "Libraries"
     label_singular: "Library"
-    folder: "content/library"
+    folder: "src/pages/library"
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
@@ -230,7 +222,7 @@ collections:
   - name: "tutorials"
     label: "Tutorials"
     label_singular: "Tutorial"
-    folder: "content/tutorials"
+    folder: "src/pages/tutorials"
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
@@ -243,7 +235,7 @@ collections:
   - name: "exhibition"
     label: "Exhibition"
     label_singular: "Entry"
-    folder: "content/exhibition"
+    folder: "src/pages/exhibition"
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
