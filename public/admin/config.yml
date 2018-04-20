@@ -1,14 +1,249 @@
 backend:
-  name: pf2018
+  name: github
+  repo: kirittanna/pf2018
 
 media_folder: static/assets
+public_folder: /images/uploads
+display_url: https://pf2018.netlify.com
 
 collections:
-  - name: blog
-    label: Blog
-    folder: blog
+  - name: "news"
+    label: "News"
+    label_singular: "Article"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
+    fields:
+      - { name: "path", label: "Path", widget: "string" }
+      - { name: "date", label: "Date", widget: "date" }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "body", label: "Body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - label: "Global"
+        name: "global"
+        file: "site/content/global.md"
+        fields:
+          - { label: "Copyright", name: "copyright", widget: "markdown" }
+          - { label: "Disclaimer", name: "disclaimer", widget: "markdown" }
+          - label: "Related Sites"
+            name: "related-sites"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "related-name", widget: "string" }
+              - { label: "Link", name: "related-link", widget: "string" }
+              
+      - label: "Home"
+        name: "home"
+        file: "site/content/home.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "markdown" }
+          - label: "Featured"
+            name: "featured"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "feature-name", widget: "string" }
+              - { label: "Intro", name: "feature-intro", widget: "markdown" }
+              - { label: "Image", name: "feature-photo", widget: "image" }
+              - { label: "Link", name: "feature-link", widget: "string", required: false }
+
+      - label: "Overview"
+        name: "overview"
+        file: "site/content/overview.md"
+        fields:
+          - { label: "Hero Image", name: "hero", widget: "image" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "markdown" }
+
+      - label: "FAQs"
+        name: "faqs"
+        file: "site/content/faqs.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "markdown" }
+          - label: "Questions"
+            name: "questions"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "faq-question", widget: "markdown" }
+              - { label: "Answer", name: "faq-answer", widget: "markdown" }
+
+      - label: "Community"
+        name: "community"
+        file: "site/content/community.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "markdown" }
+          - label: "Events"
+            name: "community-events"
+            widget: "list"
+            fields:
+              - { label: "Event Name", name: "event-name", widget: "string" }
+              - { label: "Event Image", name: "event-photo", widget: "image" }
+              - { label: "Event Date", name: "event-date", widget: "date", required: false }
+              - { label: "Event Description", name: "event-description", widget: "markdown" }
+
+      - label: "People"
+        name: "people"
+        file: "site/content/people.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "markdown" }
+          - label: "Team"
+            name: "team"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Position", name: position, widget: "string" }
+              - { label: "Profile Image", name: "photo", widget: "image", required: false }
+              - { label: "Link", name: "link", widget: "string", required: false }
+
+      - label: "Environment, Tools & Libraries"
+        name: "environment-tools-libraries"
+        file: "site/content/environment-tools-libraries.md"
+        fields:
+          - { label: "Environment Title", name: "cl-title", widget: "string" }
+          - { label: "Environment Intro", name: "cl-intro", widget: "markdown" }
+          - label: "Environment Sections"
+            name: "environment-sections"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "markdown" }
+          - { label: "Built-in Tools Title", name: "bit-title", widget: "string" }
+          - { label: "Built-in Tools Intro", name: "bit-intro", widget: "markdown" }
+          - label: "List of Built-in Tools"
+            name: "built-in-tools"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+          - { label: "Contributed Tools Title", name: "ct-title", widget: "string" }
+          - { label: "Contributed Tools Intro", name: "ct-intro", widget: "markdown" }
+          - label: "List of Contributed Tools"
+            name: "contributed-tools"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+          - { label: "Built-in Libraries Title", name: "bil-title", widget: "string" }
+          - { label: "Built-in Libraries Intro", name: "bil-intro", widget: "markdown" }
+          - label: "List of Built-in Libraries"
+            name: "built-in-libraries"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+              - { label: "Tags", name: "tags", widget: "relation" }
+
+      - label: "Donate"
+        name: "donate"
+        file: "site/content/donate.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "markdown" }
+          - label: "Options"
+            name: "donation-options"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Amount", name: "amount", widget: "string" }
+
+      - label: "Downloads"
+        name: "downloads"
+        file: "site/content/downloads.md"
+        fields:
+          - { label: "Latest Release Title", name: "latest-title", widget: "string" }
+          - { label: "Latest Release Intro", name: "latest-intro", widget: "markdown" }
+          - { label: "Latest Release Date", name: "latest-date", widget: "date" }
+          - label: "Latest Releases"
+            name: "latest-download-options"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "sub-title", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+          - { label: "Stable Release Title", name: "stable-title", widget: "string" }
+          - { label: "Stable Release Intro", name: "stable-intro", widget: "markdown" }
+          - { label: "Stable Release Date", name: "stable-date", widget: "date" }
+          - label: "Stable-Releases"
+            name: "stable-download-options"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "sub-title", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+          - { label: "Beta Release Title", name: "beta-title", widget: "string" }
+          - { label: "Beta Release Intro", name: "beta-intro", widget: "markdown" }
+          - { label: "Beta Release Date", name: "beta-date", widget: "date" }
+          - label: "Pre-Releases"
+            name: "beta-download-options"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "sub-title", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+
+  - name: "books"
+    label: "Books"
+    label_singular: "Book"
+    folder: "content/books"
     create: true
     fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
+      - { name: "path", label: "Path", widget: "string" }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "cover", label: "Cover", widget: "image" }
+      - { name: "author", label: "Author", widget: "string" }
+      - { name: "date", label: "Date Published", widget: "date" }
+      - { name: "links", label: "Links", widget: "string" }
+      - { name: "body", label: "Body", widget: "markdown" }
+
+  - name: "library"
+    label: "Libraries"
+    label_singular: "Library"
+    folder: "content/library"
+    create: true
+    fields:
+      - { name: "path", label: "Path", widget: "string" }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "author", label: "Author", widget: "string" }
+      - { name: "links", label: "Links", widget: "string" }
+      - { name: "body", label: "Body", widget: "markdown" }
+      - { name: "tags", label: "Tags", widget: "relation" }
+
+  - name: "tutorials"
+    label: "Tutorials"
+    label_singular: "Tutorial"
+    folder: "content/tutorials"
+    create: true
+    fields:
+      - { name: "path", label: "Path", widget: "string" }
+      - { name: "date", label: "Date", widget: "date" }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "banner", label: "Banner", widget: "image" }
+      - { name: "thumbnail", label: "Thumbnail", widget: "image" }
+      - { name: "body", label: "Body", widget: "markdown" }
+      
+  - name: "exhibition"
+    label: "Exhibition"
+    label_singular: "Entry"
+    folder: "content/exhibition"
+    create: true
+    fields:
+      - { name: "path", label: "Path", widget: "string" }
+      - { name: "date", label: "Date", widget: "date" }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "banner", label: "Banner", widget: "image" }
+      - { name: "thumbnail", label: "Thumbnail", widget: "image" }
+      - { name: "body", label: "Body", widget: "markdown" }
+      - { name: "links", label: "Links" }

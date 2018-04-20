@@ -4,15 +4,34 @@ module.exports = {
     description: '',
     title: 'Processing',
     twitter: 'processingOrg',
+    facebook: 'processingOrg',
+    github: 'processingOrg',
+    medium: 'processingOrg',
     url: '',
   },
   plugins: [
-    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      /*options: {
+        // One convention is to place your Netlify CMS customization code in a
+        // `src/cms` directory.
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },*/
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages',
+        path: `${__dirname}/content/`,
+        name: 'markdown-pages',
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          'gatsby-remark-embed-video',
+          'gatsby-remark-responsive-iframe',
+        ],
       },
     },
     `gatsby-transformer-sharp`,
