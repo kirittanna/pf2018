@@ -10,14 +10,7 @@ module.exports = {
     url: '',
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-netlify-cms`,
-      /*options: {
-        // One convention is to place your Netlify CMS customization code in a
-        // `src/cms` directory.
-        modulePath: `${__dirname}/src/cms/cms.js`,
-      },*/
-    },
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -26,18 +19,12 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-embed-video',
-          },
-          'gatsby-remark-responsive-iframe',
-        ],
+        path: `${__dirname}/src/img`,
+        name: 'images',
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -48,12 +35,22 @@ module.exports = {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
-              maxWidth: 768,
+              maxWidth: 590,
             },
           },
+          {
+            resolve: 'gatsby-remark-embed-video',
+            options: {
+              width: 800,
+            },
+          },
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-responsive-iframe',
         ],
       },
     },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -61,6 +58,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      /*options: {
+        // One convention is to place your Netlify CMS customization code in a
+        // `src/cms` directory.
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },*/
+    },
   ],
 }

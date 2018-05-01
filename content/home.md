@@ -1,13 +1,19 @@
 ---
+path: /
 title: Welcome to Processing!
-intro: >-
+feature-intro: This is a new announcement
+feature-link: 'https://processing.org/'
+feature-name: Announcement
+feature-photo: /images/uploads/andrew-neel-609846-unsplash.jpg
+copyright: Test copyright
+disclaimer: Test disclaimer
+related-sites: 
+  - related-name: Processing.py
+  - related-link: 'http://py.processing.org/'
+---
   ## Welcome to Processing 3!
 
-
-  <iframe src="https://player.vimeo.com/video/140600280" width="640"
-  height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen
-  allowfullscreen></iframe>
-
+  `vimeo: https://vimeo.com/140600280`
 
   Dan explains the new features and changes; the links Dan mentions are on the
   Vimeo page.
@@ -32,9 +38,3 @@ intro: >-
 
   * Well documented, with many books available
 featured:
-  - feature-intro: This is a new announcement
-    feature-link: 'https://processing.org/'
-    feature-name: Announcement
-    feature-photo: /images/uploads/andrew-neel-609846-unsplash.jpg
----
-

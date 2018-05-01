@@ -1,0 +1,4 @@
+---
+path: /people
+title: People
+---

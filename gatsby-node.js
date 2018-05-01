@@ -1,4 +1,4 @@
-/*const path = require('path')
+const path = require('path')
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators
@@ -26,11 +26,13 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     }
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      createPage({
-        path: node.frontmatter.path,
-        component: newsTemplate,
-        context: {}, // additional data can be passed via context
-      })
+      if (node.frontmatter.path) {
+        createPage({
+          path: node.frontmatter.path,
+          component: newsTemplate,
+          context: {}, // additional data can be passed via context
+        })
+      }
     })
   })
-}*/
+}

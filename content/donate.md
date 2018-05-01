@@ -1,0 +1,4 @@
+---
+path: /donate
+title: Donate
+---

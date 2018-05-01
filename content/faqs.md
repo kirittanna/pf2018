@@ -1,0 +1,4 @@
+---
+path: /faqs
+title: FAQs
+---
