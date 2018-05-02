@@ -41,7 +41,7 @@ collections:
         file: "content/home.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Intro", name: "intro", widget: "markdown" }
           - label: "Featured"
             name: "featured"
             widget: "list"
@@ -57,14 +57,14 @@ collections:
         fields:
           - { label: "Hero Image", name: "hero", widget: "image" }
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Intro", name: "intro", widget: "markdown" }
 
       - label: "FAQs"
         name: "faqs"
         file: "content/faqs.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Intro", name: "intro", widget: "markdown" }
           - label: "Questions"
             name: "questions"
             widget: "list"
@@ -77,7 +77,7 @@ collections:
         file: "content/community.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Intro", name: "intro", widget: "markdown" }
           - label: "Events"
             name: "community-events"
             widget: "list"
@@ -92,7 +92,7 @@ collections:
         file: "content/people.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Intro", name: "intro", widget: "markdown" }
           - label: "Team"
             name: "team"
             widget: "list"
@@ -149,7 +149,7 @@ collections:
         file: "content/donate.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Intro", name: "intro", widget: "markdown" }
           - label: "Options"
             name: "donation-options"
             widget: "list"
