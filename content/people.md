@@ -12,60 +12,60 @@ intro: >-
 
   **Senior Developers**  
 
-  [Andres Colubri](http://codeanticode.wordpress.com/) (Boston), OpenGL /
+  - [Andres Colubri](http://codeanticode.wordpress.com/) (Boston), OpenGL /
   Video  
 
-  [Florian Jenett](http://www.florianjenett.de/) (Frankfurt), Forum  
+  - [Florian Jenett](http://www.florianjenett.de/) (Frankfurt), Forum  
 
-  [Elie Zananiri](http://www.silentlycrashing.net/) (Montreal), Contributed
+  - [Elie Zananiri](http://www.silentlycrashing.net/) (Montreal), Contributed
   Libraries / Tools  
 
-  [Scott Murray](http://alignedleft.com/) (San Francisco), Website / Reference /
-  UI  
+  - [Scott Murray](http://alignedleft.com/) (San Francisco), Website / Reference
+  / UI  
 
 
   **Developers**  
 
-  [Jakub Valtar](https://github.com/JakubValtar) (Brno), Processing Core  
+  - [Jakub Valtar](https://github.com/JakubValtar) (Brno), Processing Core  
 
-  [Scott Garner](http://scott.j38.net/) (New York), Hello Processing Website  
+  - [Scott Garner](http://scott.j38.net/) (New York), Hello Processing Website  
 
-  [Gottfried Haider](http://gottfriedhaider.com) (Amsterdam), Serial Library
+  - [Gottfried Haider](http://gottfriedhaider.com) (Amsterdam), Serial Library
   Updates (64-bit)  
 
-  [Jamie Kosoy](http://arbitrary.io/) (San Francisco), Website  
+  - [Jamie Kosoy](http://arbitrary.io/) (San Francisco), Website  
 
-  [Manindra Moharana](http://www.mkmoharana.com/) (San Diego), PDE / Core  
+  - [Manindra Moharana](http://www.mkmoharana.com/) (San Diego), PDE / Core  
 
-  [James Grady](http://jamesjgrady.com/) (Boston), Visual Design  
+  - [James Grady](http://jamesjgrady.com/) (Boston), Visual Design  
 
 
   **Google Summer of Code 2015**  
 
-  Gottfried Haider, Raspberry Pi and armv7hf support  
+  - Gottfried Haider, Raspberry Pi and armv7hf support  
 
-  Joel Ruben Antony Moniz, Replacing JEditTextArea with RSyntaxTextArea and
+  - Joel Ruben Antony Moniz, Replacing JEditTextArea with RSyntaxTextArea and
   designing a new REPL Mode  
 
-  Maya Man, Creativity in Code: Accounting for Diversity throughout
+  - Maya Man, Creativity in Code: Accounting for Diversity throughout
   Development  
 
-  Nick Confrey, Making networking easier for Processing users  
+  - Nick Confrey, Making networking easier for Processing users  
 
-  Thomas Sanchez Lengeling, Expanding Kinect v2 libraries in Processing  
+  - Thomas Sanchez Lengeling, Expanding Kinect v2 libraries in Processing  
 
-  Umair Khan, Enhancements in Processing’s Android Mode  
+  - Umair Khan, Enhancements in Processing’s Android Mode  
 
 
   **Community**  
 
-  [Philippe Lhoste](http://phi.lho.free.fr) (Sevran), Forum administrator  
+  - [Philippe Lhoste](http://phi.lho.free.fr) (Sevran), Forum administrator  
 
-  [Cedric Kiefer](http://www.onformative.com) (Berlin), Forum administrator  
+  - [Cedric Kiefer](http://www.onformative.com) (Berlin), Forum administrator  
 
-  [Filip Visnjic](http://www.fvda.co.uk) (London), Exhibition curator  
+  - [Filip Visnjic](http://www.fvda.co.uk) (London), Exhibition curator  
 
-  [Jer Thorp](http://blprnt.com) (New York), Lobbyist  
+  - [Jer Thorp](http://blprnt.com) (New York), Lobbyist  
 
 
   **Libraries, Tools**  
@@ -85,12 +85,13 @@ intro: >-
 
   **Fellowship Alumni**  
 
-  [Lauren McCarthy](http://lauren-mccarthy.com/) (New York), Spring/Summer/Fall
+  - [Lauren McCarthy](http://lauren-mccarthy.com/) (New York), -
+  Spring/Summer/Fall 2013  
+
+  - [Greg Borenstein](http://gregborenstein.com/) (New York), Spring/Summer
   2013  
 
-  [Greg Borenstein](http://gregborenstein.com/) (New York), Spring/Summer 2013  
-
-  [Wilm Thoben](http://wilmthoben.com/) (Los Angeles), Fall 2013/Winter 2014  
+  - [Wilm Thoben](http://wilmthoben.com/) (Los Angeles), Fall 2013/Winter 2014  
 
 
   **Developer Alumni**  
