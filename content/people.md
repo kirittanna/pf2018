@@ -206,5 +206,12 @@ team:
   - link: 'http://reas.com/'
     name: Casey Reas
     role: Lead Developer
+  - link: 'http://benfry.com/'
+    name: Ben Fry
+    role: Lead Developer
+  - link: 'http://www.shiffman.net/'
+    name: Dan
+    position: Lead Developer
+    role: Shiffman
 ---
 
