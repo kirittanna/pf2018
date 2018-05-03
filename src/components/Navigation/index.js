@@ -42,7 +42,7 @@ class Navigation extends Component {
         leave={{ animation: 'slide-left', duration: 300, delay: 0 }}
         visible={true}
       >
-        <Sidebar colorIndex="neutral-1" fixed={true}>
+        <Sidebar colorIndex="light-1" fixed={true}>
           <Header size="large" justify="between" pad={{ horizontal: 'medium' }}>
             <Title onClick={this._onClose} a11yTitle="Close Menu">
               <Logo colorIndex="light-1" />

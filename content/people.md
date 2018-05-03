@@ -1,6 +1,18 @@
 ---
+path: /people
 title: People
-intro: >-
+team:
+  - link: 'http://reas.com/'
+    name: Casey Reas
+    role: Lead Developer
+  - link: 'http://benfry.com/'
+    name: Ben Fry
+    role: Lead Developer
+  - link: 'http://www.shiffman.net/'
+    name: Dan
+    position: Lead Developer
+    role: Shiffman
+---
   **Lead Developers**  
 
   [Ben Fry](http://benfry.com) and [Casey Reas](http://reas.com) started
@@ -202,16 +214,3 @@ intro: >-
   maintaining Processing Blogs. Andreas Schlegel did amazing work for over three
   years organizing the Contributed Libraries and building templates and
   documentation.
-team:
-  - link: 'http://reas.com/'
-    name: Casey Reas
-    role: Lead Developer
-  - link: 'http://benfry.com/'
-    name: Ben Fry
-    role: Lead Developer
-  - link: 'http://www.shiffman.net/'
-    name: Dan
-    position: Lead Developer
-    role: Shiffman
----
-

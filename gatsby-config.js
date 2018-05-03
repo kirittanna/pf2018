@@ -57,6 +57,7 @@ module.exports = {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
+    `gatsby-plugin-twitter`,
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-netlify-cms`,

@@ -1,6 +1,7 @@
 ---
+path: /donate
 title: Donate
-donation-options:
+donationOptions:
   - amount: '25'
     name: Individual
   - amount: '250'

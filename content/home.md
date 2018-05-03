@@ -1,15 +1,15 @@
 ---
 path: /
 title: Welcome to Processing!
-feature-intro: This is a new announcement
-feature-link: 'https://processing.org/'
-feature-name: Announcement
-feature-photo: /images/uploads/andrew-neel-609846-unsplash.jpg
+featureIntro: This is a new announcement
+featureLink: 'https://processing.org/'
+featureName: Announcement
+featurePhoto: /images/uploads/andrew-neel-609846-unsplash.jpg
 copyright: Test copyright
 disclaimer: Test disclaimer
-related-sites: 
-  - related-name: Processing.py
-  - related-link: 'http://py.processing.org/'
+relatedSites: 
+  - name: Processing.py
+  - link: 'http://py.processing.org/'
 ---
   ## Welcome to Processing 3!
 

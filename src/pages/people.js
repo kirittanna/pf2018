@@ -12,7 +12,7 @@ import Button from 'grommet/components/Button'
 import { navEnable } from '../state/actions'
 import { renderAst } from '../utils/common'
 
-class Home extends Component {
+class People extends Component {
   componentDidMount() {
     this.props.dispatch(navEnable(true))
   }
@@ -27,24 +27,18 @@ class Home extends Component {
           {frontmatter.title}
         </Heading>
         {renderAst(htmlAst)}
-        <a
-          class="twitter-timeline"
-          href="https://twitter.com/processingOrg?ref_src=twsrc%5Etfw"
-        >
-          Tweets by processingOrg
-        </a>
       </Box>
     )
   }
 }
 
-Home.propTypes = {
+People.propTypes = {
   data: React.PropTypes.object,
   route: React.PropTypes.object,
 }
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query PeopleQuery {
     site {
       siteMetadata {
         author
@@ -54,7 +48,7 @@ export const pageQuery = graphql`
         url
       }
     }
-    markdownRemark(frontmatter: { path: { eq: "/" } }) {
+    markdownRemark(frontmatter: { path: { eq: "/people" } }) {
       htmlAst
       frontmatter {
         title
@@ -71,4 +65,4 @@ const mapStateToProps = ({ nav }) => ({
   nav,
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(People)
