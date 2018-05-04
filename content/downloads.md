@@ -45,4 +45,3 @@ betaDownloadOptions:
     subTitle: 64- bit
     title: Windows
 ---
-

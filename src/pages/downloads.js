@@ -9,8 +9,10 @@ import Box from 'grommet/components/Box'
 import Button from 'grommet/components/Button'
 import Heading from 'grommet/components/Heading'
 import Markdown from 'grommet/components/Markdown'
-import Tiles from 'grommet/components/Tiles'
-import Tile from 'grommet/components/Tile'
+import Label from 'grommet/components/Label'
+import List from 'grommet/components/List'
+import ListItem from 'grommet/components/ListItem'
+import Title from 'grommet/components/Title'
 
 import { navEnable } from '../state/actions'
 import { renderAst } from '../utils/common'
@@ -20,25 +22,68 @@ class Downloads extends Component {
     this.props.dispatch(navEnable(true))
   }
 
+  renderGroup = (title, date, intro, options) => {
+    return (
+      <Box margin={{ bottom: 'large' }}>
+        <Heading strong={true} tag="h3">
+          {title}
+        </Heading>
+        <p>{date}</p>
+        <Markdown>{intro}</Markdown>
+        <List>
+          {options.map(option => (
+            <ListItem pad="small" justify="between" separator="horizontal">
+              <Title>{option.title}</Title>
+              <Button label={option.subTitle} onClick={() => {}} />
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+    )
+  }
+
   render() {
-    console.log(this.props)
     const { data } = this.props
     const { markdownRemark } = data // data.markdownRemark holds our post data
-    const { htmlAst, frontmatter } = markdownRemark
+    const {
+      frontmatter: {
+        title,
+        latestTitle,
+        latestIntro,
+        latestDate,
+        latestDownloadOptions,
+        stableTitle,
+        stableIntro,
+        stableDate,
+        stableDownloadOptions,
+        betaTitle,
+        betaIntro,
+        betaDate,
+        betaDownloadOptions,
+      },
+    } = markdownRemark
     return (
       <Box full="horizontal">
         <Heading strong={true} tag="h2">
-          {frontmatter.title}
-        </Heading>
-        {renderAst(htmlAst)}
-        <Heading strong={true} tag="h3">
-          {frontmatter.latestTitle}
-        </Heading>
-        <Heading strong={true} tag="h3">
-          {frontmatter.stableTitle}
-        </Heading>
-        <Heading strong={true} tag="h3">
-          {frontmatter.betaTitle}
+          {title}
+          {this.renderGroup(
+            latestTitle,
+            latestDate,
+            latestIntro,
+            latestDownloadOptions
+          )}
+          {this.renderGroup(
+            stableTitle,
+            stableDate,
+            stableIntro,
+            stableDownloadOptions
+          )}
+          {this.renderGroup(
+            betaTitle,
+            betaDate,
+            betaIntro,
+            betaDownloadOptions
+          )}
         </Heading>
       </Box>
     )
@@ -56,6 +101,30 @@ export const pageQuery = graphql`
       htmlAst
       frontmatter {
         title
+        latestTitle
+        latestIntro
+        latestDate
+        latestDownloadOptions {
+          link
+          title
+          subTitle
+        }
+        stableTitle
+        stableIntro
+        stableDate
+        stableDownloadOptions {
+          link
+          title
+          subTitle
+        }
+        betaTitle
+        betaIntro
+        betaDate
+        betaDownloadOptions {
+          link
+          title
+          subTitle
+        }
       }
     }
   }

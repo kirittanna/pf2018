@@ -12,7 +12,7 @@ import Button from 'grommet/components/Button'
 import { navEnable } from '../state/actions'
 import { renderAst } from '../utils/common'
 
-class People extends Component {
+class Overview extends Component {
   componentDidMount() {
     this.props.dispatch(navEnable(true))
   }
@@ -32,14 +32,14 @@ class People extends Component {
   }
 }
 
-People.propTypes = {
+Overview.propTypes = {
   data: React.PropTypes.object,
   route: React.PropTypes.object,
 }
 
 export const pageQuery = graphql`
-  query PeopleQuery {
-    markdownRemark(frontmatter: { path: { eq: "/people" } }) {
+  query OverviewQuery {
+    markdownRemark(frontmatter: { path: { eq: "/overview" } }) {
       htmlAst
       frontmatter {
         title
@@ -56,4 +56,4 @@ const mapStateToProps = ({ nav }) => ({
   nav,
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(People)
+export default connect(mapStateToProps, mapDispatchToProps)(Overview)

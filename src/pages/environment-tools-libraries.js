@@ -12,7 +12,7 @@ import Button from 'grommet/components/Button'
 import { navEnable } from '../state/actions'
 import { renderAst } from '../utils/common'
 
-class People extends Component {
+class EnvironmentToolsLibraries extends Component {
   componentDidMount() {
     this.props.dispatch(navEnable(true))
   }
@@ -32,14 +32,16 @@ class People extends Component {
   }
 }
 
-People.propTypes = {
+EnvironmentToolsLibraries.propTypes = {
   data: React.PropTypes.object,
   route: React.PropTypes.object,
 }
 
 export const pageQuery = graphql`
-  query PeopleQuery {
-    markdownRemark(frontmatter: { path: { eq: "/people" } }) {
+  query EnvironmentToolsLibrariesQuery {
+    markdownRemark(
+      frontmatter: { path: { eq: "/environment-tools-libraries" } }
+    ) {
       htmlAst
       frontmatter {
         title
@@ -56,4 +58,6 @@ const mapStateToProps = ({ nav }) => ({
   nav,
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(People)
+export default connect(mapStateToProps, mapDispatchToProps)(
+  EnvironmentToolsLibraries
+)

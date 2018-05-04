@@ -105,109 +105,60 @@ team:
 
   - [Wilm Thoben](http://wilmthoben.com/) (Los Angeles), Fall 2013/Winter 2014  
 
-
   **Developer Alumni**  
 
   Roland Elek, GStreamer 1.x Java Bindings (Google Summer of Code 2014)  
-
   Chris Johnson-Roberson, Loom: An Audiovisual Pattern Language (Google Summer
   of Code 2014)  
-
   Manindra Moharana, PDE X (Google Summer of Code 2014)  
-
   Joel Moniz, Git Manager Tool (Google Summer of Code 2014)  
-
   Gal Sasson, PDE Improvements and Tweak Mode (Google Summer of Code 2014)  
-
   Pratik Sharma, Oculus Rift Library (Google Summer of Code 2014)  
-
   Wilm Thoben, Sound Library (Google Summer of Code 2014)  
-
   Imil Ziyaztdinov, Android Mode Improvements (Google Summer of Code 2014)  
-
   David Wicks, Reference Engine (Google Summer of Code 2014)  
-
   Jon Gacnik, Website (Google Summer of Code 2014)  
-
   Gal Sasson (New York), Flexible Numbers Mode (Google Summer of Code 2013)  
-
   Martin Leopold (Vienna), A GUI Library (Google Summer of Code 2013)  
-
   Martin Leopold, Debug Mode (Google Summer of Code 2012)  
-
   Patrick Hebron, Video Library (Summer 2011)  
-
   Peter Kalauskas, Library/Tool/Mode Install Utility (Summer, Fall 2011)  
-
   Andreas Schlegel, Libraries (Winter 2008 - Summer 2011)  
-
   Harshani Nawarathna, Processing Development Environment (Summer 2011)  
-
   Cindy Chi, Reference Editing (Summer 2011)  
-
   Jonathan Feinberg, Parsing & Android Hacking (Spring 2011)  
-
   Chris Lonnen, Processing Development Environment (Summer 2011)  
-
   Eric Jordan, Graphics Weapon (2007 - 2009)  
-
   Tom Carden, Processing Hacks Director (Summer 2005 - Fall 2008)  
-
   Lenny Burdette, Website renovation (Summer 2005 - Winter 2006)  
-
   Simon Greenwold, Lighting and Camera (Winter 2005)  
-
   Kevin Cannon, Website CSS (Fall 2004)  
-
   Toxi, Graphics Gem (Summer 2003 - Summer 2004)  
-
   Ariel Malka, Bagel Papa Poules (Summer 2003 - Winter 2004)  
-
   Martin Gomez, Web engines (Spring 2003)  
-
   Mikkel Crone Koser, Windows Platform Czar (Summer 2003 - Winter 2004)  
-
   Koen Mostert, Windows Platform Czar (Summer 2003 - Winter 2004)  
-
   Timothy Mohn, Platform Czar Mac (Winter 2003 - Winter 2004)  
-
   Dan Mosedale, Preprocessor and Compiler (Spring, Summer 2003)  
-
   Carlos Rocha, Sound and Graphics (Spring, Summer 2003)  
-
   Jacob Schwartz, Windows Platform Czar (Winter 2003 - Winter 2004)  
-
   Cem Uzunoglu, Web Scripts for Exhibition (Summer 2003)  
-
   Dara Kilicoglu, Web Scripts for Exhibition (Summer 2003)  
-
   Sami Arola, 3D Graphics Engine (Summer 2003)  
-
   Marc Escobosa, Reference Engine (Spring 2003)  
-
   Mathias Dahlström, Examples, Reference (Spring 2003)  
-
   Dan Haskovec, Processing Environment (Summer 2003)  
-
 
   **Alpha Reference Translators**  
 
   Widianto Nugroho, Indonesian  
-
   Tetsu Kondo, Japanese  
-
   William Ngan, Tori Tan, Mei Yu, Chinese Traditional and Simplified  
-
   Art Center Nabi, Tae-Kyung Kim, Korean  
-
   Julien Gachadoat, French  
-
   Pedro Alpera, Spanish  
-
   Alessandro Capozzo, Italian  
-
   Burak Arikan, Turkish
-
 
   We offer a special "Thank You!" to Sami Arola for writing the base of the
   original P3D and Simon Greenwold for incorporating camera and lights. Tom

@@ -2,10 +2,8 @@ import React from 'react'
 
 import Box from 'grommet/components/Box'
 import Heading from 'grommet/components/Heading'
-import Markdown from 'grommet/components/Markdown'
-import Button from 'grommet/components/Button'
 
-export default function Template({
+export default function NewsTemplate({
   data, // this prop will be injected by the GraphQL query below.
 }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data

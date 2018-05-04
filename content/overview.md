@@ -1,7 +1,8 @@
 ---
+path: /overview
 hero: /images/uploads/processing-social.jpg
 title: Overview
-intro: >-
+---
   ### Overview. A short introduction to the Processing software and projects
   from the community.
 
@@ -153,5 +154,3 @@ intro: >-
   YourKit, LLC is the creator of tools for profiling Java and .NET applications:
   [YourKit Java Profiler](http://www.yourkit.com/java/profiler/index.jsp),
   [YourKit .NET Profiler](http://www.yourkit.com/.net/profiler/index.jsp).
----
-

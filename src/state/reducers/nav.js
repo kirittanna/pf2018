@@ -20,6 +20,16 @@ const initialState = {
     },
     { path: '/downloads', label: 'Downloads' },
     { path: '/donate', label: 'Donate' },
+    { path: '/people', label: 'People' },
+    { path: '/exhibition', label: 'Exhibition' },
+    {
+      path: '/environment-tools-libraries',
+      label: 'Environment, Tools & Libraries',
+    },
+    { path: '/tutorials', label: 'Tutorials' },
+    { path: '/examples', label: 'Examples' },
+    { path: '/books', label: 'Books' },
+    { path: '/overview', label: 'Overview' },
     {
       path: 'https://processingfoundation.org/',
       label: 'Processing Foundation',

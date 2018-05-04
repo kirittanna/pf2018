@@ -8,6 +8,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   return graphql(`
     {
       allMarkdownRemark(
+        filter: { frontmatter: { path: { regex: "/news/" } } }
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
       ) {
