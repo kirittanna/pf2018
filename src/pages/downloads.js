@@ -14,6 +14,8 @@ import List from 'grommet/components/List'
 import ListItem from 'grommet/components/ListItem'
 import Title from 'grommet/components/Title'
 
+import DownloadIcon from 'grommet/components/icons/base/Download'
+
 import { navEnable } from '../state/actions'
 import { renderAst } from '../utils/common'
 
@@ -33,8 +35,12 @@ class Downloads extends Component {
         <List>
           {options.map(option => (
             <ListItem pad="small" justify="between" separator="horizontal">
-              <Title>{option.title}</Title>
-              <Button label={option.subTitle} onClick={() => {}} />
+              <Title>{option.os}</Title>
+              <Button
+                label={option.osa}
+                href={option.link}
+                icon={<DownloadIcon />}
+              />
             </ListItem>
           ))}
         </List>
@@ -106,24 +112,24 @@ export const pageQuery = graphql`
         latestDate
         latestDownloadOptions {
           link
-          title
-          subTitle
+          os
+          osa
         }
         stableTitle
         stableIntro
         stableDate
         stableDownloadOptions {
           link
-          title
-          subTitle
+          os
+          osa
         }
         betaTitle
         betaIntro
         betaDate
         betaDownloadOptions {
           link
-          title
-          subTitle
+          os
+          osa
         }
       }
     }

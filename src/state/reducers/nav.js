@@ -20,7 +20,9 @@ const initialState = {
     },
     { path: '/downloads', label: 'Downloads' },
     { path: '/donate', label: 'Donate' },
+    { path: '/overview', label: 'Overview' },
     { path: '/people', label: 'People' },
+    { path: '/books', label: 'Books' },
     { path: '/exhibition', label: 'Exhibition' },
     {
       path: '/environment-tools-libraries',
@@ -28,8 +30,6 @@ const initialState = {
     },
     { path: '/tutorials', label: 'Tutorials' },
     { path: '/examples', label: 'Examples' },
-    { path: '/books', label: 'Books' },
-    { path: '/overview', label: 'Overview' },
     {
       path: 'https://processingfoundation.org/',
       label: 'Processing Foundation',

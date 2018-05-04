@@ -63,7 +63,7 @@ class Template extends React.Component {
           onResponsive={this._onResponsive}
         >
           {includeNav && <Navigation />}
-          <Article>
+          <Article pad={{ vertical: 'none' }}>
             <Header
               direction="row"
               justify="between"
@@ -85,14 +85,18 @@ class Template extends React.Component {
               />
             </Header>
 
-            <Box pad="medium" size="full">
+            <Box
+              pad="medium"
+              size="full"
+              margin={{ horizontal: 'small', vertical: 'none' }}
+            >
               {children()}
             </Box>
             <Footer
-              align="left"
+              align="center"
               colorIndex="grey-3"
               direction="row"
-              pad="medium"
+              pad="small"
               primary={true}
               responsive={true}
               size="medium"

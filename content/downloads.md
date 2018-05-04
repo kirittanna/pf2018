@@ -8,14 +8,14 @@ latestIntro: >+
 latestDate: '2018-05-13'
 latestDownloadOptions:
   - link: 'http://download.processing.org/processing-3.3.7-windows64.zip'
-    subTitle: 64-bit
-    title: Windows
+    osa: 64-bit
+    os: Windows
   - link: 'http://download.processing.org/processing-3.3.7-linux64.tgz'
-    subTitle: 64-bit
-    title: Linux
+    osa: 64-bit
+    os: Linux
   - link: 'http://download.processing.org/processing-3.3.7-macosx.zip'
-    subTitle: ''
-    title: Mac OS X
+    osa: ''
+    os: Mac OS X
 stableTitle: Stable Releases
 stableIntro: >-
   Earlier releases have been removed because we can only support the current
@@ -28,11 +28,11 @@ stableIntro: >-
 stableDate: '2017-09-04'
 stableDownloadOptions:
   - link: 'http://download.processing.org/processing-3.3.7-windows64.zip'
-    subTitle: 64-bit
-    title: Windows
+    osa: 64-bit
+    os: Windows
   - link: 'http://download.processing.org/processing-3.3.7-windows32.zip'
-    subTitle: 32-bit
-    title: Windows
+    osa: 32-bit
+    os: Windows
 betaTitle: Pre-Releases
 betaIntro: >-
   No pre-release versions are currently available.
@@ -42,6 +42,6 @@ betaIntro: >-
 betaDate: '2018-05-01'
 betaDownloadOptions:
   - link: 'http://download.processing.org/processing-beta-windows64.zip'
-    subTitle: 64- bit
-    title: Windows
+    osa: 64- bit
+    os: Windows
 ---

@@ -1,0 +1,4 @@
+---
+path: /books
+title: Books
+---

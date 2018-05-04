@@ -1,0 +1,4 @@
+---
+path: /exhibition
+title: Exhibition
+---

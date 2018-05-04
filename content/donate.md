@@ -2,11 +2,11 @@
 path: /donate
 title: Donate
 donationOptions:
-  - amount: '25'
+  - amount: 25
     name: Individual
-  - amount: '250'
+  - amount: 250
     name: Studio
-  - amount: '500'
+  - amount: 500
     name: Educational Institute
 ---
 ### Processing is free, open-source software. Your donation supports our worldwide community. We need your help!

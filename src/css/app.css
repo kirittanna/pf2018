@@ -1,0 +1,3 @@
+.grommet p:not(.grommetux-paragraph) {
+  max-width: 100%;
+}
