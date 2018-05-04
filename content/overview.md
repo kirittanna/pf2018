@@ -1,5 +1,4 @@
 ---
-path: /overview
 hero: /images/uploads/processing-social.jpg
 title: Overview
 ---
