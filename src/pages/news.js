@@ -4,10 +4,13 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { connect } from 'react-redux'
 
+import Anchor from 'grommet/components/Anchor'
 import Box from 'grommet/components/Box'
 import Heading from 'grommet/components/Heading'
 import Markdown from 'grommet/components/Markdown'
 import Button from 'grommet/components/Button'
+import List from 'grommet/components/List'
+import ListItem from 'grommet/components/ListItem'
 
 import { navEnable } from '../state/actions'
 import { renderAst } from '../utils/common'
@@ -19,14 +22,17 @@ class News extends Component {
 
   render() {
     const { data } = this.props
-    const { markdownRemark } = data // data.markdownRemark holds our post data
-    const { htmlAst, frontmatter } = markdownRemark
+    const { allMarkdownRemark } = data // data.markdownRemark holds our post data
     return (
       <Box full="horizontal">
-        <Heading strong={true} tag="h2">
-          {frontmatter.title}
-        </Heading>
-        {renderAst(htmlAst)}
+        <List>
+          {allMarkdownRemark.edges.map(({ node: { frontmatter }, html }) => (
+            <ListItem wrap={true} pad="small" separator="bottom">
+              <Anchor href={frontmatter.path}>{frontmatter.title}</Anchor>
+              {html}
+            </ListItem>
+          ))}
+        </List>
       </Box>
     )
   }
@@ -39,12 +45,6 @@ News.propTypes = {
 
 export const pageQuery = graphql`
   query NewsQuery {
-    markdownRemark(frontmatter: { path: { eq: "/overview" } }) {
-      htmlAst
-      frontmatter {
-        title
-      }
-    }
     allMarkdownRemark(
       filter: { frontmatter: { path: { regex: "/news/" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
@@ -52,6 +52,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          html
           frontmatter {
             path
             title

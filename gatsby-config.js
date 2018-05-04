@@ -51,13 +51,24 @@ module.exports = {
     },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    // {
+    //   resolve: `gatsby-source-twitter`,
+    //   options: {
+    //     q: `@kirittanna`,
+    //     credentials: {
+    //       consumer_key: 'ZDJtw9tgvNWwzx83Y9aw',
+    //       consumer_secret: 'iEVPPpNvZoG0go69EFl8lc1MAFyNVOPHqtNjCJJfM',
+    //       bearer_token: '16705401-V7iE7FXYuX2FimXjQ1X5STlDZvEdy9Vlzo5CsSKU4',
+    //     },
+    //     tweet_mode: 'extended',
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    `gatsby-plugin-twitter`,
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-netlify-cms`,

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
-import get from 'lodash/get'
+import { get, groupBy } from 'lodash/fp'
 import Helmet from 'react-helmet'
 import rehypeReact from 'rehype-react'
 import { connect } from 'react-redux'
@@ -12,7 +12,6 @@ import Markdown from 'grommet/components/Markdown'
 import Label from 'grommet/components/Label'
 import List from 'grommet/components/List'
 import ListItem from 'grommet/components/ListItem'
-import Title from 'grommet/components/Title'
 
 import DownloadIcon from 'grommet/components/icons/base/Download'
 
@@ -25,6 +24,7 @@ class Downloads extends Component {
   }
 
   renderGroup = (title, date, intro, options) => {
+    const groupedOptions = groupBy('os', options)
     return (
       <Box margin={{ bottom: 'large' }}>
         <Heading strong={true} tag="h3">
@@ -33,14 +33,25 @@ class Downloads extends Component {
         <p>{date}</p>
         <Markdown>{intro}</Markdown>
         <List>
-          {options.map(option => (
-            <ListItem pad="small" justify="between" separator="horizontal">
-              <Title>{option.os}</Title>
-              <Button
-                label={option.osa}
-                href={option.link}
-                icon={<DownloadIcon />}
-              />
+          {Object.keys(groupedOptions).map((key, index) => (
+            <ListItem
+              pad="small"
+              justify="between"
+              separator="horizontal"
+              align="start"
+            >
+              <Label>{key}</Label>
+              <Box direction="row" responsive="false" justify="end" align="end">
+                {groupedOptions[key].map(option => (
+                  <Button
+                    label={option.osa}
+                    href={option.link}
+                    icon={<DownloadIcon />}
+                    margin="small"
+                    pad="small"
+                  />
+                ))}
+              </Box>
             </ListItem>
           ))}
         </List>
@@ -72,25 +83,20 @@ class Downloads extends Component {
       <Box full="horizontal">
         <Heading strong={true} tag="h2">
           {title}
-          {this.renderGroup(
-            latestTitle,
-            latestDate,
-            latestIntro,
-            latestDownloadOptions
-          )}
-          {this.renderGroup(
-            stableTitle,
-            stableDate,
-            stableIntro,
-            stableDownloadOptions
-          )}
-          {this.renderGroup(
-            betaTitle,
-            betaDate,
-            betaIntro,
-            betaDownloadOptions
-          )}
         </Heading>
+        {this.renderGroup(
+          latestTitle,
+          latestDate,
+          latestIntro,
+          latestDownloadOptions
+        )}
+        {this.renderGroup(
+          stableTitle,
+          stableDate,
+          stableIntro,
+          stableDownloadOptions
+        )}
+        {this.renderGroup(betaTitle, betaDate, betaIntro, betaDownloadOptions)}
       </Box>
     )
   }

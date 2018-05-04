@@ -25,16 +25,10 @@ relatedSites:
   technology. There are tens of thousands of students, artists, designers,
   researchers, and hobbyists who use Processing for learning and prototyping.
 
-
   * Free to download and open source
-
   * Interactive programs with 2D, 3D or PDF output
-
   * OpenGL integration for accelerated 2D and 3D
-
   * For GNU/Linux, Mac OS X, Windows, Android, and ARM
-
   * Over 100 libraries extend the core software
-
   * Well documented, with many books available
 featured:

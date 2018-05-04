@@ -9,9 +9,9 @@ import Box from 'grommet/components/Box'
 import Button from 'grommet/components/Button'
 import Heading from 'grommet/components/Heading'
 import Markdown from 'grommet/components/Markdown'
-import Tiles from 'grommet/components/Tiles'
-import Tile from 'grommet/components/Tile'
-import Title from 'grommet/components/Title'
+import List from 'grommet/components/List'
+import ListItem from 'grommet/components/ListItem'
+import Label from 'grommet/components/Label'
 
 import { navEnable } from '../state/actions'
 import { renderAst } from '../utils/common'
@@ -32,26 +32,19 @@ class Donate extends Component {
           {frontmatter.title}
         </Heading>
         {renderAst(htmlAst)}
-        <Tiles>
+        <List>
           {frontmatter.donationOptions.map((option, index) => (
-            <Tile
-              pad="large"
-              separator="all"
-              textAlign="center"
-              size="medium"
-              wrap={true}
-            >
-              <Title margin={{ vertical: 'medium' }}>{option.name}</Title>
+            <ListItem pad="medium" justify="between" separator="horizontal">
+              <Label margin={{ vertical: 'medium' }}>{option.name}</Label>
               <Button
                 label={option.amount}
                 accent={true}
                 href={option.link}
-                fill={true}
                 pad="small"
               />
-            </Tile>
+            </ListItem>
           ))}
-        </Tiles>
+        </List>
       </Box>
     )
   }

@@ -5,6 +5,8 @@ import Helmet from 'react-helmet'
 import { connect } from 'react-redux'
 
 import Box from 'grommet/components/Box'
+import Hero from 'grommet/components/Hero'
+import Image from 'grommet/components/Image'
 import Heading from 'grommet/components/Heading'
 import Markdown from 'grommet/components/Markdown'
 import Button from 'grommet/components/Button'
@@ -26,6 +28,11 @@ class Overview extends Component {
         <Heading strong={true} tag="h2">
           {frontmatter.title}
         </Heading>
+        <Hero
+          background={<Image src={frontmatter.hero} fit="cover" full={true} />}
+          backgroundColorIndex="dark"
+          size="large"
+        />
         {renderAst(htmlAst)}
       </Box>
     )
@@ -43,6 +50,7 @@ export const pageQuery = graphql`
       htmlAst
       frontmatter {
         title
+        hero
       }
     }
   }

@@ -30,13 +30,6 @@ const initialState = {
     },
     { path: '/tutorials', label: 'Tutorials' },
     { path: '/examples', label: 'Examples' },
-    {
-      path: 'https://processingfoundation.org/',
-      label: 'Processing Foundation',
-    },
-    { path: 'https://p5js.org/', label: 'P5.js' },
-    { path: 'https://processing.py/', label: 'Processing.py' },
-    { path: 'http://android.processing.org/', label: 'Processing for Android' },
   ],
 }
 

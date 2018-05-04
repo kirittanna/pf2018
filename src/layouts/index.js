@@ -10,6 +10,7 @@ import styles from '../css/app.css'
 import App from 'grommet/components/App'
 import Anchor from 'grommet/components/Anchor'
 import Article from 'grommet/components/Article'
+import Button from 'grommet/components/Button'
 import Box from 'grommet/components/Box'
 import Footer from 'grommet/components/Footer'
 import Menu from 'grommet/components/Menu'
@@ -83,6 +84,29 @@ class Template extends React.Component {
                 onSelect={this._onSearchSelect}
                 suggestions={null}
               />
+              <Button href="/downloads" label="Download" accent={true} />
+              <Button href="/donate" label="Donate" accent={true} />
+              <Menu
+                label="Other Sites"
+                size="small"
+                dropAlign={{ right: 'right', top: 'bottom' }}
+              >
+                <Anchor
+                  href="https://processingfoundation.org/"
+                  target="_blank"
+                >
+                  Processing Foundation
+                </Anchor>
+                <Anchor href="https://p5js.org/" target="_blank">
+                  p5js
+                </Anchor>
+                <Anchor href="https://processing.py/" target="_blank">
+                  Processing.py
+                </Anchor>
+                <Anchor href="http://android.processing.org/" target="_blank">
+                  Processing for Android
+                </Anchor>
+              </Menu>
             </Header>
 
             <Box

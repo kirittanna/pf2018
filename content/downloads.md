@@ -1,6 +1,7 @@
 ---
 path: /downloads
-latestTitle: Downloads
+title: Downloads
+latestTitle: Latest release
 latestIntro: >+
   ### Download Processing. Processing is available for Linux, Mac OS X, and
   Windows. Select your choice to download the software below.
@@ -14,7 +15,7 @@ latestDownloadOptions:
     osa: 64-bit
     os: Linux
   - link: 'http://download.processing.org/processing-3.3.7-macosx.zip'
-    osa: ''
+    osa: Universal
     os: Mac OS X
 stableTitle: Stable Releases
 stableIntro: >-
