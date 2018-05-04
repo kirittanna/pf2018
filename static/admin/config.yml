@@ -168,8 +168,8 @@ collections:
             name: "latestDownloadOptions"
             widget: "list"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Subtitle", name: "subTitle", widget: "string" }
+              - { label: "Operating System", name: "os", widget: "select", values: ['Windows', 'Linux', 'Mac OS X'] }
+              - { label: "Operating System Architecture", name: "osa", widget: "select", values: ['32-bit', '64-bit', 'Universal'] }
               - { label: "Link", name: "link", widget: "string" }
           - { label: "Stable Release Title", name: "stableTitle", widget: "string" }
           - { label: "Stable Release Intro", name: "stableIntro", widget: "markdown" }
@@ -178,8 +178,8 @@ collections:
             name: "stableDownloadOptions"
             widget: "list"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Subtitle", name: "subTitle", widget: "string" }
+              - { label: "Operating System", name: "os", widget: "select", values: ['Windows', 'Linux', 'Mac OS X'] }
+              - { label: "Operating System Architecture", name: "osa", widget: "select", values: ['32-bit', '64-bit', 'Universal'] }
               - { label: "Link", name: "link", widget: "string" }
           - { label: "Beta Release Title", name: "betaTitle", widget: "string" }
           - { label: "Beta Release Intro", name: "betaIntro", widget: "markdown" }
@@ -188,8 +188,8 @@ collections:
             name: "betaDownloadOptions"
             widget: "list"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Subtitle", name: "subTitle", widget: "string" }
+              - { label: "Operating System", name: "os", widget: "select", values: ['Windows', 'Linux', 'Mac OS X'] }
+              - { label: "Operating System Architecture", name: "osa", widget: "select", values: ['32-bit', '64-bit', 'Universal'] }
               - { label: "Link", name: "link", widget: "string" }
 
   - name: "books"
