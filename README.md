@@ -1,8 +1,18 @@
 # Processing Website 2018
 Static website using Gatsby & Netlify CMS
 
-## Running in development
+## Install dependencies
+`npm install`
+
+## Development mode
 `npm run dev`
 
-## Build for production
+## Production build
 `npm run build`
+
+### Local Web-server
+http://localhost:8000
+### GraphQL REPL
+http://localhost:8000/___graphql
+### Netlify CMS (Login with Github credentials)
+http://localhost:8000/admin/

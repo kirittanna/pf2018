@@ -15,7 +15,7 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
     fields:
       - { name: "path", label: "Path", widget: "string" }
-      - { name: "date", label: "Date", widget: "date" }
+      - { name: "date", label: "Date", widget: "datetime" }
       - { name: "title", label: "Title", widget: "string" }
       - { name: "body", label: "Body", widget: "markdown" }
 
@@ -33,23 +33,23 @@ collections:
             name: "related-sites"
             widget: "list"
             fields:
-              - { label: "Name", name: "related-name", widget: "string" }
-              - { label: "Link", name: "related-link", widget: "string" }
+              - { label: "Name", name: "relatedName", widget: "string" }
+              - { label: "Link", name: "relatedLink", widget: "string" }
               
       - label: "Home"
         name: "home"
         file: "content/home.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Intro", name: "intro", widget: "markdown" }
+          - { label: "Body", name: "body", widget: "markdown" }
           - label: "Featured"
             name: "featured"
             widget: "list"
             fields:
-              - { label: "Name", name: "feature-name", widget: "string" }
-              - { label: "Intro", name: "feature-intro", widget: "markdown" }
-              - { label: "Image", name: "feature-photo", widget: "image" }
-              - { label: "Link", name: "feature-link", widget: "string", required: false }
+              - { label: "Name", name: "featureName", widget: "string" }
+              - { label: "Intro", name: "featureIntro", widget: "markdown" }
+              - { label: "Image", name: "featurePhoto", widget: "image" }
+              - { label: "Link", name: "featureLink", widget: "string", required: false }
 
       - label: "Overview"
         name: "overview"
@@ -57,14 +57,14 @@ collections:
         fields:
           - { label: "Hero Image", name: "hero", widget: "image" }
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Intro", name: "intro", widget: "markdown" }
+          - { label: "Body", name: "body", widget: "markdown" }
 
       - label: "FAQs"
         name: "faqs"
         file: "content/faqs.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Intro", name: "intro", widget: "markdown" }
+          - { label: "Body", name: "body", widget: "markdown" }
           - label: "Questions"
             name: "questions"
             widget: "list"
@@ -77,14 +77,14 @@ collections:
         file: "content/community.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Intro", name: "intro", widget: "markdown" }
+          - { label: "Body", name: "body", widget: "markdown" }
           - label: "Events"
             name: "community-events"
             widget: "list"
             fields:
-              - { label: "Event Name", name: "event-name", widget: "string" }
-              - { label: "Event Image", name: "event-photo", widget: "image" }
-              - { label: "Event Date", name: "event-date", widget: "date", required: false }
+              - { label: "Event Name", name: "eventName", widget: "string" }
+              - { label: "Event Image", name: "eventPhoto", widget: "image" }
+              - { label: "Event Date", name: "eventDate", widget: "datetime", required: false }
               - { label: "Event Description", name: "event-description", widget: "markdown" }
 
       - label: "People"
@@ -92,7 +92,7 @@ collections:
         file: "content/people.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Intro", name: "intro", widget: "markdown" }
+          - { label: "Body", name: "body", widget: "markdown" }
           - label: "Team"
             name: "team"
             widget: "list"
@@ -104,43 +104,43 @@ collections:
               - { label: "Link", name: "link", widget: "string", required: false }
 
       - label: "Environment, Tools & Libraries"
-        name: "environment-tools-libraries"
+        name: "environmentToolsLibraries"
         file: "content/environment-tools-libraries.md"
         fields:
-          - { label: "Environment Title", name: "cl-title", widget: "string" }
-          - { label: "Environment Intro", name: "cl-intro", widget: "markdown" }
+          - { label: "Environment Title", name: "clTitle", widget: "string" }
+          - { label: "Environment Intro", name: "clIntro", widget: "markdown" }
           - label: "Environment Sections"
-            name: "environment-sections"
+            name: "environmentSections"
             widget: "list"
             fields:
               - { label: "Name", name: "name", widget: "string" }
-              - { label: "Description", name: "description", widget: "markdown" }
-          - { label: "Built-in Tools Title", name: "bit-title", widget: "string" }
-          - { label: "Built-in Tools Intro", name: "bit-intro", widget: "markdown" }
+              - { label: "Description", name: "description", widget: "text" }
+          - { label: "Built-in Tools Title", name: "bitTitle", widget: "string" }
+          - { label: "Built-in Tools Intro", name: "bitIntro", widget: "markdown" }
           - label: "List of Built-in Tools"
-            name: "built-in-tools"
+            name: "builtInTools"
             widget: "list"
             fields:
               - { label: "Name", name: "name", widget: "string" }
-              - { label: "Description", name: "description", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
               - { label: "Link", name: "link", widget: "string" }
-          - { label: "Contributed Tools Title", name: "ct-title", widget: "string" }
-          - { label: "Contributed Tools Intro", name: "ct-intro", widget: "markdown" }
+          - { label: "Contributed Tools Title", name: "ctTitle", widget: "string" }
+          - { label: "Contributed Tools Intro", name: "ctIntro", widget: "markdown" }
           - label: "List of Contributed Tools"
-            name: "contributed-tools"
+            name: "contributedTools"
             widget: "list"
             fields:
               - { label: "Name", name: "name", widget: "string" }
-              - { label: "Description", name: "description", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
               - { label: "Link", name: "link", widget: "string" }
-          - { label: "Built-in Libraries Title", name: "bil-title", widget: "string" }
-          - { label: "Built-in Libraries Intro", name: "bil-intro", widget: "markdown" }
+          - { label: "Built-in Libraries Title", name: "bilTitle", widget: "string" }
+          - { label: "Built-in Libraries Intro", name: "bilIntro", widget: "markdown" }
           - label: "List of Built-in Libraries"
-            name: "built-in-libraries"
+            name: "builtInLibraries"
             widget: "list"
             fields:
               - { label: "Name", name: "name", widget: "string" }
-              - { label: "Description", name: "description", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
               - { label: "Link", name: "link", widget: "string" }
               - { label: "Tags", name: "tags", widget: "relation" }
 
@@ -149,47 +149,47 @@ collections:
         file: "content/donate.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Intro", name: "intro", widget: "markdown" }
+          - { label: "Body", name: "body", widget: "markdown" }
           - label: "Options"
-            name: "donation-options"
+            name: "donationOptions"
             widget: "list"
             fields:
               - { label: "Name", name: "name", widget: "string" }
-              - { label: "Amount", name: "amount", widget: "string" }
+              - { label: "Amount", name: "amount", widget: "number" }
 
       - label: "Downloads"
         name: "downloads"
         file: "content/downloads.md"
         fields:
-          - { label: "Latest Release Title", name: "latest-title", widget: "string" }
-          - { label: "Latest Release Intro", name: "latest-intro", widget: "markdown" }
-          - { label: "Latest Release Date", name: "latest-date", widget: "date" }
+          - { label: "Latest Release Title", name: "latestTitle", widget: "string" }
+          - { label: "Latest Release Intro", name: "latestIntro", widget: "markdown" }
+          - { label: "Latest Release Date", name: "latestDate", widget: "datetime" }
           - label: "Latest Releases"
-            name: "latest-download-options"
+            name: "latestDownloadOptions"
             widget: "list"
             fields:
               - { label: "Title", name: "title", widget: "string" }
-              - { label: "Subtitle", name: "sub-title", widget: "string" }
+              - { label: "Subtitle", name: "subTitle", widget: "string" }
               - { label: "Link", name: "link", widget: "string" }
-          - { label: "Stable Release Title", name: "stable-title", widget: "string" }
-          - { label: "Stable Release Intro", name: "stable-intro", widget: "markdown" }
-          - { label: "Stable Release Date", name: "stable-date", widget: "date" }
+          - { label: "Stable Release Title", name: "stableTitle", widget: "string" }
+          - { label: "Stable Release Intro", name: "stableIntro", widget: "markdown" }
+          - { label: "Stable Release Date", name: "stableDate", widget: "datetime" }
           - label: "Stable-Releases"
-            name: "stable-download-options"
+            name: "stableDownloadOptions"
             widget: "list"
             fields:
               - { label: "Title", name: "title", widget: "string" }
-              - { label: "Subtitle", name: "sub-title", widget: "string" }
+              - { label: "Subtitle", name: "subTitle", widget: "string" }
               - { label: "Link", name: "link", widget: "string" }
-          - { label: "Beta Release Title", name: "beta-title", widget: "string" }
-          - { label: "Beta Release Intro", name: "beta-intro", widget: "markdown" }
-          - { label: "Beta Release Date", name: "beta-date", widget: "date" }
+          - { label: "Beta Release Title", name: "betaTitle", widget: "string" }
+          - { label: "Beta Release Intro", name: "betaIntro", widget: "markdown" }
+          - { label: "Beta Release Date", name: "betaDate", widget: "datetime" }
           - label: "Pre-Releases"
-            name: "beta-download-options"
+            name: "betaDownloadOptions"
             widget: "list"
             fields:
               - { label: "Title", name: "title", widget: "string" }
-              - { label: "Subtitle", name: "sub-title", widget: "string" }
+              - { label: "Subtitle", name: "subTitle", widget: "string" }
               - { label: "Link", name: "link", widget: "string" }
 
   - name: "books"
@@ -202,7 +202,7 @@ collections:
       - { name: "title", label: "Title", widget: "string" }
       - { name: "cover", label: "Cover", widget: "image" }
       - { name: "author", label: "Author", widget: "string" }
-      - { name: "date", label: "Date Published", widget: "date" }
+      - { name: "date", label: "Date Published", widget: "datetime" }
       - { name: "links", label: "Links", widget: "string" }
       - { name: "body", label: "Body", widget: "markdown" }
 
@@ -226,7 +226,7 @@ collections:
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
-      - { name: "date", label: "Date", widget: "date" }
+      - { name: "date", label: "Date", widget: "datetime" }
       - { name: "title", label: "Title", widget: "string" }
       - { name: "banner", label: "Banner", widget: "image" }
       - { name: "thumbnail", label: "Thumbnail", widget: "image" }
@@ -239,7 +239,7 @@ collections:
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
-      - { name: "date", label: "Date", widget: "date" }
+      - { name: "date", label: "Date", widget: "datetime" }
       - { name: "title", label: "Title", widget: "string" }
       - { name: "banner", label: "Banner", widget: "image" }
       - { name: "thumbnail", label: "Thumbnail", widget: "image" }
