@@ -1,5 +1,5 @@
 ---
-hero: /images/uploads/processing-social.jpg
+hero: /assets/processing-social.jpg
 title: Overview
 ---
   ### Overview. A short introduction to the Processing software and projects
