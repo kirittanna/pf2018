@@ -209,13 +209,18 @@ collections:
   - name: "library"
     label: "Libraries"
     label_singular: "Library"
-    folder: "content/library"
+    folder: "content/libraries"
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
       - { name: "title", label: "Title", widget: "string" }
       - { name: "author", label: "Author", widget: "string" }
-      - { name: "links", label: "Links", widget: "string" }
+      - name: "links"
+        label: "Links"
+        widget: "list"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "url", label: "URL", widget: "string" }
       - { name: "body", label: "Body", widget: "markdown" }
       - { name: "tags", label: "Tags", widget: "relation" }
 
