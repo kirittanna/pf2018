@@ -203,7 +203,12 @@ collections:
       - { name: "cover", label: "Cover", widget: "image" }
       - { name: "author", label: "Author", widget: "string" }
       - { name: "date", label: "Date Published", widget: "datetime" }
-      - { name: "links", label: "Links", widget: "string" }
+      - name: "links"
+        label: "Links"
+        widget: "list"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "url", label: "URL", widget: "string" }
       - { name: "body", label: "Body", widget: "markdown" }
 
   - name: "library"
@@ -236,6 +241,18 @@ collections:
       - { name: "banner", label: "Banner", widget: "image" }
       - { name: "thumbnail", label: "Thumbnail", widget: "image" }
       - { name: "body", label: "Body", widget: "markdown" }
+
+  - name: "examples"
+    label: "Examples"
+    label_singular: "Example"
+    folder: "content/examples"
+    create: true
+    fields:
+      - { name: "path", label: "Path", widget: "string" }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "body", label: "Body", widget: "markdown" }
+      - { name: "thumbnail", label: "Thumbnail", widget: "image", required: false }
+      - { name: "code", label: "Code", widget: "file" }
       
   - name: "exhibition"
     label: "Exhibition"

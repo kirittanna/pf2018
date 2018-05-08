@@ -7,6 +7,6 @@ links:
     url: 'http://www.jbox2d.org/'
   - title: Box2D
     url: 'http://box2d.org/'
-tags: physics
+tags: 'physics'
 ---
 A library and set of examples for 2D physics simulation wrapping some aspects of JBox2D, a Java implementation of Box2D.

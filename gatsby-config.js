@@ -23,6 +23,20 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: 'gatsby-remark-embed-snippet',
+            options: {
+              classPrefix: 'language-',
+              // Example code links are relative to this dir.
+              directory: `${__dirname}/public/assets/`,
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: 'language-',
+            },
+          },
+          {
             resolve: `gatsby-remark-responsive-image`,
             options: {
               // It's important to specify the maxWidth (in pixels) of
