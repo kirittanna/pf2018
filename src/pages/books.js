@@ -6,13 +6,13 @@ import { connect } from 'react-redux'
 
 import Anchor from 'grommet/components/Anchor'
 import Box from 'grommet/components/Box'
-import Card from 'grommet/components/Card'
 import Heading from 'grommet/components/Heading'
 import Markdown from 'grommet/components/Markdown'
 import Button from 'grommet/components/Button'
 import Tiles from 'grommet/components/Tiles'
 import Tile from 'grommet/components/Tile'
 
+import BookTile from '../components/BookTile'
 import { navEnable } from '../state/actions'
 import { renderAst } from '../utils/common'
 
@@ -37,15 +37,7 @@ class Books extends Component {
         {renderAst(htmlAst)}
         <Tiles>
           {allMarkdownRemark.edges.map(({ node: { frontmatter }, html }) => (
-            <Tile wrap={true} pad="small">
-              <Card
-                thumbnail={frontmatter.cover}
-                heading={frontmatter.title}
-                label="Books"
-                description={html}
-                onClick={this.onClick}
-              />
-            </Tile>
+            <BookTile title={frontmatter.title} description={html} />
           ))}
         </Tiles>
       </Box>
@@ -75,9 +67,11 @@ export const pageQuery = graphql`
         node {
           html
           frontmatter {
-            path
             title
+            path
             cover
+            author
+            date
           }
         }
       }

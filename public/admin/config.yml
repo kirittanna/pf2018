@@ -103,46 +103,12 @@ collections:
               - { label: "Profile Image", name: "photo", widget: "image", required: false }
               - { label: "Link", name: "link", widget: "string", required: false }
 
-      - label: "Environment, Tools & Libraries"
-        name: "environmentToolsLibraries"
-        file: "content/environment-tools-libraries.md"
+      - label: "Environment"
+        name: "environment"
+        file: "content/environment.md"
         fields:
-          - { label: "Environment Title", name: "clTitle", widget: "string" }
-          - { label: "Environment Intro", name: "clIntro", widget: "markdown" }
-          - label: "Environment Sections"
-            name: "environmentSections"
-            widget: "list"
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-          - { label: "Built-in Tools Title", name: "bitTitle", widget: "string" }
-          - { label: "Built-in Tools Intro", name: "bitIntro", widget: "markdown" }
-          - label: "List of Built-in Tools"
-            name: "builtInTools"
-            widget: "list"
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - { label: "Link", name: "link", widget: "string" }
-          - { label: "Contributed Tools Title", name: "ctTitle", widget: "string" }
-          - { label: "Contributed Tools Intro", name: "ctIntro", widget: "markdown" }
-          - label: "List of Contributed Tools"
-            name: "contributedTools"
-            widget: "list"
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - { label: "Link", name: "link", widget: "string" }
-          - { label: "Built-in Libraries Title", name: "bilTitle", widget: "string" }
-          - { label: "Built-in Libraries Intro", name: "bilIntro", widget: "markdown" }
-          - label: "List of Built-in Libraries"
-            name: "builtInLibraries"
-            widget: "list"
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - { label: "Link", name: "link", widget: "string" }
-              - { label: "Tags", name: "tags", widget: "relation" }
+          - { label: "Title", name: "clTitle", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
 
       - label: "Donate"
         name: "donate"
@@ -220,6 +186,26 @@ collections:
       - { name: "path", label: "Path", widget: "string" }
       - { name: "title", label: "Title", widget: "string" }
       - { name: "author", label: "Author", widget: "string" }
+      - { name: "builtIn", label: "Built-in", widget: "boolean", default: false }
+      - name: "links"
+        label: "Links"
+        widget: "list"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "url", label: "URL", widget: "string" }
+      - { name: "body", label: "Body", widget: "markdown" }
+      - { name: "tags", label: "Tags", widget: "relation", collection: "examples", searchFields: ["title", "body"], valueField: "path", displayFields: ["name", "path"] }
+
+  - name: "tools"
+    label: "Tools"
+    label_singular: "Tool"
+    folder: "content/tools"
+    create: true
+    fields:
+      - { name: "path", label: "Path", widget: "string" }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "author", label: "Author", widget: "string" }
+      - { name: "builtIn", label: "Built-in", widget: "boolean", default: false }
       - name: "links"
         label: "Links"
         widget: "list"

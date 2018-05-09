@@ -1,20 +1,22 @@
 import React, { Component, PropTypes } from 'react'
 import Img from 'gatsby-image'
 
+import Anchor from 'grommet/components/Anchor'
+import Box from 'grommet/components/Box'
+
 import styles from './BookTile.css'
 
 const BookTile = ({ description, resolutions, title }) => (
-  <div className={styles.BookTile}>
+  <Box>
     <Img resolutions={resolutions} />
     <h4>{title}</h4>
     <p>{description}</p>
-  </div>
+  </Box>
 )
 
 BookTile.propTypes = {
   description: PropTypes.string,
   resolutions: PropTypes.object,
-  thumbnail: PropTypes.string,
   title: PropTypes.string,
 }
 
