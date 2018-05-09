@@ -1,7 +1,7 @@
 ---
 path: /books/programming-handbook-for-visual-designers-second-edition
 title: 'Processing: A Programming Handbook for Visual Designers, Second Edition'
-cover: /images/uploads/processing-handbook-second-edition-lg.jpg
+cover: /assets/books/processing-handbook-second-edition-lg.jpg
 author: >-
   Casey Reas and Ben Fry. Published December 2014, The MIT Press. 720 pages.
   Hardcover.

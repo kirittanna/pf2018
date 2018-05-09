@@ -6,68 +6,47 @@ import { connect } from 'react-redux'
 
 import Anchor from 'grommet/components/Anchor'
 import Box from 'grommet/components/Box'
-import Card from 'grommet/components/Card'
 import Heading from 'grommet/components/Heading'
 import Markdown from 'grommet/components/Markdown'
 import Button from 'grommet/components/Button'
-import Tiles from 'grommet/components/Tiles'
-import Tile from 'grommet/components/Tile'
+import List from 'grommet/components/List'
+import ListItem from 'grommet/components/ListItem'
 
 import { navEnable } from '../state/actions'
 import { renderAst } from '../utils/common'
 
-class Exhibition extends Component {
+class Tutorials extends Component {
   componentDidMount() {
     this.props.dispatch(navEnable(true))
   }
 
-  onClick = e => {
-    console.log(e)
-  }
-
   render() {
     const { data } = this.props
-    const { allMarkdownRemark, markdownRemark } = data // data.markdownRemark holds our post data
-    const { htmlAst, frontmatter } = markdownRemark
+    const { allMarkdownRemark } = data // data.markdownRemark holds our post data
     return (
       <Box full="horizontal">
-        <Heading strong={true} tag="h2">
-          {frontmatter.title}
-        </Heading>
-        {renderAst(htmlAst)}
-        <Tiles>
+        <List>
           {allMarkdownRemark.edges.map(({ node: { frontmatter }, html }) => (
-            <Tile wrap={true} pad="small">
-              <Card
-                thumbnail={frontmatter.thumbnail}
-                heading={frontmatter.title}
-                label="Exhibition"
-                description={html}
-                onClick={this.onClick}
-              />
-            </Tile>
+            <ListItem wrap={true} pad="small" separator="bottom">
+              <Anchor href={frontmatter.path}>{frontmatter.title}</Anchor>
+              {html}
+            </ListItem>
           ))}
-        </Tiles>
+        </List>
       </Box>
     )
   }
 }
 
-Exhibition.propTypes = {
+Tutorials.propTypes = {
   data: React.PropTypes.object,
   route: React.PropTypes.object,
 }
 
 export const pageQuery = graphql`
-  query ExhibitionQuery {
-    markdownRemark(frontmatter: { path: { eq: "/exhibition" } }) {
-      htmlAst
-      frontmatter {
-        title
-      }
-    }
+  query TutorialsQuery {
     allMarkdownRemark(
-      filter: { frontmatter: { path: { regex: "/exhibition/" } } }
+      filter: { frontmatter: { path: { regex: "/tutorials/" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
       limit: 1000
     ) {
@@ -77,7 +56,6 @@ export const pageQuery = graphql`
           frontmatter {
             path
             title
-            thumbnail
           }
         }
       }
@@ -93,4 +71,4 @@ const mapStateToProps = ({ nav }) => ({
   nav,
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Exhibition)
+export default connect(mapStateToProps, mapDispatchToProps)(Tutorials)

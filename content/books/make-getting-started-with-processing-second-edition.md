@@ -1,7 +1,7 @@
 ---
 path: /books/make-getting-started-with-processing
 title: 'Make: Getting Started with Processing (Second Edition)'
-cover: /assets/make-getting-started-with-processing.jpg
+cover: /assets/books/make-getting-started-with-processing.jpg
 author: Casey Reas & Ben Fry
 date: '2015-09-01T23:51:21-04:00'
 links:
