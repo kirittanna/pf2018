@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
-import get from 'lodash/get'
+import { get } from 'lodash/fp'
 import Helmet from 'react-helmet'
 import { connect } from 'react-redux'
 
@@ -14,7 +14,7 @@ import Tile from 'grommet/components/Tile'
 
 import BookTile from '../components/BookTile'
 import { navEnable } from '../state/actions'
-import { renderAst } from '../utils/common'
+import { renderAst, getImageResolutions } from '../utils/common'
 
 class Books extends Component {
   componentDidMount() {
@@ -27,7 +27,7 @@ class Books extends Component {
 
   render() {
     const { data } = this.props
-    const { allMarkdownRemark, markdownRemark } = data // data.markdownRemark holds our post data
+    const { allMarkdownRemark, allImageSharp, markdownRemark } = data
     const { htmlAst, frontmatter } = markdownRemark
     return (
       <Box full="horizontal">
@@ -37,7 +37,16 @@ class Books extends Component {
         {renderAst(htmlAst)}
         <Tiles>
           {allMarkdownRemark.edges.map(({ node: { frontmatter }, html }) => (
-            <BookTile title={frontmatter.title} description={html} />
+            <Tile size="medium">
+              <BookTile
+                {...frontmatter}
+                description={html}
+                resolutions={getImageResolutions(
+                  allImageSharp,
+                  frontmatter.cover
+                )}
+              />
+            </Tile>
           ))}
         </Tiles>
       </Box>
@@ -59,7 +68,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { path: { regex: "/books/" } } }
+      filter: { frontmatter: { path: { regex: "/\/books\//" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
       limit: 1000
     ) {
@@ -76,8 +85,18 @@ export const pageQuery = graphql`
         }
       }
     }
+    allImageSharp(filter: { id: { regex: "/\/books_/" } }) {
+      edges {
+        node {
+          id
+          resolutions(width:300) {
+            ...GatsbyImageSharpResolutions
+          }
+        }
+      }
+    }
   }
-`
+` // prettier-ignore
 
 const mapDispatchToProps = dispatch => ({
   dispatch,

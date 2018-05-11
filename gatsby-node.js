@@ -4,8 +4,8 @@ const buildPages = (
   { boundActionCreators, graphql },
   component,
   regex,
-  fields,
-  context = {}
+  fields = [],
+  contextFields = []
 ) => {
   const { createPage } = boundActionCreators
 
@@ -36,9 +36,17 @@ const buildPages = (
         fields.forEach(fieldName => {
           props[fieldName] = node.frontmatter[fieldName]
         })
+        const context = {} // additional data can be passed via context
+        contextFields.forEach(fieldName => {
+          const fieldValue = node.frontmatter[fieldName]
+          context[fieldName] = new RegExp(
+            fieldValue.substr(fieldValue.lastIndexOf('/') + 1)
+          )
+        })
+        console.log('context:', context)
         createPage({
           component,
-          context, // additional data can be passed via context
+          context,
           ...props,
         })
       })
@@ -57,7 +65,13 @@ exports.createPages = args => {
   const tutorialTemplate = path.resolve(`src/templates/tutorial.js`)
 
   return Promise.all([
-    buildPages(args, bookTemplate, /\/books\//, ['path', 'title']),
+    buildPages(
+      args,
+      bookTemplate,
+      /\/books\//,
+      ['path', 'title', 'cover'],
+      ['cover']
+    ),
     buildPages(args, exhibitionTemplate, /\/exhibition\//, ['path', 'title']),
     buildPages(args, exampleTemplate, /\/examples\//, [
       'path',
