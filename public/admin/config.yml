@@ -130,6 +130,12 @@ collections:
             fields:
               - { label: "Title", name: "sectionTitle", widget: "string" }
               - { label: "Body", name: "sectionBody", widget: "markdown" }
+          - label: "IDE"
+            name: "ide"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "sectionTitle", widget: "string" }
+              - { label: "Body", name: "sectionBody", widget: "markdown" }
 
       - label: "Donate"
         name: "donate"

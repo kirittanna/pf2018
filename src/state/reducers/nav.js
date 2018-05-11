@@ -9,8 +9,8 @@ import {
 } from '../actions'
 
 const initialState = {
-  active: false, // start with nav active
-  enabled: false, // start with nav disabled
+  active: true,
+  enabled: true,
   responsive: 'multiple',
   peek: false,
   items: [

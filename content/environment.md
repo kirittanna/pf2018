@@ -1,46 +1,133 @@
 ---
 title: Environment
 path: /environment
-header: >-
-  Environment (IDE). The Processing Environment includes a text editor, a
-  compiler, and a display window. It enables the creation of software within a
-  carefully designed set of constraints.
-
-  ===========================================================================================================================================================================================
+header: Header
 footer: Footer
 sections:
   - sectionBody: >-
-      The Processing Development Environment (PDE) makes it easy to write
-      Processing programs. Programs are written in the Text Editor and started
-      by pressing the Run button. In Processing, a computer program is called a
-      _sketch_. Sketches are stored in the _Sketchbook_, which is a folder on
-      your computer.
+      All Processing projects are called sketches. Each sketch has its own
+      folder. The main file for each sketch has the same name as the folder and
+      is found inside. For example, if the sketch is named "Sketch\_123", the
+      folder for the sketch will be called "Sketch\_123" and the main file will
+      be called "Sketch_123.pde". The PDE file extension is an acronym for the
+      Processing Development Environment.
 
 
-      Sketches can draw two- and three-dimensional graphics. The default
-      renderer is for drawing two-dimensional graphics. The P3D renderer makes
-      it possible to draw three-dimensional graphics, which includes controlling
-      the camera, lighting, and materials. The P2D renderer is a fast, but less
-      accurate renderer for drawing two-dimensional graphics. Both the P2D and
-      P3D renderers are accelerated if your computer has an OpenGL compatible
-      graphics card.
+      Processing sketches can be stored anywhere on your computer, but by
+      default they are stored in the sketchbook, which will be in different
+      places on your computer or network depending if you use PC, Mac, or Linux
+      and how the preferences are set. To locate this folder, select the
+      "Preferences" option from the File menu (or from the "Processing" menu on
+      the Mac) and look for the "Sketchbook location."
 
 
-      The capabilities of Processing are extended with _Libraries_ and _Tools_.
-      Libraries make it possible for sketches to do things beyond the _core_
-      Processing code. There are hundreds of libraries contributed by the
-      Processing community that can be added to your sketches to enable new
-      things like playing sounds, doing computer vision, and working with
-      advanced 3D geometry. Tools extend the PDE to help make creating sketches
-      easier by providing interfaces for tasks like selecting colors.
+      A sketch folder sometimes contains other folders for media files and other
+      code. When a font or image is added to a sketch by selecting "Add File..."
+      from the Sketch menu, a "data" folder is created. Files may also be added
+      to your Processing sketch by dragging them into the text editor. Image and
+      sound files dragged into the application window will automatically be
+      added to the current sketch's "data" folder. All images, fonts, sounds,
+      and other data files loaded in the sketch must be in this folder.
+    sectionTitle: Sketches & Sketchbook
+  - sectionBody: "Processing has four built-in screen renderers. The default renderer is for drawing two-dimensional shapes. _P2D_ is a faster, but less accurate renderer for drawing two-dimensional shapes. _P3D_ is for three-dimensional geometry; it can also control the camera, lighting, and materials. The P2D and P3D renderers are accelerated if your computer has an OpenGL compatible graphics card. The smooth() function affects the amount of antialiasing for each renderer. Check the reference for smooth() for more information.\n\nWith the release of Processing 3.0, the _FX2D_ renderer is included. Use it for fast 2D graphics on large and high resolution displays for more speed than the default renderer. This renderer is still experimental, but it useful for certain conditions.\n\nThe renderer used for each sketch is specified through the size() function. If a renderer is not explicitly defined in size(), it uses the default renderer as shown in the following program:\n\nvoid **setup**() {\n\_\_size(200, 200);\n}\n\nvoid **draw**() {\n\_\_background(204);\n\_\_line(width/2, height/2, mouseX, mouseY);\n}\n\nTo change the renderer, add a third parameter to size(). For example:\n\nvoid **setup**() {\n\_\_size(200, 200, P2D);\n}\n\nvoid **draw**() {\n\_\_background(204);\n\_\_line(width/2, height/2, mouseX, mouseY);\n}\n\nA large effort has been made to make Processing code behave similarly across the different renderers, but there are currently some inconsistencies that are explained in the reference.\n\nFor more information, see the size() reference entry."
+    sectionTitle: Renderers
+  - sectionBody: >-
+      Processing uses a Cartesian coordinate system with the origin in the
+      upper-left corner. If your sketch is 320 pixels wide and 240 pixels high,
+      coordinate (0, 0) is the upper-left pixel and coordinate (320, 240) is in
+      the lower-right. The last visible pixel in the lower-right corner of the
+      screen is at position(319, 239) because pixels are drawn to the right and
+      below the coordinate.
 
+      ![](images/coordinates2D3D.png)
 
+      Using the three-dimension coordinate system of P3D, the z-coordinate is
+      zero at the surface of the image, with negative z-values moving back in
+      space. When drawing in 3D, the _camera_ is positioned in the center of the
+      screen.
+    sectionTitle: Coordinates
+  - sectionBody: >-
+      It can be inconvenient to write a long program within a single file. When
+      Processing sketches grow to hundreds or thousands of lines, breaking them
+      into modular units helps manage the different parts. Processing manages
+      files with the Sketchbook and each sketch can have multiple files that are
+      managed with tabs.
+
+      The arrow button to the right of the tabs in the Processing Development
+      Environment is used to manage these files. Click this button to reveal
+      options to create a new tab, rename the current tab, and delete the
+      current tab. Tabs are intended for more advanced users, and for this
+      reason, the menu that controls the tabs is intentionally made less
+      prominent.
+
+      _Advanced_  
+        
+      When a program with multiple tabs is run, the code is grouped together and
+      the classes in other tabs become inner classes. Because they're inner
+      classes, they cannot have static variables. Simply place the "static"
+      variable outside the class itself to do the same thing (it need not be
+      explicitly named "static" once you list it in this manner). If you don't
+      want code to be an inner class, you can also create a tab with a ".java"
+      suffix, which means it will be interpreted as straight java code. It is
+      also not possible to use static classes in separate tabs. If you do this,
+      however, you'll need to pass the PApplet object to that object in that tab
+      in order to get PApplet functions like line(), loadStrings() or
+      saveFrame() to work.
+    sectionTitle: 'Tabs, Multiple Files, and Classes'
+  - sectionBody: >-
+      The Processing Debugger is a tool for diagnosing problems with a sketch.
+      Enable it to pause a sketch while running and advance through the code one
+      line at a time. The debugger is enabled through the File menu (Debug >
+      Enable Debugger) or by clicking the Debugger icon, the butterfly in the
+      upper-right corner of the PDE.
+
+      When the Debugger is enabled, the program runs as normal, but stops at
+      "breakpoints." To create a breakpoint, set the cursor at the line you want
+      to pause the sketch and select Debug > Toggle Breakpoint. The keyboard
+      shortcut is Command-B. To remove the breakpoint, select Toggle Breakpoint
+      again. When a breakpoint is added, the line number is replaced with the
+      symbol: `<>`.
+
+      Running the sketch in Debug mode causes the sketch to pause at any
+      breakpoints. When paused, current variable values are visible in a
+      separate pane. You can advance to the next breakpoint by selecting
+      "Continue" or advance line by line through the code with "Step". Stepping
+      only works within the scope of the current function being run.
+    sectionTitle: Debug
+  - sectionBody: >-
       Processing has different _programming modes_ to make it possible to deploy
-      sketches on different platforms and program in different ways. The Java
-      mode is the default. Other programming modes may be downloaded by
-      selecting "Add Mode..." from the menu in the upper-right corner of the
-      PDE.
-    sectionTitle: Overview
+      sketches on different platforms and program in different ways. The current
+      default programming mode is _Java_ mode. Other programming modes such as
+      _Android Mode_ and _Python_ are added by selecting "Add Mode..." from the
+      menu in the upper-right corner of the PDE.
+    sectionTitle: Programming Modes
+  - sectionBody: >-
+      Processing 3.0 includes a set of features to make it easier to install,
+      update, and remove Libraries, Tools, Modes, and Examples.
+
+      Add a contributed library by selecting "Add Library..." from the "Import
+      Library..." submenu within the Sketch menu. This opens the Library
+      Manager. Next, select a library and then click on Install to download it.
+
+      Add a contributed tool by selecting "Add Tool..." from the Tools menu,
+      then select a Tool to download from the Tool Manager.
+
+      Add contributed modes by selecting "Add Mode..." from the Mode menu in the
+      upper-right corner of the PDE, then select a Mode to install.
+
+      Add contributed Examples by first opening the "Examples..." submenu from
+      the File menu. Click on the Add Examples button to open the Examples
+      Manager. Next, select an examples package and select Install to download.
+    sectionTitle: 'Adding Libraries, Tools, and Modes'
+  - sectionBody: >-
+      The [Export information and
+      Tips](http://wiki.processing.org/w/Export_Info_and_Tips) page on the
+      Processing Wiki covers the details of exporting Applications from Java
+      mode.
+    sectionTitle: Export
+  - sectionBody: "This mode makes it possible to write short programs to draw to the screen, but also enables complex Java programs as well. It can be used simply by beginners, but it scales to professional Java software development. Sketches written in this mode can be exported as Java Applications to run on Linux, Mac OS X, and Windows operating systems.\n\n_Advanced_  \n  \nJava files with the extension .java can be included with a Java mode sketch. They may be created directly in the PDE or copied into the sketch folder through the \"Add File...\" item in the Sketch menu or dragged into the text editor. It's possible to write any Java code in files with the .java extension. In fact, complete Java code can be written from inside the Processing Environment by subclassing PApplet like this:\n\npublic class MyDemo extends PApplet {\n   \t\n\nThis is for advanced developers only and is not really recommended. Using this technique means that any additional tabs will no longer be inner classes, meaning you'll have to do extra work to make them communicate properly with the host PApplet. It is not necessary to use this technique just to get features of the Java language. Advanced developers can also program with Processing in another Java Editor if higher-level code editing and tools are needed. Processing's core.jar can be used as a part of any Java project."
+    sectionTitle: Java Mode
+ide:
   - sectionBody: >-
       The Processing Development Environment (PDE) consists of a simple text
       editor for writing code, a message area, a text console, tabs for managing
@@ -102,153 +189,6 @@ sections:
       *   _Run sketches on display_  
           If more than one monitor is attached, select the monitor on which to display the sketch.
     sectionTitle: Preferences
-  - sectionBody: >-
-      All Processing projects are called sketches. Each sketch has its own
-      folder. The main file for each sketch has the same name as the folder and
-      is found inside. For example, if the sketch is named "Sketch\_123", the
-      folder for the sketch will be called "Sketch\_123" and the main file will
-      be called "Sketch_123.pde". The PDE file extension is an acronym for the
-      Processing Development Environment.
-
-
-      Processing sketches can be stored anywhere on your computer, but by
-      default they are stored in the sketchbook, which will be in different
-      places on your computer or network depending if you use PC, Mac, or Linux
-      and how the preferences are set. To locate this folder, select the
-      "Preferences" option from the File menu (or from the "Processing" menu on
-      the Mac) and look for the "Sketchbook location."
-
-
-      A sketch folder sometimes contains other folders for media files and other
-      code. When a font or image is added to a sketch by selecting "Add File..."
-      from the Sketch menu, a "data" folder is created. Files may also be added
-      to your Processing sketch by dragging them into the text editor. Image and
-      sound files dragged into the application window will automatically be
-      added to the current sketch's "data" folder. All images, fonts, sounds,
-      and other data files loaded in the sketch must be in this folder.
-    sectionTitle: Sketches & Sketchbook
-  - sectionBody: "Processing has four built-in screen renderers. The default renderer is for drawing two-dimensional shapes. _P2D_ is a faster, but less accurate renderer for drawing two-dimensional shapes. _P3D_ is for three-dimensional geometry; it can also control the camera, lighting, and materials. The P2D and P3D renderers are accelerated if your computer has an OpenGL compatible graphics card. The smooth() function affects the amount of antialiasing for each renderer. Check the reference for smooth() for more information.\n\nWith the release of Processing 3.0, the _FX2D_ renderer is included. Use it for fast 2D graphics on large and high resolution displays for more speed than the default renderer. This renderer is still experimental, but it useful for certain conditions.\n\nThe renderer used for each sketch is specified through the size() function. If a renderer is not explicitly defined in size(), it uses the default renderer as shown in the following program:\n\nvoid **setup**() {\n\_\_size(200, 200);\n}\n\nvoid **draw**() {\n\_\_background(204);\n\_\_line(width/2, height/2, mouseX, mouseY);\n}\n\nTo change the renderer, add a third parameter to size(). For example:\n\nvoid **setup**() {\n\_\_size(200, 200, P2D);\n}\n\nvoid **draw**() {\n\_\_background(204);\n\_\_line(width/2, height/2, mouseX, mouseY);\n}\n\nA large effort has been made to make Processing code behave similarly across the different renderers, but there are currently some inconsistencies that are explained in the reference.\n\nFor more information, see the size() reference entry."
-    sectionTitle: Renderers
-  - sectionBody: >-
-      Processing uses a Cartesian coordinate system with the origin in the
-      upper-left corner. If your sketch is 320 pixels wide and 240 pixels high,
-      coordinate (0, 0) is the upper-left pixel and coordinate (320, 240) is in
-      the lower-right. The last visible pixel in the lower-right corner of the
-      screen is at position(319, 239) because pixels are drawn to the right and
-      below the coordinate.
-
-
-      ![](images/coordinates2D3D.png)
-
-
-      Using the three-dimension coordinate system of P3D, the z-coordinate is
-      zero at the surface of the image, with negative z-values moving back in
-      space. When drawing in 3D, the _camera_ is positioned in the center of the
-      screen.
-    sectionTitle: Coordinates
-  - sectionBody: >-
-      It can be inconvenient to write a long program within a single file. When
-      Processing sketches grow to hundreds or thousands of lines, breaking them
-      into modular units helps manage the different parts. Processing manages
-      files with the Sketchbook and each sketch can have multiple files that are
-      managed with tabs.
-
-
-      The arrow button to the right of the tabs in the Processing Development
-      Environment is used to manage these files. Click this button to reveal
-      options to create a new tab, rename the current tab, and delete the
-      current tab. Tabs are intended for more advanced users, and for this
-      reason, the menu that controls the tabs is intentionally made less
-      prominent.
-
-
-      _Advanced_  
-        
-      When a program with multiple tabs is run, the code is grouped together and
-      the classes in other tabs become inner classes. Because they're inner
-      classes, they cannot have static variables. Simply place the "static"
-      variable outside the class itself to do the same thing (it need not be
-      explicitly named "static" once you list it in this manner). If you don't
-      want code to be an inner class, you can also create a tab with a ".java"
-      suffix, which means it will be interpreted as straight java code. It is
-      also not possible to use static classes in separate tabs. If you do this,
-      however, you'll need to pass the PApplet object to that object in that tab
-      in order to get PApplet functions like line(), loadStrings() or
-      saveFrame() to work.
-    sectionTitle: 'Tabs, Multiple Files, and Classes'
-  - sectionBody: >-
-      The Processing Debugger is a tool for diagnosing problems with a sketch.
-      Enable it to pause a sketch while running and advance through the code one
-      line at a time. The debugger is enabled through the File menu (Debug >
-      Enable Debugger) or by clicking the Debugger icon, the butterfly in the
-      upper-right corner of the PDE.
-
-
-      When the Debugger is enabled, the program runs as normal, but stops at
-      "breakpoints." To create a breakpoint, set the cursor at the line you want
-      to pause the sketch and select Debug > Toggle Breakpoint. The keyboard
-      shortcut is Command-B. To remove the breakpoint, select Toggle Breakpoint
-      again. When a breakpoint is added, the line number is replaced with the
-      symbol: `<>`.
-
-
-      Running the sketch in Debug mode causes the sketch to pause at any
-      breakpoints. When paused, current variable values are visible in a
-      separate pane. You can advance to the next breakpoint by selecting
-      "Continue" or advance line by line through the code with "Step". Stepping
-      only works within the scope of the current function being run.
-    sectionTitle: Debug
-  - sectionBody: >-
-      Processing has different _programming modes_ to make it possible to deploy
-      sketches on different platforms and program in different ways. The current
-      default programming mode is _Java_ mode. Other programming modes such as
-      _Android Mode_ and _Python_ are added by selecting "Add Mode..." from the
-      menu in the upper-right corner of the PDE.
-    sectionTitle: Programming Modes
-  - sectionBody: >-
-      Processing 3.0 includes a set of features to make it easier to install,
-      update, and remove Libraries, Tools, Modes, and Examples.
-
-
-      Add a contributed library by selecting "Add Library..." from the "Import
-      Library..." submenu within the Sketch menu. This opens the Library
-      Manager. Next, select a library and then click on Install to download it.
-
-
-      Add a contributed tool by selecting "Add Tool..." from the Tools menu,
-      then select a Tool to download from the Tool Manager.
-
-
-      Add contributed modes by selecting "Add Mode..." from the Mode menu in the
-      upper-right corner of the PDE, then select a Mode to install.
-
-
-      Add contributed Examples by first opening the "Examples..." submenu from
-      the File menu. Click on the Add Examples button to open the Examples
-      Manager. Next, select an examples package and select Install to download.
-    sectionTitle: 'Adding Libraries, Tools, and Modes'
-  - sectionBody: >-
-      The [Export information and
-      Tips](http://wiki.processing.org/w/Export_Info_and_Tips) page on the
-      Processing Wiki covers the details of exporting Applications from Java
-      mode.
-    sectionTitle: Export
-  - sectionBody: "This mode makes it possible to write short programs to draw to the screen, but also enables complex Java programs as well. It can be used simply by beginners, but it scales to professional Java software development. Sketches written in this mode can be exported as Java Applications to run on Linux, Mac OS X, and Windows operating systems.\n\n_Advanced_  \n  \nJava files with the extension .java can be included with a Java mode sketch. They may be created directly in the PDE or copied into the sketch folder through the \"Add File...\" item in the Sketch menu or dragged into the text editor. It's possible to write any Java code in files with the .java extension. In fact, complete Java code can be written from inside the Processing Environment by subclassing PApplet like this:\n\npublic class MyDemo extends PApplet {\n   \t\n\nThis is for advanced developers only and is not really recommended. Using this technique means that any additional tabs will no longer be inner classes, meaning you'll have to do extra work to make them communicate properly with the host PApplet. It is not necessary to use this technique just to get features of the Java language. Advanced developers can also program with Processing in another Java Editor if higher-level code editing and tools are needed. Processing's core.jar can be used as a part of any Java project."
-    sectionTitle: Java Mode
-  - sectionBody: |-
-      *   _Create Font..._  
-          Converts fonts into the Processing font format (VLW) and adds to the current sketch. Opens a dialog box that gives options for setting the font, its size, if it is anti-aliased (smooth), and which characters to be generated. The amount of memory required for the font is determined by the size selected and the number of characters selected through the "Characters..." menu; Processing fonts are textures, so larger fonts require more image data. Fonts can also be created in the code with the createFont() function.
-      *   _Color Selector..._  
-          Interface for selecting colors. For each color, the HSB, RBG, and Hex values are shown. The Hex value can be copied into the clipboard with the Copy button.
-      *   _Archive Sketch_  
-          Archives a copy of the current sketch in .zip format. The archive is placed in the same folder as the sketch.
-      *   _Install "processing-java"_  
-          Installs the processing-java program to make it possible to build and run Java mode sketches from the command line.
-      *   _Movie Maker_  
-          Creates a QuickTime movie from a sequence of images. Options include setting the size, frame rate, and compression, as well as an audio file.
-      *   _Add Tool..._  
-          Opens the Tool Manager to browse and install new Tools.
-    sectionTitle: Tools
   - sectionBody: >-
       * _New_
 
@@ -358,6 +298,20 @@ sections:
       *   _Add File..._  
           Opens a file navigator window. Select an image, font, or other media files to add it to the sketch's "data" folder.
     sectionTitle: Sketch
+    - sectionBody: |-
+      *   _Create Font..._  
+          Converts fonts into the Processing font format (VLW) and adds to the current sketch. Opens a dialog box that gives options for setting the font, its size, if it is anti-aliased (smooth), and which characters to be generated. The amount of memory required for the font is determined by the size selected and the number of characters selected through the "Characters..." menu; Processing fonts are textures, so larger fonts require more image data. Fonts can also be created in the code with the createFont() function.
+      *   _Color Selector..._  
+          Interface for selecting colors. For each color, the HSB, RBG, and Hex values are shown. The Hex value can be copied into the clipboard with the Copy button.
+      *   _Archive Sketch_  
+          Archives a copy of the current sketch in .zip format. The archive is placed in the same folder as the sketch.
+      *   _Install "processing-java"_  
+          Installs the processing-java program to make it possible to build and run Java mode sketches from the command line.
+      *   _Movie Maker_  
+          Creates a QuickTime movie from a sequence of images. Options include setting the size, frame rate, and compression, as well as an audio file.
+      *   _Add Tool..._  
+          Opens the Tool Manager to browse and install new Tools.
+    sectionTitle: Tools
   - sectionBody: |-
       *   _Enable Debugger_  
           Activates the debugger. Note that the Run button will change to Debug. New Continue and Step buttons will appear, along with a separate window for viewing variable values.
@@ -420,4 +374,35 @@ sections:
       items relevant to the work currently being carried out are available.
     sectionTitle: Toolbar
 ---
-Body
+  Environment (IDE). The Processing Environment includes a text editor, a
+  compiler, and a display window. It enables the creation of software within a
+  carefully designed set of constraints.
+  ===========================================================================================================================================================================================
+
+  The Processing Development Environment (PDE) makes it easy to write
+  Processing programs. Programs are written in the Text Editor and started
+  by pressing the Run button. In Processing, a computer program is called a
+  _sketch_. Sketches are stored in the _Sketchbook_, which is a folder on
+  your computer.
+
+  Sketches can draw two- and three-dimensional graphics. The default
+  renderer is for drawing two-dimensional graphics. The P3D renderer makes
+  it possible to draw three-dimensional graphics, which includes controlling
+  the camera, lighting, and materials. The P2D renderer is a fast, but less
+  accurate renderer for drawing two-dimensional graphics. Both the P2D and
+  P3D renderers are accelerated if your computer has an OpenGL compatible
+  graphics card.
+
+  The capabilities of Processing are extended with _Libraries_ and _Tools_.
+  Libraries make it possible for sketches to do things beyond the _core_
+  Processing code. There are hundreds of libraries contributed by the
+  Processing community that can be added to your sketches to enable new
+  things like playing sounds, doing computer vision, and working with
+  advanced 3D geometry. Tools extend the PDE to help make creating sketches
+  easier by providing interfaces for tasks like selecting colors.
+
+  Processing has different _programming modes_ to make it possible to deploy
+  sketches on different platforms and program in different ways. The Java
+  mode is the default. Other programming modes may be downloaded by
+  selecting "Add Mode..." from the menu in the upper-right corner of the
+  PDE.

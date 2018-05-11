@@ -10,6 +10,8 @@ import Box from 'grommet/components/Box'
 import Heading from 'grommet/components/Heading'
 import Markdown from 'grommet/components/Markdown'
 import Button from 'grommet/components/Button'
+import Tabs from 'grommet/components/Tabs'
+import Tab from 'grommet/components/Tab'
 
 import { navEnable } from '../state/actions'
 import { renderAst } from '../utils/common'
@@ -29,13 +31,26 @@ class Environment extends Component {
           {frontmatter.title}
         </Heading>
         {renderAst(htmlAst)}
-        <Accordion>
-          {frontmatter.sections.map(({ sectionTitle, sectionBody }) => (
-            <AccordionPanel heading={sectionTitle}>
-              <Markdown>{sectionBody}</Markdown>
-            </AccordionPanel>
-          ))}
-        </Accordion>
+        <Tabs>
+          <Tab title="General">
+            <Accordion>
+              {frontmatter.sections.map(({ sectionTitle, sectionBody }) => (
+                <AccordionPanel heading={sectionTitle}>
+                  <Markdown content={sectionBody} />
+                </AccordionPanel>
+              ))}
+            </Accordion>
+          </Tab>
+          <Tab title="The Processing IDE">
+            <Accordion>
+              {frontmatter.ide.map(({ sectionTitle, sectionBody }) => (
+                <AccordionPanel heading={sectionTitle}>
+                  <Markdown content={sectionBody} />
+                </AccordionPanel>
+              ))}
+            </Accordion>
+          </Tab>
+        </Tabs>
       </Box>
     )
   }
@@ -56,6 +71,10 @@ export const pageQuery = graphql`
         header
         footer
         sections {
+          sectionBody
+          sectionTitle
+        }
+        ide {
           sectionBody
           sectionTitle
         }
