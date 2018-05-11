@@ -7,6 +7,7 @@ import { siteMetadata } from '../../gatsby-config'
 // import 'grommet/grommet.min.css'
 import '../../theme/dist/grommet.css'
 import styles from '../css/app.css'
+require('prismjs/themes/prism-solarizedlight.css')
 
 import App from 'grommet/components/App'
 import Anchor from 'grommet/components/Anchor'

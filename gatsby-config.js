@@ -34,6 +34,9 @@ module.exports = {
             resolve: `gatsby-remark-prismjs`,
             options: {
               classPrefix: 'language-',
+              aliases: {
+                pde: 'processing',
+              },
             },
           },
           {

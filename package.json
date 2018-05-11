@@ -20,7 +20,7 @@
     "gatsby-remark-embed-snippet": "^1.0.22",
     "gatsby-remark-embed-video": "^1.2.0",
     "gatsby-remark-images": "^1.5.63",
-    "gatsby-remark-prismjs": "^1.2.24",
+    "gatsby-remark-prismjs": "^2.0.2",
     "gatsby-remark-responsive-iframe": "^1.4.18",
     "gatsby-remark-responsive-image": "^1.0.0-beta.5-alpha.fb30fcd6",
     "gatsby-remark-smartypants": "^1.4.3",
