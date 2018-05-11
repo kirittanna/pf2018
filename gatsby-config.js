@@ -23,6 +23,12 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: 'gatsby-remark-embed-video',
+            options: {
+              width: 800,
+            },
+          },
+          {
             resolve: 'gatsby-remark-embed-snippet',
             options: {
               classPrefix: 'language-',
@@ -46,12 +52,6 @@ module.exports = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 590,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-embed-video',
-            options: {
-              width: 800,
             },
           },
           'gatsby-remark-copy-linked-files',
