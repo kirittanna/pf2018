@@ -4,6 +4,8 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { connect } from 'react-redux'
 
+import Accordion from 'grommet/components/Accordion'
+import AccordionPanel from 'grommet/components/AccordionPanel'
 import Box from 'grommet/components/Box'
 import Heading from 'grommet/components/Heading'
 import Markdown from 'grommet/components/Markdown'
@@ -27,6 +29,13 @@ class Environment extends Component {
           {frontmatter.title}
         </Heading>
         {renderAst(htmlAst)}
+        <Accordion>
+          {frontmatter.sections.map(({ sectionTitle, sectionBody }) => (
+            <AccordionPanel heading={sectionTitle}>
+              <Markdown>{sectionBody}</Markdown>
+            </AccordionPanel>
+          ))}
+        </Accordion>
       </Box>
     )
   }
@@ -42,7 +51,14 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { regex: "/environment/" } }) {
       htmlAst
       frontmatter {
+        path
         title
+        header
+        footer
+        sections {
+          sectionBody
+          sectionTitle
+        }
       }
     }
   }

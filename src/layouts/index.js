@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import { navResponsive } from '../state/actions'
 import { siteMetadata } from '../../gatsby-config'
 
-import 'grommet/grommet.min.css'
+// import 'grommet/grommet.min.css'
+import '../../theme/dist/grommet.css'
 import styles from '../css/app.css'
 
 import App from 'grommet/components/App'
@@ -18,6 +19,9 @@ import Paragraph from 'grommet/components/Paragraph'
 import Header from 'grommet/components/Header'
 import Search from 'grommet/components/Search'
 import Split from 'grommet/components/Split'
+
+import DownloadIcon from 'grommet/components/icons/base/Download'
+import MoneyIcon from 'grommet/components/icons/base/Money'
 
 import Navigation from '../components/Navigation'
 import NavControl from '../components/Navigation/NavControl'
@@ -84,8 +88,18 @@ class Template extends React.Component {
                 onSelect={this._onSearchSelect}
                 suggestions={null}
               />
-              <Button href="/downloads" label="Download" accent={true} />
-              <Button href="/donate" label="Donate" accent={true} />
+              <Button
+                path="/downloads"
+                label="Download"
+                icon={<DownloadIcon />}
+                accent={true}
+              />
+              <Button
+                path="/donate"
+                label="Donate"
+                icon={<MoneyIcon />}
+                accent={true}
+              />
               <Menu
                 label="Other Sites"
                 size="small"

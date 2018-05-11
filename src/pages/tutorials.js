@@ -28,7 +28,7 @@ class Tutorials extends Component {
         <List>
           {allMarkdownRemark.edges.map(({ node: { frontmatter }, html }) => (
             <ListItem wrap={true} pad="small" separator="bottom">
-              <Anchor href={frontmatter.path}>{frontmatter.title}</Anchor>
+              <Anchor path={frontmatter.path}>{frontmatter.title}</Anchor>
               {html}
             </ListItem>
           ))}

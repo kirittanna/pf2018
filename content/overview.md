@@ -1,8 +1,8 @@
 ---
 path: /overview
-hero: /assets/processing-social.jpg
 title: Overview
 ---
+  ![Processing](/assets/processing-social.jpg)
   ### Overview. A short introduction to the Processing software and projects
   from the community.
 

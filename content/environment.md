@@ -1,4 +1,6 @@
 ---
+title: Environment
+path: /environment
 header: >-
   Environment (IDE). The Processing Environment includes a text editor, a
   compiler, and a display window. It enables the creation of software within a
@@ -6,7 +8,6 @@ header: >-
 
   ===========================================================================================================================================================================================
 footer: Footer
-clTitle: Environment
 sections:
   - sectionBody: >-
       The Processing Development Environment (PDE) makes it easy to write

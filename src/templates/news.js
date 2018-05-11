@@ -13,7 +13,7 @@ export default function NewsTemplate({
   const { frontmatter, body, html } = markdownRemark
   return (
     <Box>
-      <Anchor href="/news" icon={<CatalogIcon />}>
+      <Anchor path="/news" icon={<CatalogIcon />}>
         All News
       </Anchor>
       <Heading strong={true} tag="h2">

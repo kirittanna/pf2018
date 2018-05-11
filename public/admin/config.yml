@@ -40,6 +40,7 @@ collections:
         name: "home"
         file: "content/home.md"
         fields:
+          - { label: "Path", name: "path", widget: "string" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
           - label: "Featured"
@@ -55,7 +56,9 @@ collections:
         name: "overview"
         file: "content/overview.md"
         fields:
-          - { label: "Hero Image", name: "hero", widget: "image" }
+          - { label: "Path", name: "path", widget: "string" }
+          - { name: "header", label: "Header", widget: "markdown" }
+          - { name: "footer", label: "Footer", widget: "markdown" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
 
@@ -63,6 +66,9 @@ collections:
         name: "faqs"
         file: "content/faqs.md"
         fields:
+          - { label: "Path", name: "path", widget: "string" }
+          - { name: "header", label: "Header", widget: "markdown" }
+          - { name: "footer", label: "Footer", widget: "markdown" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
           - label: "Questions"
@@ -76,6 +82,9 @@ collections:
         name: "community"
         file: "content/community.md"
         fields:
+          - { label: "Path", name: "path", widget: "string" }
+          - { name: "header", label: "Header", widget: "markdown" }
+          - { name: "footer", label: "Footer", widget: "markdown" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
           - label: "Events"
@@ -91,6 +100,9 @@ collections:
         name: "people"
         file: "content/people.md"
         fields:
+          - { label: "Path", name: "path", widget: "string" }
+          - { name: "header", label: "Header", widget: "markdown" }
+          - { name: "footer", label: "Footer", widget: "markdown" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
           - label: "Team"
@@ -107,13 +119,25 @@ collections:
         name: "environment"
         file: "content/environment.md"
         fields:
-          - { label: "Title", name: "clTitle", widget: "string" }
+          - { label: "Path", name: "path", widget: "string" }
+          - { label: "Header", name: "header", widget: "markdown" }
+          - { label: "Footer", name: "footer", widget: "markdown" }
+          - { label: "Title", name: "Title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "sectionTitle", widget: "string" }
+              - { label: "Body", name: "sectionBody", widget: "markdown" }
 
       - label: "Donate"
         name: "donate"
         file: "content/donate.md"
         fields:
+          - { label: "Path", name: "path", widget: "string" }
+          - { label: "Header", name: "header", widget: "markdown" }
+          - { label: "Footer", name: "footer", widget: "markdown" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
           - label: "Options"
@@ -127,6 +151,9 @@ collections:
         name: "downloads"
         file: "content/downloads.md"
         fields:
+          - { label: "Path", name: "path", widget: "string" }
+          - { label: "Header", name: "header", widget: "markdown" }
+          - { label: "Footer", name: "footer", widget: "markdown" }
           - { label: "Latest Release Title", name: "latestTitle", widget: "string" }
           - { label: "Latest Release Intro", name: "latestIntro", widget: "markdown" }
           - { label: "Latest Release Date", name: "latestDate", widget: "datetime" }
@@ -165,6 +192,8 @@ collections:
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
+      - { name: "header", label: "Header", widget: "markdown" }
+      - { name: "footer", label: "Footer", widget: "markdown" }
       - { name: "title", label: "Title", widget: "string" }
       - { name: "cover", label: "Cover", widget: "image" }
       - { name: "author", label: "Author", widget: "string" }
@@ -184,6 +213,8 @@ collections:
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
+      - { name: "header", label: "Header", widget: "markdown" }
+      - { name: "footer", label: "Footer", widget: "markdown" }
       - { name: "title", label: "Title", widget: "string" }
       - { name: "author", label: "Author", widget: "string" }
       - { name: "builtIn", label: "Built-in", widget: "boolean", default: false }
@@ -203,6 +234,8 @@ collections:
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
+      - { name: "header", label: "Header", widget: "markdown" }
+      - { name: "footer", label: "Footer", widget: "markdown" }
       - { name: "title", label: "Title", widget: "string" }
       - { name: "author", label: "Author", widget: "string" }
       - { name: "builtIn", label: "Built-in", widget: "boolean", default: false }
@@ -222,6 +255,8 @@ collections:
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
+      - { name: "header", label: "Header", widget: "markdown" }
+      - { name: "footer", label: "Footer", widget: "markdown" }
       - { name: "date", label: "Date", widget: "datetime" }
       - { name: "title", label: "Title", widget: "string" }
       - { name: "banner", label: "Banner", widget: "image" }
@@ -235,6 +270,8 @@ collections:
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
+      - { name: "header", label: "Header", widget: "markdown" }
+      - { name: "footer", label: "Footer", widget: "markdown" }
       - { name: "title", label: "Title", widget: "string" }
       - { name: "body", label: "Body", widget: "markdown" }
       - { name: "thumbnail", label: "Thumbnail", widget: "image", required: false }
@@ -247,6 +284,8 @@ collections:
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
+      - { name: "header", label: "Header", widget: "markdown" }
+      - { name: "footer", label: "Footer", widget: "markdown" }
       - { name: "date", label: "Date", widget: "datetime" }
       - { name: "title", label: "Title", widget: "string" }
       - { name: "banner", label: "Banner", widget: "image" }

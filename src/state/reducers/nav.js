@@ -25,10 +25,12 @@ const initialState = {
     { path: '/books', label: 'Books' },
     { path: '/exhibition', label: 'Exhibition' },
     {
-      path: '/environment-tools-libraries',
-      label: 'Environment, Tools & Libraries',
+      path: '/environment',
+      label: 'Environment',
     },
+    { path: '/#', label: 'Reference' },
     { path: '/tutorials', label: 'Tutorials' },
+    { path: '/tools', label: 'Tutorials' },
     { path: '/examples', label: 'Examples' },
   ],
 }

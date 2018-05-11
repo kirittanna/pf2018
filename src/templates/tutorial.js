@@ -13,13 +13,13 @@ export default function TutorialTemplate({
   const { frontmatter, body, html } = markdownRemark
   return (
     <Box>
-      <Anchor href="/tutorials" icon={<CatalogIcon />}>
+      <Anchor path="/tutorials" icon={<CatalogIcon />}>
         Tutorials Home
       </Anchor>
-      <Heading strong={true} tag="h2">
+      <Heading strong={true} tag="h3">
         {frontmatter.title}
       </Heading>
-      <h4>{frontmatter.date}</h4>
+      <p>{frontmatter.date}</p>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </Box>
   )

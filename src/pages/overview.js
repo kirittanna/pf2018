@@ -28,11 +28,6 @@ class Overview extends Component {
         <Heading strong={true} tag="h2">
           {frontmatter.title}
         </Heading>
-        <Hero
-          background={<Image src={frontmatter.hero} fit="cover" full={true} />}
-          backgroundColorIndex="dark"
-          size="large"
-        />
         {renderAst(htmlAst)}
       </Box>
     )
@@ -50,7 +45,6 @@ export const pageQuery = graphql`
       htmlAst
       frontmatter {
         title
-        hero
       }
     }
   }
