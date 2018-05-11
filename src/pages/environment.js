@@ -44,8 +44,8 @@ class Environment extends Component {
           <Tab title="The Processing IDE">
             <Accordion>
               {frontmatter.ide.map(({ ideTitle, ideBody }) => (
-                <AccordionPanel heading={sectionTitle}>
-                  <Markdown content={sectionBody} />
+                <AccordionPanel heading={ideTitle}>
+                  <Markdown content={ideBody} />
                 </AccordionPanel>
               ))}
             </Accordion>
