@@ -122,7 +122,7 @@ collections:
           - { label: "Path", name: "path", widget: "string" }
           - { label: "Header", name: "header", widget: "markdown" }
           - { label: "Footer", name: "footer", widget: "markdown" }
-          - { label: "Title", name: "Title", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
           - label: "Sections"
             name: "sections"

@@ -1,8 +1,6 @@
 ---
 title: Environment
 path: /environment
-header: Header
-footer: Footer
 sections:
   - sectionBody: >-
       All Processing projects are called sketches. Each sketch has its own
@@ -298,7 +296,7 @@ ide:
       *   _Add File..._  
           Opens a file navigator window. Select an image, font, or other media files to add it to the sketch's "data" folder.
     sectionTitle: Sketch
-    - sectionBody: |-
+  - sectionBody: |-
       *   _Create Font..._  
           Converts fonts into the Processing font format (VLW) and adds to the current sketch. Opens a dialog box that gives options for setting the font, its size, if it is anti-aliased (smooth), and which characters to be generated. The amount of memory required for the font is determined by the size selected and the number of characters selected through the "Characters..." menu; Processing fonts are textures, so larger fonts require more image data. Fonts can also be created in the code with the createFont() function.
       *   _Color Selector..._  
@@ -374,35 +372,3 @@ ide:
       items relevant to the work currently being carried out are available.
     sectionTitle: Toolbar
 ---
-  Environment (IDE). The Processing Environment includes a text editor, a
-  compiler, and a display window. It enables the creation of software within a
-  carefully designed set of constraints.
-  ===========================================================================================================================================================================================
-
-  The Processing Development Environment (PDE) makes it easy to write
-  Processing programs. Programs are written in the Text Editor and started
-  by pressing the Run button. In Processing, a computer program is called a
-  _sketch_. Sketches are stored in the _Sketchbook_, which is a folder on
-  your computer.
-
-  Sketches can draw two- and three-dimensional graphics. The default
-  renderer is for drawing two-dimensional graphics. The P3D renderer makes
-  it possible to draw three-dimensional graphics, which includes controlling
-  the camera, lighting, and materials. The P2D renderer is a fast, but less
-  accurate renderer for drawing two-dimensional graphics. Both the P2D and
-  P3D renderers are accelerated if your computer has an OpenGL compatible
-  graphics card.
-
-  The capabilities of Processing are extended with _Libraries_ and _Tools_.
-  Libraries make it possible for sketches to do things beyond the _core_
-  Processing code. There are hundreds of libraries contributed by the
-  Processing community that can be added to your sketches to enable new
-  things like playing sounds, doing computer vision, and working with
-  advanced 3D geometry. Tools extend the PDE to help make creating sketches
-  easier by providing interfaces for tasks like selecting colors.
-
-  Processing has different _programming modes_ to make it possible to deploy
-  sketches on different platforms and program in different ways. The Java
-  mode is the default. Other programming modes may be downloaded by
-  selecting "Add Mode..." from the menu in the upper-right corner of the
-  PDE.

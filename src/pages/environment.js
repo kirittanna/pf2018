@@ -68,8 +68,6 @@ export const pageQuery = graphql`
       frontmatter {
         path
         title
-        header
-        footer
         sections {
           sectionBody
           sectionTitle
