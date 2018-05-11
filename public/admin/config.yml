@@ -120,8 +120,6 @@ collections:
         file: "content/environment.md"
         fields:
           - { label: "Path", name: "path", widget: "string" }
-          - { label: "Header", name: "header", widget: "markdown" }
-          - { label: "Footer", name: "footer", widget: "markdown" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
           - label: "Sections"
@@ -134,8 +132,8 @@ collections:
             name: "ide"
             widget: "list"
             fields:
-              - { label: "Title", name: "sectionTitle", widget: "string" }
-              - { label: "Body", name: "sectionBody", widget: "markdown" }
+              - { label: "Title", name: "ideTitle", widget: "string" }
+              - { label: "Body", name: "ideBody", widget: "markdown" }
 
       - label: "Donate"
         name: "donate"

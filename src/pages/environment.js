@@ -43,7 +43,7 @@ class Environment extends Component {
           </Tab>
           <Tab title="The Processing IDE">
             <Accordion>
-              {frontmatter.ide.map(({ sectionTitle, sectionBody }) => (
+              {frontmatter.ide.map(({ ideTitle, ideBody }) => (
                 <AccordionPanel heading={sectionTitle}>
                   <Markdown content={sectionBody} />
                 </AccordionPanel>
@@ -69,12 +69,12 @@ export const pageQuery = graphql`
         path
         title
         sections {
-          sectionBody
           sectionTitle
+          sectionBody
         }
         ide {
-          sectionBody
-          sectionTitle
+          ideTitle
+          ideBody
         }
       }
     }

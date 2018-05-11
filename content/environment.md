@@ -126,7 +126,7 @@ sections:
   - sectionBody: "This mode makes it possible to write short programs to draw to the screen, but also enables complex Java programs as well. It can be used simply by beginners, but it scales to professional Java software development. Sketches written in this mode can be exported as Java Applications to run on Linux, Mac OS X, and Windows operating systems.\n\n_Advanced_  \n  \nJava files with the extension .java can be included with a Java mode sketch. They may be created directly in the PDE or copied into the sketch folder through the \"Add File...\" item in the Sketch menu or dragged into the text editor. It's possible to write any Java code in files with the .java extension. In fact, complete Java code can be written from inside the Processing Environment by subclassing PApplet like this:\n\npublic class MyDemo extends PApplet {\n   \t\n\nThis is for advanced developers only and is not really recommended. Using this technique means that any additional tabs will no longer be inner classes, meaning you'll have to do extra work to make them communicate properly with the host PApplet. It is not necessary to use this technique just to get features of the Java language. Advanced developers can also program with Processing in another Java Editor if higher-level code editing and tools are needed. Processing's core.jar can be used as a part of any Java project."
     sectionTitle: Java Mode
 ide:
-  - sectionBody: >-
+  - ideBody: >-
       The Processing Development Environment (PDE) consists of a simple text
       editor for writing code, a message area, a text console, tabs for managing
       files, a toolbar with buttons for common actions, and a series of menus.
@@ -145,8 +145,8 @@ ide:
       sketches with the print() and println() functions. (Note that the console
       works well for occasional messages, but is not intended for high-speed,
       real-time output.)
-    sectionTitle: Processing Development Environment (PDE)
-  - sectionBody: >-
+    ideTitle: Processing Development Environment (PDE)
+  - ideBody: >-
       The Processing Development Environment (PDE) is highly configurable. The
       most common preferences can be modified in the Preferences window, located
       in the File menu on Windows and Linux and in the Processing menu on Mac Os
@@ -186,8 +186,8 @@ ide:
           When checked (default behavior), you'll be informed of new Processing software releases as they become available through a small dialog box that opens as Processing starts.
       *   _Run sketches on display_  
           If more than one monitor is attached, select the monitor on which to display the sketch.
-    sectionTitle: Preferences
-  - sectionBody: >-
+    ideTitle: Preferences
+  - ideBody: >-
       * _New_
 
       Creates a new sketch in a new window, named as the current date is the
@@ -247,8 +247,8 @@ ide:
 
       Exits the Processing Environment and closes all Processing windows. (This
       item is located in the Processing menu on Mac OS X.)
-    sectionTitle: File
-  - sectionBody: |-
+    ideTitle: File
+  - ideBody: |-
       *   _Undo_  
           Reverses the last command or the last entry typed. Cancel the Undo command by choosing Edit » Redo.
       *   _Redo_  
@@ -279,8 +279,8 @@ ide:
           Finds the previous occurence of a text string within the file open in the text editor.
       *   _Use Selection for Find_  
           Sets the currently selected text as the item to find with Find Next and Find Previous.
-    sectionTitle: Edit
-  - sectionBody: |-
+    ideTitle: Edit
+  - ideBody: |-
       *   _Run_  
           Runs the code (compiles the code, opens the display window, and runs the sketch inside)
       *   _Present_  
@@ -295,8 +295,8 @@ ide:
           Opens the folder for the current sketch.
       *   _Add File..._  
           Opens a file navigator window. Select an image, font, or other media files to add it to the sketch's "data" folder.
-    sectionTitle: Sketch
-  - sectionBody: |-
+    ideTitle: Sketch
+  - ideBody: |-
       *   _Create Font..._  
           Converts fonts into the Processing font format (VLW) and adds to the current sketch. Opens a dialog box that gives options for setting the font, its size, if it is anti-aliased (smooth), and which characters to be generated. The amount of memory required for the font is determined by the size selected and the number of characters selected through the "Characters..." menu; Processing fonts are textures, so larger fonts require more image data. Fonts can also be created in the code with the createFont() function.
       *   _Color Selector..._  
@@ -309,8 +309,8 @@ ide:
           Creates a QuickTime movie from a sequence of images. Options include setting the size, frame rate, and compression, as well as an audio file.
       *   _Add Tool..._  
           Opens the Tool Manager to browse and install new Tools.
-    sectionTitle: Tools
-  - sectionBody: |-
+    ideTitle: Tools
+  - ideBody: |-
       *   _Enable Debugger_  
           Activates the debugger. Note that the Run button will change to Debug. New Continue and Step buttons will appear, along with a separate window for viewing variable values.
       *   _Continue_  
@@ -323,8 +323,8 @@ ide:
           Advances the debugger outside of a function to the calling area. This only works for user-defined functions in the sketch.
       *   _Toggle Breakpoint_  
           Add or remove a breakpoint. When a breakpoint is added, the line number is replaced with the symbol: `<>`.
-    sectionTitle: Debug
-  - sectionBody: |-
+    ideTitle: Debug
+  - ideBody: |-
       *   _Environment_  
           Opens the reference for the Processing Development Environment (this page) in the default web browser.
       *   _Reference_  
@@ -345,8 +345,8 @@ ide:
           Opens the Foundation website in the default browser.
       *   _Visit Processing.org_  
           Opens Processing website in the default browser.
-    sectionTitle: Help
-  - sectionBody: >-
+    ideTitle: Help
+  - ideBody: >-
       The buttons on the toolbar can run and stop programs,:
 
 
@@ -370,5 +370,5 @@ ide:
       Additional commands are found within the six menus: File, Edit, Sketch,
       Debug, Tools, Help. The menus are context sensitive which means only those
       items relevant to the work currently being carried out are available.
-    sectionTitle: Toolbar
+    ideTitle: Toolbar
 ---
