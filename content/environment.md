@@ -372,8 +372,8 @@ ide:
       items relevant to the work currently being carried out are available.
     ideTitle: Toolbar
 ---
-Environment (IDE). The Processing Environment includes a text editor, a compiler, and a display window. It enables the creation of software within a carefully designed set of constraints.
-===========================================================================================================================================================================================
+### Environment (IDE). The Processing Environment includes a text editor, a compiler, and a display window. It enables the creation of software within a carefully designed set of constraints.
+
 The Processing Development Environment (PDE) makes it easy to write Processing programs. Programs are written in the Text Editor and started by pressing the Run button. In Processing, a computer program is called a _sketch_. Sketches are stored in the _Sketchbook_, which is a folder on your computer.
 
 Sketches can draw two- and three-dimensional graphics. The default renderer is for drawing two-dimensional graphics. The P3D renderer makes it possible to draw three-dimensional graphics, which includes controlling the camera, lighting, and materials. The P2D renderer is a fast, but less accurate renderer for drawing two-dimensional graphics. Both the P2D and P3D renderers are accelerated if your computer has an OpenGL compatible graphics card.
