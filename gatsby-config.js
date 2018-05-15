@@ -80,6 +80,7 @@ module.exports = {
     //     tweet_mode: 'extended',
     //   },
     // },
+    `gatsby-plugin-remove-trailing-slashes`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

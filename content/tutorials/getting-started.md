@@ -2,6 +2,9 @@
 path: /tutorials/getting-started
 date: '2018-05-07T22:34:36-04:00'
 title: Getting Started
+level: basic
+author: Ben Fry & Casey Reas
+summary: Get started with creative coding using Processing.
 banner: /assets/processing-social.jpg
 thumbnail: /assets/processing-social.jpg
 ---

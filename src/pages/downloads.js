@@ -41,13 +41,13 @@ class Downloads extends Component {
               align="start"
             >
               <Label>{key}</Label>
-              <Box direction="row" responsive="false" justify="end" align="end">
+              <Box direction="row" justify="end">
                 {groupedOptions[key].map(option => (
                   <Button
                     label={option.osa}
                     href={option.link}
                     icon={<DownloadIcon />}
-                    margin="small"
+                    margin={{ horizontal: 'small' }}
                     pad="small"
                   />
                 ))}

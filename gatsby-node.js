@@ -58,10 +58,10 @@ const buildPages = (
 
 exports.createPages = args => {
   const bookTemplate = path.resolve(`src/templates/book.js`)
-  const exhibitionTemplate = path.resolve(`src/templates/exhibition.js`)
   const exampleTemplate = path.resolve(`src/templates/example.js`)
   const libraryTemplate = path.resolve(`src/templates/library.js`)
   const newsTemplate = path.resolve(`src/templates/news.js`)
+  const toolTemplate = path.resolve(`src/templates/tutorial.js`)
   const tutorialTemplate = path.resolve(`src/templates/tutorial.js`)
 
   return Promise.all([
@@ -72,12 +72,7 @@ exports.createPages = args => {
       ['path', 'title', 'cover'],
       ['cover']
     ),
-    buildPages(args, exhibitionTemplate, /\/exhibition\//, ['path', 'title']),
-    buildPages(args, exampleTemplate, /\/examples\//, [
-      'path',
-      'title',
-      'code',
-    ]),
+    buildPages(args, exampleTemplate, /\/examples\//, ['path', 'title']),
     buildPages(args, libraryTemplate, /\/libraries\//, [
       'path',
       'title',
@@ -85,6 +80,7 @@ exports.createPages = args => {
       'tags',
     ]),
     buildPages(args, newsTemplate, /\/news\//, ['path', 'title']),
+    buildPages(args, toolTemplate, /\/tools\//, ['path', 'date', 'title']),
     buildPages(args, tutorialTemplate, /\/tutorials\//, [
       'path',
       'date',

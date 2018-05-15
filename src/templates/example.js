@@ -11,15 +11,21 @@ export default function ExampleTemplate({
 }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, body, html } = markdownRemark
+
+  const codeWrapper = `<script type="text/p5" data-autoplay data-preview-width="480" data-base-url="/" src="${
+    frontmatter.demoCode
+  }"></script>`
+
   return (
     <Box>
-      <Anchor href="/examples" icon={<CatalogIcon />}>
+      <Anchor path="/examples" icon={<CatalogIcon />}>
         Example Home
       </Anchor>
       <Heading strong={true} tag="h2">
         {frontmatter.title}
       </Heading>
       <h4>{frontmatter.date}</h4>
+      <div dangerouslySetInnerHTML={{ __html: codeWrapper }} />
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </Box>
   )
@@ -33,7 +39,8 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
-        code
+        sourceCode
+        demoCode
       }
     }
   }

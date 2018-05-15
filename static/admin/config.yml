@@ -150,6 +150,7 @@ collections:
             fields:
               - { label: "Name", name: "name", widget: "string" }
               - { label: "Amount", name: "amount", widget: "number" }
+              - { label: "Link", name: "link", widget: "string" }
 
       - label: "Downloads"
         name: "downloads"
@@ -259,13 +260,16 @@ collections:
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
-      - { name: "header", label: "Header", widget: "markdown" }
-      - { name: "footer", label: "Footer", widget: "markdown" }
+      - { name: "author", label: "Author", widget: "string" }
+      - { name: "summary", label: "Summary", widget: "markdown" }
+      - { name: "level", label: "Difficulty Level", widget: "select", options: ['Beginner', 'Intermediate', 'Advanced'] }
       - { name: "date", label: "Date", widget: "datetime" }
       - { name: "title", label: "Title", widget: "string" }
       - { name: "banner", label: "Banner", widget: "image" }
       - { name: "thumbnail", label: "Thumbnail", widget: "image" }
       - { name: "body", label: "Body", widget: "markdown" }
+      - { name: "relatedExamples", label: "Related Examples", widget: "relation", collection: "examples", searchFields: ["title", "body"], valueField: "path", displayFields: ["name", "path"], required: false }
+      - { name: "relatedTutorials", label: "Related Tutorials", widget: "relation", collection: "tutorials", searchFields: ["title", "body"], valueField: "path", displayFields: ["name", "path", required: false] }
 
   - name: "examples"
     label: "Examples"
@@ -274,12 +278,11 @@ collections:
     create: true
     fields:
       - { name: "path", label: "Path", widget: "string" }
-      - { name: "header", label: "Header", widget: "markdown" }
-      - { name: "footer", label: "Footer", widget: "markdown" }
       - { name: "title", label: "Title", widget: "string" }
       - { name: "body", label: "Body", widget: "markdown" }
-      - { name: "thumbnail", label: "Thumbnail", widget: "image", required: false }
-      - { name: "code", label: "Code", widget: "file" }
+      - { name: "sourceCode", label: "Source Code (Processing)", widget: "string" }
+      - { name: "demoCode", label: "Demo Code (P5.js)", widget: "string" }
+      - { name: "category", label: "Category", widget: "select", options: ['Advanced Data', 'Arrays', 'Animation', 'Cellular Automata', 'Control', 'Color', 'Data', 'Drawing', 'File IO', 'Form', 'Fractals and L-Systems', 'GUI', 'Image', 'Image Processing', 'Input', 'Interaction', 'Math', 'Motion', 'Objects', 'Simulate', 'Structure', 'Transform', 'Typography', 'Vectors', 'Web'] }
       
   - name: "exhibition"
     label: "Exhibition"
@@ -287,12 +290,14 @@ collections:
     folder: "content/exhibition"
     create: true
     fields:
-      - { name: "path", label: "Path", widget: "string" }
-      - { name: "header", label: "Header", widget: "markdown" }
-      - { name: "footer", label: "Footer", widget: "markdown" }
-      - { name: "date", label: "Date", widget: "datetime" }
+      - { name: "date", label: "Date", widget: "datetime", required: false }
       - { name: "title", label: "Title", widget: "string" }
-      - { name: "banner", label: "Banner", widget: "image" }
+      - { name: "banner", label: "Banner", widget: "image", required: false }
       - { name: "thumbnail", label: "Thumbnail", widget: "image" }
       - { name: "body", label: "Body", widget: "markdown" }
-      - { name: "links", label: "Links" }
+      - name: "links"
+        label: "Links"
+        widget: "list"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "url", label: "URL", widget: "string" }

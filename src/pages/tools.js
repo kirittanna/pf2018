@@ -18,13 +18,14 @@ import LinkNextIcon from 'grommet/components/icons/base/LinkNext'
 import { navEnable } from '../state/actions'
 import { renderAst } from '../utils/common'
 
-class Tutorials extends Component {
+class Tools extends Component {
   componentDidMount() {
     this.props.dispatch(navEnable(true))
   }
 
   render() {
     const { data } = this.props
+    console.log(this.props)
     const { allMarkdownRemark } = data // data.markdownRemark holds our post data
     return (
       <Box full="horizontal">
@@ -33,15 +34,15 @@ class Tutorials extends Component {
             <Tile wrap={true} pad="small" separator="bottom">
               <Card
                 heading={frontmatter.title}
-                label={frontmatter.level}
-                description={frontmatter.summary}
-                link={
+                label={frontmatter.author}
+                description={html}
+                /*link={frontmatter.links.map(link => (
                   <Anchor
-                    path={frontmatter.path}
-                    label="View"
+                    href={link.url}
+                    label={link.title}
                     icon={<LinkNextIcon />}
                   />
-                }
+                ))}*/
               />
             </Tile>
           ))}
@@ -51,25 +52,26 @@ class Tutorials extends Component {
   }
 }
 
-Tutorials.propTypes = {
+Tools.propTypes = {
   data: React.PropTypes.object,
   route: React.PropTypes.object,
 }
 
 export const pageQuery = graphql`
-  query TutorialsQuery {
+  query ToolsQuery {
     allMarkdownRemark(
-      filter: { frontmatter: { path: { regex: "/tutorials/" } } }
+      filter: { frontmatter: { path: { regex: "/tools/" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
       limit: 1000
     ) {
       edges {
         node {
+          html
           frontmatter {
             path
             title
-            level
-            summary
+            author
+            builtIn
           }
         }
       }
@@ -85,4 +87,4 @@ const mapStateToProps = ({ nav }) => ({
   nav,
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Tutorials)
+export default connect(mapStateToProps, mapDispatchToProps)(Tools)

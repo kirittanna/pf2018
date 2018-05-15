@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { connect } from 'react-redux'
+import P5Wrapper from 'react-p5-wrapper'
 
 import Box from 'grommet/components/Box'
 import Button from 'grommet/components/Button'
@@ -15,6 +16,7 @@ import Anchor from 'grommet/components/Anchor'
 
 import { navEnable } from '../state/actions'
 import { renderAst } from '../utils/common'
+import Demo from '../components/Demo'
 
 class Home extends Component {
   componentDidMount() {
@@ -26,24 +28,20 @@ class Home extends Component {
     const { allMarkdownRemark, markdownRemark } = data // data.markdownRemark holds our post data
     const { htmlAst, frontmatter } = markdownRemark
     return (
-      <Columns full="horizontal" size="medium" pad={{ between: 'small' }}>
+      <Columns full="horizontal" size="large" pad={{ between: 'small' }}>
         <Box separator="right" pad={{ horizontal: 'medium' }}>
           {renderAst(htmlAst)}
         </Box>
         <Box pad={{ horizontal: 'medium' }}>
-          <a
-            class="twitter-timeline"
-            href="https://twitter.com/kirittanna?ref_src=twsrc%5Etfw"
-          >
-            Tweets by kirittanna
-          </a>
-          <script
-            async
-            src="https://platform.twitter.com/widgets.js"
-            charset="utf-8"
-          />
-        </Box>
-        <Box pad={{ horizontal: 'medium' }}>
+          <Box>
+            <a
+              class="twitter-timeline"
+              href="https://twitter.com/kirittanna?ref_src=twsrc%5Etfw"
+            >
+              Tweets by kirittanna
+            </a>
+            <P5Wrapper sketch={Demo} />
+          </Box>
           <List>
             {allMarkdownRemark.edges.map(({ node: { frontmatter } }) => (
               <ListItem wrap={true} pad="small" separator="bottom">

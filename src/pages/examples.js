@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
-import get from 'lodash/get'
+import { chain, get, groupBy, pick } from 'lodash/fp'
 import Helmet from 'react-helmet'
 import { connect } from 'react-redux'
 
+import Accordion from 'grommet/components/Accordion'
+import AccordionPanel from 'grommet/components/AccordionPanel'
 import Anchor from 'grommet/components/Anchor'
 import Box from 'grommet/components/Box'
 import Heading from 'grommet/components/Heading'
@@ -23,16 +25,34 @@ class Examples extends Component {
   render() {
     const { data } = this.props
     const { allMarkdownRemark } = data // data.markdownRemark holds our post data
+
+    const groupedExamples = groupBy(
+      edge => edge.node.frontmatter.category,
+      allMarkdownRemark.edges
+    )
+
     return (
       <Box full="horizontal">
-        <List>
-          {allMarkdownRemark.edges.map(({ node: { frontmatter }, html }) => (
-            <ListItem wrap={true} pad="small" separator="bottom">
-              <Anchor path={frontmatter.path}>{frontmatter.title}</Anchor>
-              {html}
-            </ListItem>
+        <Accordion>
+          {Object.keys(groupedExamples).map(category => (
+            <AccordionPanel heading={category}>
+              <List>
+                {groupedExamples[category].map(
+                  ({ node: { frontmatter }, timeToRead }) => (
+                    <ListItem wrap={true} pad="small" separator="bottom">
+                      <span>
+                        <Anchor path={frontmatter.path}>
+                          {frontmatter.title}
+                        </Anchor>
+                      </span>
+                      <span className="secondary">{timeToRead}</span>
+                    </ListItem>
+                  )
+                )}
+              </List>
+            </AccordionPanel>
           ))}
-        </List>
+        </Accordion>
       </Box>
     )
   }
@@ -47,16 +67,17 @@ export const pageQuery = graphql`
   query ExamplesQuery {
     allMarkdownRemark(
       filter: { frontmatter: { path: { regex: "/examples/" } } }
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { order: DESC, fields: [frontmatter___category] }
       limit: 1000
     ) {
       edges {
         node {
-          html
           frontmatter {
             path
             title
+            category
           }
+          timeToRead
         }
       }
     }

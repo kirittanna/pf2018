@@ -8,10 +8,13 @@ import { connect } from 'react-redux'
 import Box from 'grommet/components/Box'
 import Button from 'grommet/components/Button'
 import Heading from 'grommet/components/Heading'
-import Markdown from 'grommet/components/Markdown'
 import List from 'grommet/components/List'
 import ListItem from 'grommet/components/ListItem'
-import Label from 'grommet/components/Label'
+import Markdown from 'grommet/components/Markdown'
+import Title from 'grommet/components/Title'
+
+import LinkNextIcon from 'grommet/components/icons/base/LinkNext'
+import Pulse from 'grommet/components/icons/Pulse'
 
 import { navEnable } from '../state/actions'
 import { renderAst } from '../utils/common'
@@ -35,12 +38,14 @@ class Donate extends Component {
         <List>
           {frontmatter.donationOptions.map((option, index) => (
             <ListItem pad="medium" justify="between" separator="horizontal">
-              <Label margin={{ vertical: 'medium' }}>{option.name}</Label>
+              <span>
+                <Title margin={{ vertical: 'medium' }}>
+                  {`${option.name} (${option.amount})`}
+                </Title>
+              </span>
               <Button
-                label={option.amount}
-                accent={true}
                 href={option.link}
-                pad="small"
+                icon={<Pulse icon={<LinkNextIcon />} />}
               />
             </ListItem>
           ))}
