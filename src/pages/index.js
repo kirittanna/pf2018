@@ -3,7 +3,6 @@ import Link from 'gatsby-link'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { connect } from 'react-redux'
-import P5Wrapper from 'react-p5-wrapper'
 
 import Anchor from 'grommet/components/Anchor'
 import Box from 'grommet/components/Box'
@@ -17,6 +16,7 @@ import Toast from 'grommet/components/Toast'
 
 import { navEnable } from '../state/actions'
 import { renderAst } from '../utils/common'
+import P5Wrapper from '../components/P5Wrapper'
 import Demo from '../components/Demo'
 
 class Home extends Component {
