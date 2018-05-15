@@ -3,7 +3,7 @@ path: /tools/movie-maker
 title: Movie Maker
 author: Ben Fry & Casey Reas
 builtIn: true
-links:
+externalLinks:
   - title: Built-in
     url: https://processing.org/download/
 tags: test

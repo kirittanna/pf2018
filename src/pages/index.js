@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import { connect } from 'react-redux'
 import P5Wrapper from 'react-p5-wrapper'
 
+import Anchor from 'grommet/components/Anchor'
 import Box from 'grommet/components/Box'
 import Button from 'grommet/components/Button'
 import Columns from 'grommet/components/Columns'
@@ -12,7 +13,7 @@ import Heading from 'grommet/components/Heading'
 import List from 'grommet/components/List'
 import ListItem from 'grommet/components/ListItem'
 import Markdown from 'grommet/components/Markdown'
-import Anchor from 'grommet/components/Anchor'
+import Toast from 'grommet/components/Toast'
 
 import { navEnable } from '../state/actions'
 import { renderAst } from '../utils/common'
@@ -28,29 +29,35 @@ class Home extends Component {
     const { allMarkdownRemark, markdownRemark } = data // data.markdownRemark holds our post data
     const { htmlAst, frontmatter } = markdownRemark
     return (
-      <Columns full="horizontal" size="large" pad={{ between: 'small' }}>
-        <Box separator="right" pad={{ horizontal: 'medium' }}>
-          {renderAst(htmlAst)}
-        </Box>
-        <Box pad={{ horizontal: 'medium' }}>
-          <Box>
-            <a
-              class="twitter-timeline"
-              href="https://twitter.com/kirittanna?ref_src=twsrc%5Etfw"
-            >
-              Tweets by kirittanna
-            </a>
-            <P5Wrapper sketch={Demo} />
+      <div>
+        <Columns full="horizontal" size="large" pad={{ between: 'small' }}>
+          <Box separator="right" pad={{ horizontal: 'medium' }}>
+            {renderAst(htmlAst)}
           </Box>
-          <List>
-            {allMarkdownRemark.edges.map(({ node: { frontmatter } }) => (
-              <ListItem wrap={true} pad="small" separator="bottom">
-                <Anchor href={frontmatter.path}>{frontmatter.title}</Anchor>
-              </ListItem>
-            ))}
-          </List>
-        </Box>
-      </Columns>
+          <Box pad={{ horizontal: 'medium' }}>
+            <Box>
+              <a
+                class="twitter-timeline"
+                href="https://twitter.com/kirittanna?ref_src=twsrc%5Etfw"
+              >
+                Tweets by kirittanna
+              </a>
+              <P5Wrapper sketch={Demo} />
+            </Box>
+            <List>
+              {allMarkdownRemark.edges.map(({ node: { frontmatter } }) => (
+                <ListItem wrap={true} pad="small" separator="bottom">
+                  <Anchor href={frontmatter.path}>{frontmatter.title}</Anchor>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        </Columns>
+        <Toast status="ok" onClose={() => {}}>
+          Processing Community Day registrations opened{' '}
+          <Anchor label="Click here" href="#" />
+        </Toast>
+      </div>
     )
   }
 }

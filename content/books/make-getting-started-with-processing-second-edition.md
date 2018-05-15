@@ -4,7 +4,7 @@ title: 'Make: Getting Started with Processing (Second Edition)'
 cover: /assets/books_make-getting-started-with-processing.jpg
 author: Casey Reas & Ben Fry
 date: '2015-09-01T23:51:21-04:00'
-links:
+externalLinks:
   - title: Amazon
     url: 'http://www.amazon.com/gp/product/1457187086/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=1457187086&linkCode=as2&tag=processing09-20&linkId=JEJC22CTQ5ZF4ZYO'
 ---

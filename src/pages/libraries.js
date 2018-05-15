@@ -13,40 +13,37 @@ import Button from 'grommet/components/Button'
 import Tiles from 'grommet/components/Tiles'
 import Tile from 'grommet/components/Tile'
 
-import ExhibitionTile from '../components/ExhibitionTile'
-import { navEnable } from '../state/actions'
-import { renderAst, getImageResolutions } from '../utils/common'
+import LinkNextIcon from 'grommet/components/icons/base/LinkNext'
 
-class Exhibition extends Component {
+import { navEnable } from '../state/actions'
+import { renderAst } from '../utils/common'
+
+class Libraries extends Component {
   componentDidMount() {
     this.props.dispatch(navEnable(true))
   }
 
-  onClick = e => {
-    console.log(e)
-  }
-
   render() {
     const { data } = this.props
-    const { allMarkdownRemark, allImageSharp, markdownRemark } = data // data.markdownRemark holds our post data
-    const { htmlAst, frontmatter } = markdownRemark
+    const { allMarkdownRemark } = data // data.markdownRemark holds our post data
     return (
       <Box full="horizontal">
-        <Heading strong={true} tag="h2">
-          {frontmatter.title}
-        </Heading>
-        {renderAst(htmlAst)}
         <Tiles>
           {allMarkdownRemark.edges.map(({ node: { frontmatter, html } }) => (
-            <Tile wrap={true} pad="small">
-              <ExhibitionTile
-                title={frontmatter.title}
-                description={html}
-                resolutions={getImageResolutions(
-                  allImageSharp,
-                  frontmatter.thumbnail
-                )}
-                externalLinks={frontmatter.externalLinks}
+            <Tile wrap={true} pad="small" separator="bottom">
+              <Card
+                heading={frontmatter.title}
+                label={frontmatter.author}
+                description={
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: html,
+                    }}
+                  />
+                }
+                link={frontmatter.externalLinks.map(link => (
+                  <Anchor href={link.url} label={link.title} target="_blank" />
+                ))}
               />
             </Tile>
           ))}
@@ -56,30 +53,24 @@ class Exhibition extends Component {
   }
 }
 
-Exhibition.propTypes = {
+Libraries.propTypes = {
   data: React.PropTypes.object,
   route: React.PropTypes.object,
 }
 
 export const pageQuery = graphql`
-  query ExhibitionQuery {
-    markdownRemark(frontmatter: { path: { eq: "/exhibition" } }) {
-      htmlAst
-      frontmatter {
-        title
-      }
-    }
+  query LibrariesQuery {
     allMarkdownRemark(
-      filter: { frontmatter: { path: { regex: "/\/exhibition\//" } } }
+      filter: { frontmatter: { path: { regex: "/libraries/" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
       limit: 1000
     ) {
       edges {
         node {
-          html
           frontmatter {
+            path
             title
-            thumbnail
+            author
             externalLinks {
               title
               url
@@ -88,18 +79,8 @@ export const pageQuery = graphql`
         }
       }
     }
-    allImageSharp(filter: { id: { regex: "/\/exhibition_/" } }) {
-      edges {
-        node {
-          id
-          resolutions(height:240) {
-            ...GatsbyImageSharpResolutions
-          }
-        }
-      }
-    }
   }
-` // prettier-ignore
+`
 
 const mapDispatchToProps = dispatch => ({
   dispatch,
@@ -109,4 +90,4 @@ const mapStateToProps = ({ nav }) => ({
   nav,
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Exhibition)
+export default connect(mapStateToProps, mapDispatchToProps)(Libraries)

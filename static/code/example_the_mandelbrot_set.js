@@ -6,19 +6,11 @@
 var minval = -0.5
 var maxval = 0.5
 
-var minSlider
-var maxSlider
-
 var frDiv
 
 function setup() {
   createCanvas(200, 200)
   pixelDensity(1)
-
-  minSlider = createSlider(-2.5, 0, -2.5, 0.01)
-  maxSlider = createSlider(0, 2.5, 2.5, 0.01)
-
-  frDiv = createDiv('')
 }
 
 function draw() {
@@ -27,8 +19,8 @@ function draw() {
   loadPixels()
   for (var x = 0; x < width; x++) {
     for (var y = 0; y < height; y++) {
-      var a = map(x, 0, width, minSlider.value(), maxSlider.value())
-      var b = map(y, 0, height, minSlider.value(), maxSlider.value())
+      var a = map(x, 0, width, 0.01, 0.01)
+      var b = map(y, 0, height, 0.01, 0.01)
 
       var ca = a
       var cb = b

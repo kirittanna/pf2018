@@ -2,7 +2,7 @@
 path: /libraries/box2d-for-processing
 title: Box2D for Processing
 author: Daniel Shiffman
-links:
+externalLinks:
   - title: JBox2D
     url: 'http://www.jbox2d.org/'
   - title: Box2D

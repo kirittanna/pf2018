@@ -28,9 +28,9 @@ const initialState = {
       path: '/environment',
       label: 'Environment',
     },
-    { path: '/#', label: 'Reference' },
+    { path: '/libraries', label: 'Libraries' },
     { path: '/tutorials', label: 'Tutorials' },
-    { path: '/tools', label: 'Tutorials' },
+    { path: '/tools', label: 'Tools' },
     { path: '/examples', label: 'Examples' },
   ],
 }

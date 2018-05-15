@@ -35,16 +35,16 @@ class Examples extends Component {
       <Box full="horizontal">
         <Accordion>
           {Object.keys(groupedExamples).map(category => (
-            <AccordionPanel heading={category}>
+            <AccordionPanel
+              heading={`${category} (${groupedExamples[category].length})`}
+            >
               <List>
                 {groupedExamples[category].map(
                   ({ node: { frontmatter }, timeToRead }) => (
                     <ListItem wrap={true} pad="small" separator="bottom">
-                      <span>
-                        <Anchor path={frontmatter.path}>
-                          {frontmatter.title}
-                        </Anchor>
-                      </span>
+                      <Anchor path={frontmatter.path}>
+                        {frontmatter.title}
+                      </Anchor>
                       <span className="secondary">{timeToRead}</span>
                     </ListItem>
                   )

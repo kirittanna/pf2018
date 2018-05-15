@@ -36,13 +36,9 @@ class Tools extends Component {
                 heading={frontmatter.title}
                 label={frontmatter.author}
                 description={html}
-                /*link={frontmatter.links.map(link => (
-                  <Anchor
-                    href={link.url}
-                    label={link.title}
-                    icon={<LinkNextIcon />}
-                  />
-                ))}*/
+                link={frontmatter.externalLinks.map(link => (
+                  <Anchor href={link.url} label={link.title} target="_blank" />
+                ))}
               />
             </Tile>
           ))}
@@ -72,6 +68,10 @@ export const pageQuery = graphql`
             title
             author
             builtIn
+            externalLinks {
+              title
+              url
+            }
           }
         }
       }

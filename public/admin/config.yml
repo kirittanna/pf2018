@@ -203,7 +203,7 @@ collections:
       - { name: "cover", label: "Cover", widget: "image" }
       - { name: "author", label: "Author", widget: "string" }
       - { name: "date", label: "Date Published", widget: "datetime" }
-      - name: "links"
+      - name: "externalLinks"
         label: "Links"
         widget: "list"
         fields:
@@ -223,7 +223,7 @@ collections:
       - { name: "title", label: "Title", widget: "string" }
       - { name: "author", label: "Author", widget: "string" }
       - { name: "builtIn", label: "Built-in", widget: "boolean", default: false }
-      - name: "links"
+      - name: "externalLinks"
         label: "Links"
         widget: "list"
         fields:
@@ -244,7 +244,7 @@ collections:
       - { name: "title", label: "Title", widget: "string" }
       - { name: "author", label: "Author", widget: "string" }
       - { name: "builtIn", label: "Built-in", widget: "boolean", default: false }
-      - name: "links"
+      - name: "externalLinks"
         label: "Links"
         widget: "list"
         fields:
@@ -295,7 +295,7 @@ collections:
       - { name: "banner", label: "Banner", widget: "image", required: false }
       - { name: "thumbnail", label: "Thumbnail", widget: "image" }
       - { name: "body", label: "Body", widget: "markdown" }
-      - name: "links"
+      - name: "externalLinks"
         label: "Links"
         widget: "list"
         fields:

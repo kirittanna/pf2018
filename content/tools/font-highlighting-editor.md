@@ -3,7 +3,7 @@ path: /tools/font-highlighting-editor
 title: Font Highlighting Editor
 author: Rostyslav Zatserkovnyi
 builtIn: false
-links:
+externalLinks:
   - title: tool
     url: https://github.com/rzats/font-highlighting-editor
   - title: author

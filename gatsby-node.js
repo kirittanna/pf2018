@@ -59,9 +59,7 @@ const buildPages = (
 exports.createPages = args => {
   const bookTemplate = path.resolve(`src/templates/book.js`)
   const exampleTemplate = path.resolve(`src/templates/example.js`)
-  const libraryTemplate = path.resolve(`src/templates/library.js`)
   const newsTemplate = path.resolve(`src/templates/news.js`)
-  const toolTemplate = path.resolve(`src/templates/tutorial.js`)
   const tutorialTemplate = path.resolve(`src/templates/tutorial.js`)
 
   return Promise.all([
@@ -73,14 +71,7 @@ exports.createPages = args => {
       ['cover']
     ),
     buildPages(args, exampleTemplate, /\/examples\//, ['path', 'title']),
-    buildPages(args, libraryTemplate, /\/libraries\//, [
-      'path',
-      'title',
-      'author',
-      'tags',
-    ]),
     buildPages(args, newsTemplate, /\/news\//, ['path', 'title']),
-    buildPages(args, toolTemplate, /\/tools\//, ['path', 'date', 'title']),
     buildPages(args, tutorialTemplate, /\/tutorials\//, [
       'path',
       'date',

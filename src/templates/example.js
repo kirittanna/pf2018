@@ -4,7 +4,7 @@ import Anchor from 'grommet/components/Anchor'
 import Box from 'grommet/components/Box'
 import Heading from 'grommet/components/Heading'
 
-import CatalogIcon from 'grommet/components/icons/base/Catalog'
+import LinkPreviousIcon from 'grommet/components/icons/base/LinkPrevious'
 
 export default function ExampleTemplate({
   data, // this prop will be injected by the GraphQL query below.
@@ -18,9 +18,7 @@ export default function ExampleTemplate({
 
   return (
     <Box>
-      <Anchor path="/examples" icon={<CatalogIcon />}>
-        Example Home
-      </Anchor>
+      <Anchor path="/examples" icon={<LinkPreviousIcon />} label="Examples" />
       <Heading strong={true} tag="h2">
         {frontmatter.title}
       </Heading>

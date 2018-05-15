@@ -36,11 +36,14 @@ class Books extends Component {
         </Heading>
         {renderAst(htmlAst)}
         <Tiles>
-          {allMarkdownRemark.edges.map(({ node: { frontmatter }, html }) => (
-            <Tile size="medium">
+          {allMarkdownRemark.edges.map(({ node: { frontmatter } }) => (
+            <Tile size="medium" margin="small" pad="small">
               <BookTile
-                {...frontmatter}
-                description={html}
+                title={frontmatter.title}
+                path={frontmatter.path}
+                author={frontmatter.author}
+                date={frontmatter.date}
+                externalLinks={frontmatter.externalLinks}
                 resolutions={getImageResolutions(
                   allImageSharp,
                   frontmatter.cover
@@ -81,6 +84,10 @@ export const pageQuery = graphql`
             cover
             author
             date
+            externalLinks {
+              title
+              url
+            }
           }
         }
       }
@@ -89,7 +96,7 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          resolutions(width:300) {
+          resolutions(height:320) {
             ...GatsbyImageSharpResolutions
           }
         }

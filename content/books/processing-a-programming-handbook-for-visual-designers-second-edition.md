@@ -6,7 +6,7 @@ author: >-
   Casey Reas and Ben Fry. Published December 2014, The MIT Press. 720 pages.
   Hardcover.
 date: '2014-12-01'
-links:
+externalLinks:
   - title: MIT Press
     url: 'https://mitpress.mit.edu/books/processing-0'
 ---
