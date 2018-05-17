@@ -4,81 +4,70 @@ title: People
 team:
   - link: 'http://reas.com/'
     name: Casey Reas
+    photo: http://lorempixel.com/320/480
     role: Lead Developer
+    bio: Lead
+    location: Boston, MA (United States)
   - link: 'http://benfry.com/'
     name: Ben Fry
+    photo: http://lorempixel.com/320/480
     role: Lead Developer
+    bio: Lead
+    location: Boston, MA (United States)
   - link: 'http://www.shiffman.net/'
-    name: Dan
-    position: Lead Developer
-    role: Shiffman
+    name: Dan Shiffman
+    photo: http://lorempixel.com/320/480
+    role: Lead Developer
+    bio: Lead
+    location: New York, NY (United States)
+  - link: 'http://codeanticode.wordpress.com/'
+    name: Andres Colubri
+    photo: http://lorempixel.com/320/480
+    role: Senior Developer
+    bio: OpenGL / Video
+    location: Boston, MA (United States)
+  - link: 'http://www.florianjenett.de/'
+    name: Florian Jenett
+    photo: http://lorempixel.com/320/480
+    role: Senior Developer
+    bio: Forum
+    location: Frankfurt (Germany)
+  - link: 'http://alignedleft.com/'
+    name: Scott Murray
+    photo: http://lorempixel.com/320/480
+    role: Senior Developer
+    bio: Website / Reference / UI
+    location: San Francisco, CA (United States)
+  - link: 'https://github.com/JakubValtar'
+    name: Jakub Valtar
+    photo: http://lorempixel.com/320/480
+    role: Developer
+    bio: Processing Core
+    location: Brno (Czech Republic)
+  - link: 'http://scott.j38.net/'
+    name: Scott Garner
+    photo: http://lorempixel.com/320/480
+    bio: Hello Processing Website
+    role: Developer
+    location: New York, NY
 ---
-  **Lead Developers**  
-
-  [Ben Fry](http://benfry.com) and [Casey Reas](http://reas.com) started
-  Processing in Spring 2001 and continue to obsessively work on it. In 2012,
-  they started the Processing Foundation along with [Dan
-  Shiffman](http://www.shiffman.net/), who formally joined as a third project
-  lead.  
-
-
-  **Senior Developers**  
-
-  - [Andres Colubri](http://codeanticode.wordpress.com/) (Boston), OpenGL /
-  Video  
-
-  - [Florian Jenett](http://www.florianjenett.de/) (Frankfurt), Forum  
-
-  - [Elie Zananiri](http://www.silentlycrashing.net/) (Montreal), Contributed
-  Libraries / Tools  
-
-  - [Scott Murray](http://alignedleft.com/) (San Francisco), Website / Reference
-  / UI  
-
-
-  **Developers**  
-
-  - [Jakub Valtar](https://github.com/JakubValtar) (Brno), Processing Core  
-
-  - [Scott Garner](http://scott.j38.net/) (New York), Hello Processing Website  
-
-  - [Gottfried Haider](http://gottfriedhaider.com) (Amsterdam), Serial Library
-  Updates (64-bit)  
-
-  - [Jamie Kosoy](http://arbitrary.io/) (San Francisco), Website  
-
-  - [Manindra Moharana](http://www.mkmoharana.com/) (San Diego), PDE / Core  
-
-  - [James Grady](http://jamesjgrady.com/) (Boston), Visual Design  
-
-
   **Google Summer of Code 2015**  
 
   - Gottfried Haider, Raspberry Pi and armv7hf support  
-
   - Joel Ruben Antony Moniz, Replacing JEditTextArea with RSyntaxTextArea and
   designing a new REPL Mode  
-
   - Maya Man, Creativity in Code: Accounting for Diversity throughout
   Development  
-
   - Nick Confrey, Making networking easier for Processing users  
-
   - Thomas Sanchez Lengeling, Expanding Kinect v2 libraries in Processing  
-
   - Umair Khan, Enhancements in Processing’s Android Mode  
-
 
   **Community**  
 
   - [Philippe Lhoste](http://phi.lho.free.fr) (Sevran), Forum administrator  
-
   - [Cedric Kiefer](http://www.onformative.com) (Berlin), Forum administrator  
-
   - [Filip Visnjic](http://www.fvda.co.uk) (London), Exhibition curator  
-
   - [Jer Thorp](http://blprnt.com) (New York), Lobbyist  
-
 
   **Libraries, Tools**  
 
@@ -99,10 +88,8 @@ team:
 
   - [Lauren McCarthy](http://lauren-mccarthy.com/) (New York), -
   Spring/Summer/Fall 2013  
-
   - [Greg Borenstein](http://gregborenstein.com/) (New York), Spring/Summer
   2013  
-
   - [Wilm Thoben](http://wilmthoben.com/) (Los Angeles), Fall 2013/Winter 2014  
 
   **Developer Alumni**  

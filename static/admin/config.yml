@@ -110,10 +110,11 @@ collections:
             widget: "list"
             fields:
               - { label: "Name", name: "name", widget: "string" }
-              - { label: "Role", name: "role", widget: "string" }
-              - { label: "Position", name: position, widget: "string" }
+              - { label: "Role", name: "role", widget: "select", options: ['Lead Developer', 'Senior Developer', 'Developer'] }
               - { label: "Profile Image", name: "photo", widget: "image", required: false }
               - { label: "Link", name: "link", widget: "string", required: false }
+              - { label: "Bio", name: "bio", widget: "text", required: false }
+              - { label: "Location", name: "location", widget: "string", required: false }
 
       - label: "Environment"
         name: "environment"
