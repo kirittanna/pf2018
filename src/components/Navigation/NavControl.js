@@ -3,10 +3,12 @@ import { connect } from 'react-redux'
 
 import Button from 'grommet/components/Button'
 import Box from 'grommet/components/Box'
-import IconMenu from 'grommet/components/icons/base/Menu'
+import Title from 'grommet/components/Title'
+
+import MenuIcon from 'grommet/components/icons/base/Menu'
+import CloseIcon from 'grommet/components/icons/base/Close'
 
 import { navActivate } from '../../state/actions'
-import Logo from '../Logo'
 
 class NavControl extends Component {
   render() {
@@ -14,22 +16,13 @@ class NavControl extends Component {
       nav: { active },
     } = this.props
 
-    let result
-    if (!active) {
-      result = (
-        <Box direction="row" responsive={false}>
-          <Button
-            icon={<IconMenu />}
-            onClick={() => this.props.dispatch(navActivate(true))}
-            plain={false}
-          />
-          <Logo />
-        </Box>
-      )
-    } else {
-      result = null
-    }
-    return result
+    return (
+      <Button
+        icon={active ? <CloseIcon /> : <MenuIcon />}
+        onClick={() => this.props.dispatch(navActivate(!active))}
+        plain={false}
+      />
+    )
   }
 }
 

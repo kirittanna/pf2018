@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import p5 from 'p5'
 
 export default class P5Wrapper extends Component {
   componentDidMount() {

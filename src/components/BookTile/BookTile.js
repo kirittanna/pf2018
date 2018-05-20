@@ -3,6 +3,8 @@ import Img from 'gatsby-image'
 
 import Anchor from 'grommet/components/Anchor'
 import Card from 'grommet/components/Card'
+import Heading from 'grommet/components/Heading'
+import Paragraph from 'grommet/components/Paragraph'
 
 import LinkNextIcon from 'grommet/components/icons/base/LinkNext'
 
@@ -17,9 +19,12 @@ const BookTile = ({
   externalLinks,
 }) => (
   <Card
-    label={author}
-    heading={title}
-    description={<div dangerouslySetInnerHTML={{ __html: description }} />}
+    heading={
+      <Heading tag="h3" strong={false} truncate={false}>
+        {title}
+      </Heading>
+    }
+    description={<Paragraph>{author}</Paragraph>}
     thumbnail={<Img resolutions={resolutions} alt={title} />}
     link={[
       <Anchor

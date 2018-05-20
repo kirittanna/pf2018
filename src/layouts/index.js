@@ -1,8 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import { connect } from 'react-redux'
-import { navResponsive } from '../state/actions'
-import { siteMetadata } from '../../gatsby-config'
 
 // import 'grommet/grommet.min.css'
 import '../../theme/dist/grommet.css'
@@ -18,14 +16,19 @@ import Footer from 'grommet/components/Footer'
 import Menu from 'grommet/components/Menu'
 import Paragraph from 'grommet/components/Paragraph'
 import Header from 'grommet/components/Header'
-import Search from 'grommet/components/Search'
 import Split from 'grommet/components/Split'
+import Title from 'grommet/components/Title'
 
 import DownloadIcon from 'grommet/components/icons/base/Download'
 import MoneyIcon from 'grommet/components/icons/base/Money'
+import LinkIcon from 'grommet/components/icons/base/Link'
 
+import Logo from '../components/Logo'
 import Navigation from '../components/Navigation'
 import NavControl from '../components/Navigation/NavControl'
+
+import { navResponsive } from '../state/actions'
+import { siteMetadata } from '../../gatsby-config'
 
 class Template extends React.Component {
   _onSearchChange = event => {
@@ -68,60 +71,58 @@ class Template extends React.Component {
           flex="right"
           onResponsive={this._onResponsive}
         >
-          {includeNav && <Navigation />}
+          {includeNav && (
+            <Navigation searchIndex={this.props.data.siteSearchIndex.index} />
+          )}
           <Article pad={{ vertical: 'none' }}>
             <Header
               direction="row"
               justify="between"
-              size="large"
-              pad={{ horizontal: 'medium', between: 'small' }}
+              size="medium"
+              pad={{
+                horizontal: 'medium',
+                vertical: 'small',
+                between: 'small',
+              }}
             >
-              <NavControl showTitle={true} title="Processing.org" />
-              <Search
-                ref="search"
-                inline={true}
-                responsive={false}
-                fill={true}
-                size="medium"
-                placeHolder="Search"
-                defaultValue="Search..."
-                onDOMChange={this._onSearchChange}
-                onSelect={this._onSearchSelect}
-                suggestions={null}
-              />
-              <Button
-                path="/downloads"
-                label="Download"
-                icon={<DownloadIcon />}
-                accent={true}
-              />
-              <Button
-                path="/donate"
-                label="Donate"
-                icon={<MoneyIcon />}
-                accent={true}
-              />
-              <Menu
-                label="Other Sites"
-                size="small"
-                dropAlign={{ right: 'right', top: 'bottom' }}
-              >
-                <Anchor
-                  href="https://processingfoundation.org/"
-                  target="_blank"
+              <Box direction="row" justify="start">
+                <NavControl showTitle={true} title="Processing.org" />
+                <Title>
+                  <Logo colorIndex="light-1" />
+                  <span>Processing</span>
+                </Title>
+              </Box>
+              <Box direction="row" justify="end">
+                <Button
+                  path="/donate"
+                  icon={<MoneyIcon />}
+                  accent={true}
+                  pad="small"
+                  accent={true}
+                />
+                <Menu
+                  icon={<LinkIcon />}
+                  size="small"
+                  dropAlign={{ right: 'right', top: 'bottom' }}
+                  accent={true}
                 >
-                  Processing Foundation
-                </Anchor>
-                <Anchor href="https://p5js.org/" target="_blank">
-                  p5js
-                </Anchor>
-                <Anchor href="https://processing.py/" target="_blank">
-                  Processing.py
-                </Anchor>
-                <Anchor href="http://android.processing.org/" target="_blank">
-                  Processing for Android
-                </Anchor>
-              </Menu>
+                  <Anchor
+                    href="https://processingfoundation.org/"
+                    target="_blank"
+                  >
+                    Processing Foundation
+                  </Anchor>
+                  <Anchor href="https://p5js.org/" target="_blank">
+                    p5js
+                  </Anchor>
+                  <Anchor href="https://processing.py/" target="_blank">
+                    Processing.py
+                  </Anchor>
+                  <Anchor href="http://android.processing.org/" target="_blank">
+                    Processing for Android
+                  </Anchor>
+                </Menu>
+              </Box>
             </Header>
 
             <Box
@@ -163,6 +164,16 @@ Template.propTypes = {
   location: React.PropTypes.object,
   route: React.PropTypes.object,
   nav: React.PropTypes.object,
+  index: React.PropTypes.object,
 }
+
+// Graphql query used to retrieve the serialized search index.
+export const query = graphql`
+  query SearchIndexExampleQuery {
+    siteSearchIndex {
+      index
+    }
+  }
+`
 
 export default connect(mapStateToProps, mapDispatchToProps)(Template)

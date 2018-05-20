@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import get from 'lodash/get'
 import { connect } from 'react-redux'
 import MetisMenu from 'react-metismenu'
@@ -9,7 +9,6 @@ import Box from 'grommet/components/Box'
 import Header from 'grommet/components/Header'
 import Menu from 'grommet/components/Menu'
 import Title from 'grommet/components/Title'
-import Search from 'grommet/components/Search'
 import Sidebar from 'grommet/components/Sidebar'
 import Footer from 'grommet/components/Footer'
 import Button from 'grommet/components/Button'
@@ -18,13 +17,12 @@ import SocialTwitter from 'grommet/components/icons/base/SocialTwitter'
 import SocialFacebook from 'grommet/components/icons/base/SocialFacebook'
 import SocialMedium from 'grommet/components/icons/base/SocialMedium'
 import SocialGithub from 'grommet/components/icons/base/SocialGithub'
-import CloseIcon from 'grommet/components/icons/base/Close'
 
-import Logo from '../Logo'
+import SearchBar from '../SearchBar'
 import { navActivate } from '../../state/actions'
 
 class Navigation extends Component {
-  _onClose = () => {
+  onClose = () => {
     this.props.dispatch(navActivate(false))
   }
 
@@ -33,26 +31,25 @@ class Navigation extends Component {
       nav: { items },
     } = this.props
     var links = items.map(page => {
-      return <Anchor key={page.label} path={page.path} label={page.label} />
+      return (
+        <Anchor
+          key={page.label}
+          path={page.path}
+          label={page.label}
+          onClick={this.onClose}
+        />
+      )
     })
 
     return (
       <Animate
         enter={{ animation: 'slide-right', duration: 300, delay: 0 }}
-        leave={{ animation: 'slide-left', duration: 300, delay: 0 }}
+        leave={{ animation: 'slide-left', duration: 300, delay: 300 }}
         visible={true}
       >
         <Sidebar colorIndex="light-1" fixed={true}>
-          <Header size="large" justify="between" pad={{ horizontal: 'medium' }}>
-            <Title onClick={this._onClose} a11yTitle="Close Menu">
-              <Logo colorIndex="light-1" />
-            </Title>
-            <Button
-              icon={<CloseIcon />}
-              onClick={this._onClose}
-              plain={true}
-              a11yTitle="Close Menu"
-            />
+          <Header size="large" justify="between" pad="small">
+            <SearchBar index={this.props.searchIndex} />
           </Header>
           <Menu fill={true} primary={true}>
             {links}
@@ -100,5 +97,9 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = ({ nav }) => ({
   nav,
 })
+
+Navigation.propTypes = {
+  searchIndex: PropTypes.object.isRequired,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation)

@@ -16,7 +16,7 @@ export default function BookTemplate({
 }) {
   const { markdownRemark, file } = data // data.markdownRemark holds our post data
   const { frontmatter, body, html } = markdownRemark
-  console.log(file)
+
   return (
     <Box>
       <Anchor path="/books" icon={<LinkPreviousIcon />} label="All Books" />

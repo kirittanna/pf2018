@@ -29,12 +29,12 @@ class Home extends Component {
     const { allMarkdownRemark, markdownRemark } = data // data.markdownRemark holds our post data
     const { htmlAst, frontmatter } = markdownRemark
     return (
-      <div>
+      <Box>
         <Columns full="horizontal" size="large" pad={{ between: 'small' }}>
           <Box separator="right" pad={{ horizontal: 'medium' }}>
             {renderAst(htmlAst)}
           </Box>
-          <Box pad={{ horizontal: 'medium' }}>
+          <Box pad={{ horizontal: 'small' }}>
             <Box>
               <a
                 class="twitter-timeline"
@@ -53,11 +53,11 @@ class Home extends Component {
             </List>
           </Box>
         </Columns>
-        <Toast status="ok" onClose={() => {}}>
+        {/*<Toast status="ok" onClose={() => {}}>
           Processing Community Day registrations opened{' '}
           <Anchor label="Click here" href="#" />
-        </Toast>
-      </div>
+        </Toast>*/}
+      </Box>
     )
   }
 }

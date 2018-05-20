@@ -797,11 +797,12 @@ class Logo extends Component {
 Logo.propTypes = {
   busy: PropTypes.bool,
   colorIndex: PropTypes.string,
-  size: PropTypes.oneOf(['medium', 'large']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 }
 
 Logo.defaultProps = {
   colorIndex: 'brand',
+  size: 'small',
 }
 
 module.exports = Logo

@@ -37,7 +37,7 @@ class Books extends Component {
         {renderAst(htmlAst)}
         <Tiles>
           {allMarkdownRemark.edges.map(({ node: { frontmatter } }) => (
-            <Tile size="medium" margin="small" pad="small">
+            <Tile margin="small" pad="small">
               <BookTile
                 title={frontmatter.title}
                 path={frontmatter.path}

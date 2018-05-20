@@ -43,7 +43,6 @@ const buildPages = (
             fieldValue.substr(fieldValue.lastIndexOf('/') + 1)
           )
         })
-        console.log('context:', context)
         createPage({
           component,
           context,
