@@ -1,10 +1,16 @@
 ---
 path: /overview
+header: >-
+  ### Overview. A short introduction to the Processing software and projects
+  from the community.
+footer: |-
+  YourKit supports Processing by donating its full-featured Java Profiler.
+    YourKit, LLC is the creator of tools for profiling Java and .NET applications:
+    [YourKit Java Profiler](http://www.yourkit.com/java/profiler/index.jsp),
+    [YourKit .NET Profiler](http://www.yourkit.com/.net/profiler/index.jsp).
 title: Overview
 ---
   ![Processing](/assets/processing-social.jpg)
-  ### Overview. A short introduction to the Processing software and projects
-  from the community.
 
 
   For the past fourteen years, Processing has promoted software literacy,
@@ -148,9 +154,3 @@ title: Overview
 
 
   #### Thank you.
-
-
-  YourKit supports Processing by donating its full-featured Java Profiler.
-  YourKit, LLC is the creator of tools for profiling Java and .NET applications:
-  [YourKit Java Profiler](http://www.yourkit.com/java/profiler/index.jsp),
-  [YourKit .NET Profiler](http://www.yourkit.com/.net/profiler/index.jsp).
