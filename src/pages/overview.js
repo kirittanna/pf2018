@@ -28,7 +28,9 @@ class Overview extends Component {
         <Heading strong={true} tag="h2">
           {frontmatter.title}
         </Heading>
+        <Markdown content={frontmatter.header} />
         {renderAst(htmlAst)}
+        <Markdown content={frontmatter.footer} />
       </Box>
     )
   }
@@ -45,6 +47,8 @@ export const pageQuery = graphql`
       htmlAst
       frontmatter {
         title
+        header
+        footer
       }
     }
   }

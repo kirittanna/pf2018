@@ -85,20 +85,21 @@ class Template extends React.Component {
                 between: 'small',
               }}
             >
-              <Box direction="row" justify="start">
+              <Box direction="row" justify="start" responsive={false}>
                 <NavControl showTitle={true} title="Processing.org" />
                 <Title>
                   <Logo colorIndex="light-1" />
                   <span>Processing</span>
                 </Title>
               </Box>
-              <Box direction="row" justify="end">
+              <Box direction="row" justify="end" responsive={false}>
                 <Button
                   path="/donate"
                   icon={<MoneyIcon />}
                   accent={true}
                   pad="small"
                   accent={true}
+                  id="donateButton"
                 />
                 <Menu
                   icon={<LinkIcon />}
@@ -124,7 +125,6 @@ class Template extends React.Component {
                 </Menu>
               </Box>
             </Header>
-
             <Box
               pad="medium"
               size="full"

@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { Index } from 'elasticlunr'
+import { connect } from 'react-redux'
 import { isEmpty } from 'lodash/fp'
 import { navigateTo } from 'gatsby-link'
 
 import Search from 'grommet/components/Search'
 
+import { navActivate } from '../state/actions'
+
 // Search component
-export default class SearchBar extends Component {
+class SearchBar extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -44,6 +47,7 @@ export default class SearchBar extends Component {
 
   onSearchSelect = item => {
     if (!isEmpty(item.suggestion.path)) {
+      this.props.dispatch(navActivate(false))
       navigateTo(item.suggestion.path)
     }
   }
@@ -61,3 +65,9 @@ export default class SearchBar extends Component {
     })
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  dispatch,
+})
+
+export default connect(null, mapDispatchToProps)(SearchBar)
