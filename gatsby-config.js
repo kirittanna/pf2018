@@ -10,6 +10,20 @@ module.exports = {
     url: '',
   },
   plugins: [
+    {
+      resolve: `gatsby-source-twitter`,
+      options: {
+        q: `@processingOrg`,
+        count: 5,
+        credentials: {
+          consumer_key: 'cOZsubLVAMN59HXtzAhpgLvHO',
+          consumer_secret: 'jC6dpuZ84dJLHFqtVY4aoqVuNG9gdbNYouqlUiJFnp3cRG1ZHg',
+          bearer_token:
+            'AAAAAAAAAAAAAAAAAAAAAAf26AAAAAAA8HB4M75us%2FysAYucOonFiZbOJeQ%3DJB90KfZLEb72stffB0CeqO31tshjw4dXOOP5MeFZmG3UPMVPOb',
+        },
+        tweet_mode: 'compat',
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -68,18 +82,7 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    // {
-    //   resolve: `gatsby-source-twitter`,
-    //   options: {
-    //     q: `@kirittanna`,
-    //     credentials: {
-    //       consumer_key: 'ZDJtw9tgvNWwzx83Y9aw',
-    //       consumer_secret: 'iEVPPpNvZoG0go69EFl8lc1MAFyNVOPHqtNjCJJfM',
-    //       bearer_token: '16705401-V7iE7FXYuX2FimXjQ1X5STlDZvEdy9Vlzo5CsSKU4',
-    //     },
-    //     tweet_mode: 'extended',
-    //   },
-    // },
+    `gatsby-plugin-twitter`,
     {
       resolve: `@andrew-codes/gatsby-plugin-elasticlunr-search`,
       options: {

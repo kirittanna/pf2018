@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import styles from './P5Wrapper.css'
+
 export default class P5Wrapper extends Component {
   componentDidMount() {
     this.canvas = new p5(this.props.sketch, this.wrapper)
@@ -23,6 +25,16 @@ export default class P5Wrapper extends Component {
   }
 
   render() {
-    return <div ref={wrapper => (this.wrapper = wrapper)} />
+    return (
+      <div
+        ref={wrapper => (this.wrapper = wrapper)}
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          overflow: 'hidden',
+        }}
+      />
+    )
   }
 }

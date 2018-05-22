@@ -7,11 +7,14 @@ import { connect } from 'react-redux'
 import Anchor from 'grommet/components/Anchor'
 import Box from 'grommet/components/Box'
 import Button from 'grommet/components/Button'
-import Columns from 'grommet/components/Columns'
+import Split from 'grommet/components/Split'
 import Heading from 'grommet/components/Heading'
 import List from 'grommet/components/List'
 import ListItem from 'grommet/components/ListItem'
 import Markdown from 'grommet/components/Markdown'
+import Paragraph from 'grommet/components/Paragraph'
+import Timestamp from 'grommet/components/Timestamp'
+import Title from 'grommet/components/Title'
 import Toast from 'grommet/components/Toast'
 
 import { navEnable } from '../state/actions'
@@ -26,24 +29,24 @@ class Home extends Component {
 
   render() {
     const { data } = this.props
-    const { allMarkdownRemark, markdownRemark } = data // data.markdownRemark holds our post data
+    const { allMarkdownRemark, markdownRemark, allTweet } = data // data.markdownRemark holds our post data
     const { htmlAst, frontmatter } = markdownRemark
     return (
       <Box>
-        <Columns full="horizontal" size="large" pad={{ between: 'small' }}>
-          <Box separator="right" pad={{ horizontal: 'medium' }}>
+        <Box
+          margin={{ vertical: 'small' }}
+          style={{
+            position: 'relative',
+            width: '100%',
+            minHeight: '320px',
+            maxHeight: '480px',
+          }}
+        >
+          <P5Wrapper sketch={Demo} />
+        </Box>
+        <Split showOnResponsive="both" separator={true}>
+          <Box pad={{ horizontal: 'medium' }}>
             {renderAst(htmlAst)}
-          </Box>
-          <Box pad={{ horizontal: 'small' }}>
-            <Box>
-              <a
-                class="twitter-timeline"
-                href="https://twitter.com/kirittanna?ref_src=twsrc%5Etfw"
-              >
-                Tweets by kirittanna
-              </a>
-              <P5Wrapper sketch={Demo} />
-            </Box>
             <List>
               {allMarkdownRemark.edges.map(({ node: { frontmatter } }) => (
                 <ListItem wrap={true} pad="small" separator="bottom">
@@ -52,11 +55,33 @@ class Home extends Component {
               ))}
             </List>
           </Box>
-        </Columns>
-        {/*<Toast status="ok" onClose={() => {}}>
-          Processing Community Day registrations opened{' '}
-          <Anchor label="Click here" href="#" />
-        </Toast>*/}
+          <Box pad={{ horizontal: 'small' }}>
+            <Title>
+              <Anchor
+                class="twitter-timeline"
+                href="https://twitter.com/@processingOrg"
+              >
+                @processingOrg
+              </Anchor>
+            </Title>
+            <List>
+              {allTweet.edges.map(
+                ({
+                  node: {
+                    created_at,
+                    text,
+                    user: { name },
+                  },
+                }) => (
+                  <ListItem wrap={true} pad="small" separator="bottom">
+                    <Timestamp value={created_at} />
+                    <Paragraph>{text}</Paragraph>
+                  </ListItem>
+                )
+              )}
+            </List>
+          </Box>
+        </Split>
       </Box>
     )
   }
@@ -94,6 +119,17 @@ export const pageQuery = graphql`
           frontmatter {
             path
             title
+          }
+        }
+      }
+    }
+    allTweet {
+      edges {
+        node {
+          created_at
+          text
+          user {
+            name
           }
         }
       }
