@@ -21,6 +21,8 @@ class NavControl extends Component {
         icon={active ? <CloseIcon /> : <MenuIcon />}
         onClick={() => this.props.dispatch(navActivate(!active))}
         plain={false}
+        box={true}
+        pad="none"
       />
     )
   }

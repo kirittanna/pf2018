@@ -24,6 +24,32 @@ module.exports = {
         tweet_mode: 'compat',
       },
     },
+    {
+      resolve: 'gatsby-source-github',
+      options: {
+        headers: {
+          Authorization: `Bearer 23c2e00816386ec3b0eccd31ec9474e66afbcdb7`,
+        },
+        queries: [
+          `{
+          repository(owner: "kirittanna", name: "pf2018") {
+            issues(last: 5, states: OPEN) {
+              edges {
+                node {
+                  id
+                  author {
+                    url
+                  }
+                  title
+                  url
+                }
+              }
+            }
+          }
+        }`,
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

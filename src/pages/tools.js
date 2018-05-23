@@ -10,8 +10,8 @@ import Card from 'grommet/components/Card'
 import Heading from 'grommet/components/Heading'
 import Markdown from 'grommet/components/Markdown'
 import Button from 'grommet/components/Button'
-import Tiles from 'grommet/components/Tiles'
-import Tile from 'grommet/components/Tile'
+import Table from 'grommet/components/Table'
+import TableRow from 'grommet/components/TableRow'
 
 import LinkNextIcon from 'grommet/components/icons/base/LinkNext'
 
@@ -29,20 +29,36 @@ class Tools extends Component {
     const { allMarkdownRemark } = data // data.markdownRemark holds our post data
     return (
       <Box full="horizontal">
-        <Tiles>
-          {allMarkdownRemark.edges.map(({ node: { frontmatter }, html }) => (
-            <Tile wrap={true} pad="small" separator="bottom">
-              <Card
-                heading={frontmatter.title}
-                label={frontmatter.author}
-                description={html}
-                link={frontmatter.externalLinks.map(link => (
-                  <Anchor href={link.url} label={link.title} target="_blank" />
-                ))}
-              />
-            </Tile>
-          ))}
-        </Tiles>
+        <Table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Author</th>
+              <th>Links</th>
+              <th>Built-in</th>
+            </tr>
+          </thead>
+          <tbody>
+            {allMarkdownRemark.edges.map(({ node: { frontmatter }, html }) => (
+              <TableRow>
+                <td>{frontmatter.title}</td>
+                <td className="secondary">{html}</td>
+                <td>{frontmatter.author}</td>
+                <td>
+                  {frontmatter.externalLinks.map(link => (
+                    <Anchor
+                      href={link.url}
+                      label={link.title}
+                      target="_blank"
+                    />
+                  ))}
+                </td>
+                <td>{frontmatter.builtIn ? 'Yes' : 'No'}</td>
+              </TableRow>
+            ))}
+          </tbody>
+        </Table>
       </Box>
     )
   }

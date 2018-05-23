@@ -32,7 +32,7 @@ class Home extends Component {
     const { allMarkdownRemark, markdownRemark, allTweet } = data // data.markdownRemark holds our post data
     const { htmlAst, frontmatter } = markdownRemark
     return (
-      <Box>
+      <Box pad="none">
         <Box
           margin={{ vertical: 'small' }}
           style={{
@@ -44,18 +44,11 @@ class Home extends Component {
         >
           <P5Wrapper sketch={Demo} />
         </Box>
-        <Split showOnResponsive="both" separator={true}>
-          <Box pad={{ horizontal: 'medium' }}>
+        <Box full="horizontal" pad={{ horizontal: 'small' }} direction="row">
+          <Box primary={true} pad="medium">
             {renderAst(htmlAst)}
-            <List>
-              {allMarkdownRemark.edges.map(({ node: { frontmatter } }) => (
-                <ListItem wrap={true} pad="small" separator="bottom">
-                  <Anchor href={frontmatter.path}>{frontmatter.title}</Anchor>
-                </ListItem>
-              ))}
-            </List>
           </Box>
-          <Box pad={{ horizontal: 'small' }}>
+          <Box pad="medium" size="large">
             <Title>
               <Anchor
                 class="twitter-timeline"
@@ -64,7 +57,7 @@ class Home extends Component {
                 @processingOrg
               </Anchor>
             </Title>
-            <List>
+            <List size="medium" size="medium">
               {allTweet.edges.map(
                 ({
                   node: {
@@ -73,7 +66,7 @@ class Home extends Component {
                     user: { name },
                   },
                 }) => (
-                  <ListItem wrap={true} pad="small" separator="bottom">
+                  <ListItem wrap={true} pad="none" separator="bottom">
                     <Timestamp value={created_at} />
                     <Paragraph>{text}</Paragraph>
                   </ListItem>
@@ -81,7 +74,26 @@ class Home extends Component {
               )}
             </List>
           </Box>
-        </Split>
+          <Box pad="medium" size="medium">
+            <Title>
+              <Anchor path="/news">News</Anchor>
+            </Title>
+            <List>
+              {allMarkdownRemark.edges.map(({ node: { frontmatter } }) => (
+                <ListItem
+                  wrap={true}
+                  pad={{ vertical: 'small' }}
+                  separator="bottom"
+                >
+                  <Timestamp value={frontmatter.date} />
+                  <Anchor href={frontmatter.path}>
+                    <Title>{frontmatter.title}</Title>
+                  </Anchor>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        </Box>
       </Box>
     )
   }

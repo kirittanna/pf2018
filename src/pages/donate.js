@@ -34,18 +34,16 @@ class Donate extends Component {
         <Heading strong={true} tag="h2">
           {frontmatter.title}
         </Heading>
-        {renderAst(htmlAst)}
+        <Box>{renderAst(htmlAst)}</Box>
         <List>
           {frontmatter.donationOptions.map((option, index) => (
-            <ListItem pad="medium" justify="between" separator="horizontal">
-              <span>
-                <Title margin={{ vertical: 'medium' }}>
-                  {`${option.name} (${option.amount})`}
-                </Title>
-              </span>
+            <ListItem pad="small" justify="between" separator="horizontal">
+              <Title margin={{ vertical: 'medium' }} truncate={false}>
+                {`${option.name} ($${option.amount})`}
+              </Title>
               <Button
                 href={option.link}
-                icon={<Pulse icon={<LinkNextIcon />} />}
+                icon={<Pulse icon={<LinkNextIcon />} target="_blank" />}
               />
             </ListItem>
           ))}
@@ -69,6 +67,7 @@ export const pageQuery = graphql`
         donationOptions {
           name
           amount
+          link
         }
       }
     }

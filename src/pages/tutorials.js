@@ -9,6 +9,7 @@ import Box from 'grommet/components/Box'
 import Card from 'grommet/components/Card'
 import Heading from 'grommet/components/Heading'
 import Markdown from 'grommet/components/Markdown'
+import Paragraph from 'grommet/components/Paragraph'
 import Button from 'grommet/components/Button'
 import Tiles from 'grommet/components/Tiles'
 import Tile from 'grommet/components/Tile'
@@ -28,13 +29,13 @@ class Tutorials extends Component {
     const { allMarkdownRemark } = data // data.markdownRemark holds our post data
     return (
       <Box full="horizontal">
-        <Tiles>
+        <Tiles align="start" alignContent="start">
           {allMarkdownRemark.edges.map(({ node: { frontmatter }, html }) => (
             <Tile wrap={true} pad="small" separator="bottom">
               <Card
                 heading={frontmatter.title}
                 label={frontmatter.level}
-                description={frontmatter.summary}
+                description={<Paragraph>{frontmatter.summary}</Paragraph>}
                 link={
                   <Anchor
                     path={frontmatter.path}

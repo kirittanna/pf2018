@@ -16,6 +16,7 @@ import Footer from 'grommet/components/Footer'
 import Menu from 'grommet/components/Menu'
 import Paragraph from 'grommet/components/Paragraph'
 import Header from 'grommet/components/Header'
+import Heading from 'grommet/components/Heading'
 import Split from 'grommet/components/Split'
 import Title from 'grommet/components/Title'
 
@@ -75,24 +76,24 @@ class Template extends React.Component {
             <Navigation searchIndex={this.props.data.siteSearchIndex.index} />
           )}
           <Article pad={{ vertical: 'none' }}>
-            <Header
-              direction="row"
-              justify="between"
-              size="medium"
-              pad={{
-                horizontal: 'medium',
-                vertical: 'small',
-                between: 'small',
-              }}
-            >
-              <Box direction="row" justify="start" responsive={false}>
+            <Header direction="row" justify="between" size="small" pad="small">
+              <Box
+                direction="row"
+                justify="start"
+                responsive={false}
+                pad="none"
+                align="center"
+                alignContent="center"
+              >
                 <NavControl showTitle={true} title="Processing.org" />
-                <Title>
+                <Title truncate={false}>
                   <Logo colorIndex="light-1" />
-                  <span>Processing</span>
+                  <Heading tag="h1" margin="none">
+                    Processing
+                  </Heading>
                 </Title>
               </Box>
-              <Box direction="row" justify="end" responsive={false}>
+              <Box direction="row" justify="end" responsive={false} pad="none">
                 <Button
                   path="/donate"
                   icon={<MoneyIcon />}
@@ -126,7 +127,7 @@ class Template extends React.Component {
               </Box>
             </Header>
             <Box
-              pad="medium"
+              pad="small"
               size="full"
               margin={{ horizontal: 'small', vertical: 'none' }}
             >

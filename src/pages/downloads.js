@@ -5,13 +5,17 @@ import Helmet from 'react-helmet'
 import rehypeReact from 'rehype-react'
 import { connect } from 'react-redux'
 
+import Accordion from 'grommet/components/Accordion'
+import AccordionPanel from 'grommet/components/AccordionPanel'
 import Box from 'grommet/components/Box'
 import Button from 'grommet/components/Button'
 import Heading from 'grommet/components/Heading'
-import Markdown from 'grommet/components/Markdown'
 import Label from 'grommet/components/Label'
 import List from 'grommet/components/List'
 import ListItem from 'grommet/components/ListItem'
+import Markdown from 'grommet/components/Markdown'
+import Title from 'grommet/components/Title'
+import Timestamp from 'grommet/components/Timestamp'
 
 import DownloadIcon from 'grommet/components/icons/base/Download'
 
@@ -26,19 +30,26 @@ class Downloads extends Component {
   renderGroup = (title, date, intro, options) => {
     const groupedOptions = groupBy('os', options)
     return (
-      <Box margin={{ bottom: 'large' }}>
-        <Heading strong={true} tag="h3">
-          {title}
-        </Heading>
-        <p>{date}</p>
+      <AccordionPanel
+        heading={
+          <Title tag="h4">
+            {title}
+            <span>
+              (<Timestamp value={date} fields={['month', 'day', 'year']} />)
+            </span>
+          </Title>
+        }
+        pad="small"
+      >
         <Markdown>{intro}</Markdown>
         <List>
           {Object.keys(groupedOptions).map((key, index) => (
             <ListItem
-              pad="small"
+              pad="none"
               justify="between"
-              separator="horizontal"
-              align="start"
+              separator="none"
+              align="center"
+              alignContent="center"
             >
               <Label>{key}</Label>
               <Box direction="row" justify="end">
@@ -55,7 +66,7 @@ class Downloads extends Component {
             </ListItem>
           ))}
         </List>
-      </Box>
+      </AccordionPanel>
     )
   }
 
@@ -84,19 +95,28 @@ class Downloads extends Component {
         <Heading strong={true} tag="h2">
           {title}
         </Heading>
-        {this.renderGroup(
-          latestTitle,
-          latestDate,
-          latestIntro,
-          latestDownloadOptions
-        )}
-        {this.renderGroup(
-          stableTitle,
-          stableDate,
-          stableIntro,
-          stableDownloadOptions
-        )}
-        {this.renderGroup(betaTitle, betaDate, betaIntro, betaDownloadOptions)}
+        <Box margin={{ bottom: 'large' }}>
+          <Accordion active={[0]}>
+            {this.renderGroup(
+              latestTitle,
+              latestDate,
+              latestIntro,
+              latestDownloadOptions
+            )}
+            {this.renderGroup(
+              stableTitle,
+              stableDate,
+              stableIntro,
+              stableDownloadOptions
+            )}
+            {this.renderGroup(
+              betaTitle,
+              betaDate,
+              betaIntro,
+              betaDownloadOptions
+            )}
+          </Accordion>
+        </Box>
       </Box>
     )
   }

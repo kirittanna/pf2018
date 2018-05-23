@@ -1,3 +1,17 @@
+.grommetux-paragraph,
+.grommet li:not([class^='grommetux-']),
 .grommet p:not(.grommetux-paragraph) {
   max-width: 100%;
+}
+
+h1.grommetux-heading {
+  font-size: 2rem;
+}
+
+h2.grommetux-heading {
+  font-size: 1.75rem;
+}
+
+h3.grommetux-heading {
+  font-size: 1.5rem;
 }
