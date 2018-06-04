@@ -127,6 +127,7 @@ class Template extends React.Component {
               </Box>
             </Header>
             <Box
+              id="page-container"
               pad="small"
               size="full"
               margin={{ horizontal: 'small', vertical: 'none' }}

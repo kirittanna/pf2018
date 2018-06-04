@@ -42,7 +42,6 @@ module.exports = class HTML extends React.Component {
           {this.props.postBodyComponents}
         </body>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js" />
-        <script src="//toolness.github.io/p5.js-widget/p5-widget.js" />
       </html>
     )
   }

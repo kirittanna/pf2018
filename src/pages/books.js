@@ -29,6 +29,7 @@ class Books extends Component {
     const { data } = this.props
     const { allMarkdownRemark, allImageSharp, markdownRemark } = data
     const { htmlAst, frontmatter } = markdownRemark
+    console.log()
     return (
       <Box full="horizontal">
         <Heading strong={true} tag="h2">
@@ -36,7 +37,7 @@ class Books extends Component {
         </Heading>
         {renderAst(htmlAst)}
         <Tiles>
-          {allMarkdownRemark.edges.map(({ node: { frontmatter } }) => (
+          {allMarkdownRemark.edges.map(({ node: { frontmatter } }, count) => (
             <Tile margin="small" pad="small">
               <BookTile
                 title={frontmatter.title}
@@ -44,10 +45,7 @@ class Books extends Component {
                 author={frontmatter.author}
                 date={frontmatter.date}
                 externalLinks={frontmatter.externalLinks}
-                resolutions={getImageResolutions(
-                  allImageSharp,
-                  frontmatter.cover
-                )}
+                sizes={allImageSharp.edges[count].node.sizes}
               />
             </Tile>
           ))}
@@ -95,9 +93,11 @@ export const pageQuery = graphql`
     allImageSharp(filter: { id: { regex: "/\/books_/" } }) {
       edges {
         node {
-          id
-          resolutions(height:320) {
-            ...GatsbyImageSharpResolutions
+          sizes(quality:85) {
+            tracedSVG
+            aspectRatio
+            src
+            srcSet
           }
         }
       }

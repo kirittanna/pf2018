@@ -28,25 +28,25 @@ module.exports = {
       resolve: 'gatsby-source-github',
       options: {
         headers: {
-          Authorization: `Bearer 23c2e00816386ec3b0eccd31ec9474e66afbcdb7`,
+          Authorization: `Bearer 6df0f9dec940f0a06d6aa37f98046eea1c06f6d3`,
         },
         queries: [
           `{
-          repository(owner: "kirittanna", name: "pf2018") {
-            issues(last: 5, states: OPEN) {
-              edges {
-                node {
-                  id
-                  author {
+            repository(owner: "kirittanna", name: "pf2018") {
+              issues(last: 5, states: OPEN) {
+                edges {
+                  node {
+                    id
+                    author {
+                      url
+                    }
+                    title
                     url
                   }
-                  title
-                  url
                 }
               }
             }
-          }
-        }`,
+          }`,
         ],
       },
     },
@@ -104,6 +104,20 @@ module.exports = {
       options: {
         name: `img`,
         path: `${__dirname}/public/assets/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `code`,
+        path: `${__dirname}/public/code/`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-code`,
+      options: {
+        name: `code`,
+        extensions: ['pde', 'js'],
       },
     },
     'gatsby-transformer-sharp',

@@ -29,7 +29,12 @@ class Home extends Component {
 
   render() {
     const { data } = this.props
-    const { allMarkdownRemark, markdownRemark, allTweet } = data // data.markdownRemark holds our post data
+    const {
+      allMarkdownRemark,
+      markdownRemark,
+      allTweet,
+      allGithubIssues,
+    } = data // data.markdownRemark holds our post data
     const { htmlAst, frontmatter } = markdownRemark
     return (
       <Box pad="none">
@@ -45,18 +50,16 @@ class Home extends Component {
           <P5Wrapper sketch={Demo} />
         </Box>
         <Box full="horizontal" pad={{ horizontal: 'small' }} direction="row">
-          <Box primary={true} pad="medium">
+          <Box primary={true} pad="medium" size="large">
             {renderAst(htmlAst)}
           </Box>
-          <Box pad="medium" size="large">
-            <Title>
-              <Anchor
-                class="twitter-timeline"
-                href="https://twitter.com/@processingOrg"
-              >
-                @processingOrg
-              </Anchor>
-            </Title>
+          <Box pad="medium" size="medium">
+            <Anchor
+              class="twitter-timeline"
+              href="https://twitter.com/@processingOrg"
+            >
+              @processingOrg
+            </Anchor>
             <List size="medium" size="medium">
               {allTweet.edges.map(
                 ({
@@ -74,24 +77,42 @@ class Home extends Component {
               )}
             </List>
           </Box>
-          <Box pad="medium" size="medium">
-            <Title>
+          <Box pad="medium" size="medium" wrap={true}>
+            <Box margin={{ bottom: 'medium' }}>
               <Anchor path="/news">News</Anchor>
-            </Title>
-            <List>
-              {allMarkdownRemark.edges.map(({ node: { frontmatter } }) => (
-                <ListItem
-                  wrap={true}
-                  pad={{ vertical: 'small' }}
-                  separator="bottom"
-                >
-                  <Timestamp value={frontmatter.date} />
-                  <Anchor href={frontmatter.path}>
-                    <Title>{frontmatter.title}</Title>
-                  </Anchor>
-                </ListItem>
-              ))}
-            </List>
+              <List>
+                {allMarkdownRemark.edges.map(({ node: { frontmatter } }) => (
+                  <ListItem
+                    wrap={true}
+                    pad={{ vertical: 'small' }}
+                    separator="bottom"
+                  >
+                    <Timestamp value={frontmatter.date} />
+                    <Anchor href={frontmatter.path}>
+                      <Paragraph>{frontmatter.title}</Paragraph>
+                    </Anchor>
+                  </ListItem>
+                ))}
+              </List>
+            </Box>
+            <Box>
+              <Anchor path="https://github.com/kirittanna/pf2018/issues">
+                Github Issues
+              </Anchor>
+              <List>
+                {allGithubIssues.edges.map(({ node }) => (
+                  <ListItem
+                    wrap={true}
+                    pad={{ vertical: 'small' }}
+                    separator="bottom"
+                  >
+                    <Anchor href={node.url}>
+                      <Paragraph>{node.title}</Paragraph>
+                    </Anchor>
+                  </ListItem>
+                ))}
+              </List>
+            </Box>
           </Box>
         </Box>
       </Box>
@@ -143,6 +164,14 @@ export const pageQuery = graphql`
           user {
             name
           }
+        }
+      }
+    }
+    allGithubIssues {
+      edges {
+        node {
+          title
+          url
         }
       }
     }

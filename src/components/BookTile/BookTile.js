@@ -13,10 +13,10 @@ import styles from './BookTile.css'
 const BookTile = ({
   author,
   description,
-  resolutions,
   title,
   path,
   externalLinks,
+  sizes,
 }) => (
   <Card
     heading={
@@ -25,7 +25,7 @@ const BookTile = ({
       </Heading>
     }
     description={<Paragraph>{author}</Paragraph>}
-    thumbnail={<Img resolutions={resolutions} alt={title} />}
+    thumbnail={<Img sizes={sizes} alt={title} />}
     link={[
       <Anchor
         primary={true}

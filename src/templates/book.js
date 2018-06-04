@@ -22,7 +22,7 @@ export default function BookTemplate({
       <Anchor path="/books" icon={<LinkPreviousIcon />} label="All Books" />
       <Columns size="medium">
         <Box margin="none" pad="small" align="center">
-          <Img resolutions={file.childImageSharp.resolutions} />
+          <Img sizes={file.childImageSharp.sizes} />
         </Box>
         <Box margin="none" pad="small">
           <Heading strong={true} tag="h3">
@@ -55,18 +55,11 @@ export const pageQuery = graphql`
     }
     file(relativePath: { regex: $cover }) {
       childImageSharp {
-        id
-        resolutions(width: 300) {
-          base64
+        sizes(quality: 85) {
           tracedSVG
           aspectRatio
-          width
-          height
           src
           srcSet
-          srcWebp
-          srcSetWebp
-          originalName
         }
       }
     }

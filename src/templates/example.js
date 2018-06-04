@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
 import Anchor from 'grommet/components/Anchor'
 import Box from 'grommet/components/Box'
@@ -9,15 +10,22 @@ import LinkPreviousIcon from 'grommet/components/icons/base/LinkPrevious'
 export default function ExampleTemplate({
   data, // this prop will be injected by the GraphQL query below.
 }) {
-  const { markdownRemark } = data // data.markdownRemark holds our post data
+  const { markdownRemark, rawCode } = data // data.markdownRemark holds our post data
   const { frontmatter, body, html } = markdownRemark
 
-  const codeWrapper = `<script type="text/p5" data-autoplay data-preview-width="480" data-base-url="/" src="${
+  const elementWidth = document.getElementById('page-container')
+    ? document.getElementById('page-container').getBoundingClientRect().width
+    : 1080
+
+  const codeWrapper = `<script type="text/p5" data-autoplay data-hide-sourcecode data-preview-width="${elementWidth}" data-height="480" data-base-url="/" src="${
     frontmatter.demoCode
   }"></script>`
 
   return (
     <Box>
+      <Helmet>
+        <script src="//toolness.github.io/p5.js-widget/p5-widget.js" />
+      </Helmet>
       <Anchor path="/examples" icon={<LinkPreviousIcon />} label="Examples" />
       <Heading strong={true} tag="h2">
         {frontmatter.title}
@@ -40,6 +48,9 @@ export const pageQuery = graphql`
         sourceCode
         demoCode
       }
+    }
+    rawCode(name: { eq: $path }) {
+      content
     }
   }
 `
