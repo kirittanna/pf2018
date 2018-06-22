@@ -25,7 +25,6 @@ class Tools extends Component {
 
   render() {
     const { data } = this.props
-    console.log(this.props)
     const { allMarkdownRemark } = data // data.markdownRemark holds our post data
     return (
       <Box full="horizontal">

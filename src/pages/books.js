@@ -29,7 +29,7 @@ class Books extends Component {
     const { data } = this.props
     const { allMarkdownRemark, allImageSharp, markdownRemark } = data
     const { htmlAst, frontmatter } = markdownRemark
-    console.log()
+
     return (
       <Box full="horizontal">
         <Heading strong={true} tag="h2">
