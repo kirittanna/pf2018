@@ -14,11 +14,7 @@ export default function ExampleTemplate({
   const { markdownRemark, rawCode } = data // data.markdownRemark holds our post data
   const { frontmatter, body, html } = markdownRemark
 
-  const elementWidth = !isEmpty(document)
-    ? document.getElementById('page-container').getBoundingClientRect().width
-    : 1080
-
-  const codeWrapper = `<script type="text/p5" data-autoplay data-hide-sourcecode data-preview-width="${elementWidth}" data-height="480" data-base-url="/" src="${
+  const codeWrapper = `<script type="text/p5" data-autoplay data-hide-sourcecode data-preview-width="768" data-height="480" data-base-url="/" src="${
     frontmatter.demoCode
   }"></script>`
 
