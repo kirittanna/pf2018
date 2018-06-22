@@ -37,16 +37,18 @@ class Exhibition extends Component {
         </Heading>
         {renderAst(htmlAst)}
         <Tiles>
-          {allMarkdownRemark.edges.map(({ node: { frontmatter, html } }) => (
-            <Tile wrap={true} pad="small">
-              <ExhibitionTile
-                title={frontmatter.title}
-                description={html}
-                sizes={allImageSharp.edges[count].node.sizes}
-                externalLinks={frontmatter.externalLinks}
-              />
-            </Tile>
-          ))}
+          {allMarkdownRemark.edges.map(
+            ({ node: { frontmatter, html } }, count) => (
+              <Tile wrap={true} pad="small">
+                <ExhibitionTile
+                  title={frontmatter.title}
+                  description={html}
+                  sizes={allImageSharp.edges[count].node.sizes}
+                  externalLinks={frontmatter.externalLinks}
+                />
+              </Tile>
+            )
+          )}
         </Tiles>
       </Box>
     )
