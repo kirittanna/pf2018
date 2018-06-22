@@ -14,7 +14,7 @@ import Tile from 'grommet/components/Tile'
 
 import BookTile from '../components/BookTile'
 import { navEnable } from '../state/actions'
-import { renderAst, getImageResolutions } from '../utils/common'
+import { renderAst } from '../utils/common'
 
 class Books extends Component {
   componentDidMount() {

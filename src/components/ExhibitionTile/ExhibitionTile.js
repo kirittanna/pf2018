@@ -7,14 +7,20 @@ import Heading from 'grommet/components/Heading'
 
 import styles from './ExhibitionTile.css'
 
-const ExhibitionTile = ({ description, resolutions, title, externalLinks }) => (
+const ExhibitionTile = ({
+  description,
+  resolutions,
+  title,
+  externalLinks,
+  sizes,
+}) => (
   <Card
     heading={
       <Heading tag="h3" strong={false} truncate={true}>
         {title}
       </Heading>
     }
-    thumbnail={<Img resolutions={resolutions} alt={title} />}
+    thumbnail={<Img sizes={sizes} alt={title} />}
     description={<div dangerouslySetInnerHTML={{ __html: description }} />}
     link={externalLinks.map(link => (
       <Anchor href={link.url} label={link.title} target="_blank" />

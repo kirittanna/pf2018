@@ -15,7 +15,7 @@ import Tile from 'grommet/components/Tile'
 
 import ExhibitionTile from '../components/ExhibitionTile'
 import { navEnable } from '../state/actions'
-import { renderAst, getImageResolutions } from '../utils/common'
+import { renderAst } from '../utils/common'
 
 class Exhibition extends Component {
   componentDidMount() {
@@ -42,10 +42,7 @@ class Exhibition extends Component {
               <ExhibitionTile
                 title={frontmatter.title}
                 description={html}
-                resolutions={getImageResolutions(
-                  allImageSharp,
-                  frontmatter.thumbnail
-                )}
+                sizes={allImageSharp.edges[count].node.sizes}
                 externalLinks={frontmatter.externalLinks}
               />
             </Tile>
@@ -91,9 +88,11 @@ export const pageQuery = graphql`
     allImageSharp(filter: { id: { regex: "/\/exhibition_/" } }) {
       edges {
         node {
-          id
-          resolutions(height:240) {
-            ...GatsbyImageSharpResolutions
+          sizes(quality:85) {
+            tracedSVG
+            aspectRatio
+            src
+            srcSet
           }
         }
       }
