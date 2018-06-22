@@ -1,3 +1,5 @@
+
+
 module.exports = {
   siteMetadata: {
     author: '',
@@ -28,7 +30,7 @@ module.exports = {
       resolve: 'gatsby-source-github',
       options: {
         headers: {
-          Authorization: `Bearer fd240d2831e71c23cb4bdd903ef48edc7202730e`,
+          Authorization: `Bearer ${process.env.GIT_ACCESS_TOKEN}`,
         },
         queries: [
           `{
