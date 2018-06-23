@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import { isEmpty } from 'lodash/fp'
 
@@ -8,30 +8,57 @@ import Heading from 'grommet/components/Heading'
 
 import LinkPreviousIcon from 'grommet/components/icons/base/LinkPrevious'
 
-export default function ExampleTemplate({
-  data, // this prop will be injected by the GraphQL query below.
-}) {
-  const { markdownRemark, rawCode } = data // data.markdownRemark holds our post data
-  const { frontmatter, body, html } = markdownRemark
+class ExampleTemplate extends Component {
+  constructor() {
+    super()
 
-  const codeWrapper = `<script type="text/p5" data-autoplay data-hide-sourcecode data-preview-width="768" data-height="480" data-base-url="/" src="${
-    frontmatter.demoCode
-  }"></script>`
+    this.state = {
+      codeWrapper: '',
+    }
+  }
 
-  return (
-    <Box>
-      <Helmet>
-        <script src="//toolness.github.io/p5.js-widget/p5-widget.js" />
-      </Helmet>
-      <Anchor path="/examples" icon={<LinkPreviousIcon />} label="Examples" />
-      <Heading strong={true} tag="h2">
-        {frontmatter.title}
-      </Heading>
-      <h4>{frontmatter.date}</h4>
-      <div dangerouslySetInnerHTML={{ __html: codeWrapper }} />
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-    </Box>
-  )
+  componentDidMount() {
+    const {
+      data: {
+        markdownRemark: { frontmatter },
+      },
+    } = this.props
+
+    const previewWidth = document
+      .getElementById('page-container')
+      .getBoundingClientRect().width
+
+    this.setState(() => ({
+      codeWrapper: `<script type="text/p5" data-autoplay data-hide-sourcecode data-preview-width="${previewWidth}" data-height="480" data-base-url="/" src="${
+        frontmatter.demoCode
+      }"></script>`,
+    }))
+  }
+
+  render() {
+    const {
+      data, // this prop will be injected by the GraphQL query below.
+    } = this.props
+    const { markdownRemark, rawCode } = data // data.markdownRemark holds our post data
+    const { frontmatter, body, html } = markdownRemark
+
+    return (
+      <Box>
+        <Helmet>
+          <script src="/p5-widget/p5-widget.js" />
+        </Helmet>
+        <Anchor path="/examples" icon={<LinkPreviousIcon />} label="Examples" />
+        <Heading strong={true} tag="h2">
+          {frontmatter.title}
+        </Heading>
+        <h4>{frontmatter.date}</h4>
+        {!isEmpty(this.state.codeWrapper) && (
+          <div dangerouslySetInnerHTML={{ __html: this.state.codeWrapper }} />
+        )}
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </Box>
+    )
+  }
 }
 
 export const pageQuery = graphql`
@@ -51,3 +78,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export default ExampleTemplate

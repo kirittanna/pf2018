@@ -1,5 +1,3 @@
-
-
 module.exports = {
   siteMetadata: {
     author: '',
@@ -124,7 +122,6 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    `gatsby-plugin-twitter`,
     {
       resolve: `@andrew-codes/gatsby-plugin-elasticlunr-search`,
       options: {
